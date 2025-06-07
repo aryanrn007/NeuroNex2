@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Prep | NeuroNex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="interview-prep.css">
+    <link rel="stylesheet" href="interview-prep-enhanced.css">
+    <link rel="stylesheet" href="interview-decorative-elements.css">
+    <link rel="stylesheet" href="interview-stats-enhanced.css">
+    <link rel="stylesheet" href="tech-illustration.css">
+    <link rel="stylesheet" href="query-chatbot.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="tech-data-visualization.css">
+    <link rel="stylesheet" href="session-manager.css">
+    <link rel="stylesheet" href="tech-skills-analysis.css">
+    <link rel="stylesheet" href="chat-history.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    
+    <!-- Tech data modules with proper initialization -->
+    <script>
+        // Initialize global objects to prevent 'undefined' errors
+        window.techDataApi = window.techDataApi || {};
+        window.techDataVisualization = window.techDataVisualization || {};
+        
+        // Default implementation for tech data API
+        if (!window.techDataApi.fetchTechData) {
+            window.techDataApi.fetchTechData = async function(category) {
+                console.log(`Fetching data for ${category} using fallback implementation`);
+                
+                // Common data for all categories
+                const commonData = {
+                    timestamp: new Date().toISOString(),
+                    category: category,
+                    news: [
+                        { title: 'New JavaScript Framework Released', date: '2025-05-10' },
+                        { title: 'Python 4.0 Announced with Major Performance Improvements', date: '2025-04-15' },
+                        { title: 'WebAssembly Adoption Continues to Grow', date: '2025-03-22' }
+                    ]
+                };
+                
+                // Category-specific data
+                if (category === 'coding') {
+                    return {
+                        ...commonData,
+                        popularity: [
+                            { language: 'JavaScript', share: 65.36 },
+                            { language: 'Python', share: 48.24 },
+                            { language: 'Java', share: 35.35 },
+                            { language: 'C#', share: 27.86 },
+                            { language: 'PHP', share: 21.98 }
+                        ],
+                        trending: [
+                            { language: 'Rust', growth: 26.5 },
+                            { language: 'TypeScript', growth: 20.8 },
+                            { language: 'Go', growth: 16.2 }
+                        ],
+                        salaries: [
+                            { language: 'Python', salary: 120000 },
+                            { language: 'JavaScript', salary: 115000 },
+                            { language: 'Java', salary: 125000 },
+                            { language: 'C++', salary: 130000 },
+                            { language: 'Go', salary: 140000 }
+                        ],
+                        frameworks: [
+                            { name: 'React', popularity: 42.8, company: 'Facebook' },
+                            { name: 'Angular', popularity: 20.4, company: 'Google' },
+                            { name: 'Vue', popularity: 18.6, company: 'Community' },
+                            { name: 'Django', popularity: 12.7, company: 'DSF' },
+                            { name: 'Spring', popularity: 16.2, company: 'VMware' }
+                        ]
+                    };
+                } else if (category === 'algorithms') {
+                    return {
+                        ...commonData,
+                        popularity: [
+                            { algorithm: 'Binary Search', usage: 82.5 },
+                            { algorithm: 'Quicksort', usage: 76.8 },
+                            { algorithm: 'Breadth-First Search', usage: 65.3 },
+                            { algorithm: 'Depth-First Search', usage: 62.7 },
+                            { algorithm: 'Dynamic Programming', usage: 58.1 }
+                        ],
+                        trending: [
+                            { algorithm: 'Transformer Networks', growth: 35.2 },
+                            { algorithm: 'Quantum Algorithms', growth: 28.7 },
+                            { algorithm: 'Federated Learning', growth: 24.3 }
+                        ],
+                        complexity: [
+                            { algorithm: 'Binary Search', time: 'O(log n)', space: 'O(1)' },
+                            { algorithm: 'Quicksort', time: 'O(n log n)', space: 'O(log n)' },
+                            { algorithm: 'Merge Sort', time: 'O(n log n)', space: 'O(n)' },
+                            { algorithm: 'Breadth-First Search', time: 'O(V + E)', space: 'O(V)' },
+                            { algorithm: 'Depth-First Search', time: 'O(V + E)', space: 'O(V)' }
+                        ],
+                        benchmarks: [
+                            { algorithm: 'Quicksort', score: 92, language: 'C++' },
+                            { algorithm: 'Merge Sort', score: 85, language: 'Java' },
+                            { algorithm: 'Heap Sort', score: 78, language: 'Python' },
+                            { algorithm: 'Radix Sort', score: 95, language: 'C' },
+                            { algorithm: 'Bubble Sort', score: 45, language: 'JavaScript' }
+                        ]
+                    };
+                } else if (category === 'database') {
+                    return {
+                        ...commonData,
+                        marketShare: [
+                            { database: 'PostgreSQL', share: 32.4 },
+                            { database: 'MySQL', share: 28.7 },
+                            { database: 'MongoDB', share: 15.6 },
+                            { database: 'Oracle', share: 12.8 },
+                            { database: 'SQL Server', share: 10.5 }
+                        ],
+                        trending: [
+                            { database: 'Snowflake', growth: 32.7 },
+                            { database: 'Clickhouse', growth: 28.5 },
+                            { database: 'Planetscale', growth: 24.3 },
+                            { database: 'Supabase', growth: 22.1 },
+                            { database: 'Fauna', growth: 18.6 }
+                        ],
+                        salaries: [
+                            { role: 'Database Administrator', salary: 110000 },
+                            { role: 'Database Developer', salary: 115000 },
+                            { role: 'Data Engineer', salary: 130000 },
+                            { role: 'Database Architect', salary: 145000 },
+                            { role: 'Data Scientist', salary: 135000 }
+                        ],
+                        performance: [
+                            { database: 'PostgreSQL', score: 85 },
+                            { database: 'MySQL', score: 78 },
+                            { database: 'MongoDB', score: 82 },
+                            { database: 'Redis', score: 95 },
+                            { database: 'Cassandra', score: 88 }
+                        ]
+                    };
+                } else if (category === 'system') {
+                    return {
+                        ...commonData,
+                        architectures: [
+                            { name: 'Microservices', adoption: 68.5 },
+                            { name: 'Serverless', adoption: 42.3 },
+                            { name: 'Event-Driven', adoption: 38.7 },
+                            { name: 'Monolithic', adoption: 25.4 },
+                            { name: 'Service-Oriented', adoption: 35.2 }
+                        ],
+                        trending: [
+                            { technology: 'Kubernetes', growth: 35.8 },
+                            { technology: 'Serverless Functions', growth: 28.6 },
+                            { technology: 'Service Mesh', growth: 24.2 },
+                            { technology: 'Edge Computing', growth: 22.5 },
+                            { technology: 'WebAssembly', growth: 18.9 }
+                        ],
+                        cloudProviders: [
+                            { name: 'AWS', share: 33.8 },
+                            { name: 'Azure', share: 22.1 },
+                            { name: 'Google Cloud', share: 8.5 },
+                            { name: 'Alibaba Cloud', share: 6.2 },
+                            { name: 'IBM Cloud', share: 4.7 }
+                        ],
+                        salaries: [
+                            { role: 'DevOps Engineer', salary: 135000 },
+                            { role: 'Cloud Architect', salary: 155000 },
+                            { role: 'Site Reliability Engineer', salary: 145000 },
+                            { role: 'Systems Engineer', salary: 125000 },
+                            { role: 'Platform Engineer', salary: 140000 }
+                        ]
+                    };
+                } else {
+                    // Default fallback
+                    return commonData;
+                }
+            };
+        }
+        
+        // Default implementation for visualization
+        if (!window.techDataVisualization.initDataVisualizations) {
+            window.techDataVisualization.initDataVisualizations = function(category, data, container) {
+                console.log(`Initializing visualizations for ${category} using fallback implementation`);
+                container.innerHTML = `
+                    <div class="data-fallback">
+                        <h3>Tech Data for ${category}</h3>
+                        <p>Fallback data visualization is being used.</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    </div>
+                `;
+            };
+        }
+    </script>
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-graduation-cap"></i> NeuraNex – Powered by Saarthi</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="brainbox.html" class="nav-link"><i class="fas fa-brain"></i> BrainBox</a>
+            <a href="skillsync.html" class="nav-link"><i class="fas fa-users"></i> SkillSync</a>
+            <a href="techverse.html" class="nav-link"><i class="fas fa-laptop-code"></i> TechVerse</a>
+            <a href="launchpad.html" class="nav-link active"><i class="fas fa-rocket"></i> LaunchPad</a>
+        </nav>
+        <div>
+            <span id="loggedInUserName" class="user-name-display"></span>
+            <button id="settings-button" class="circle-btn settings-btn" aria-label="Settings"><i class="fas fa-cog"></i></button>
+        </div>
+    </header>
+
+    <main class="interview-prep-container">
+        <div class="interview-header">
+            <h1>AI-Powered Interview Preparation</h1>
+            <p>Practice for real-world job interviews with our intelligent mock interview sessions tailored to your profile</p>
+            <!-- Buttons removed from interview header actions -->
+        </div>
+
+        <div class="interview-content">
+            <div class="interview-sidebar">
+                <div class="interview-modes">
+                    <h3>Interview Modes</h3>
+                    <div class="mode-options">
+                        <div class="mode-option active" data-mode="technical">
+                            <div class="mode-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="mode-details">
+                                <h4>Technical</h4>
+                                <p>DSA, Web Dev, ML, etc.</p>
+                            </div>
+                        </div>
+                        <div class="mode-option" data-mode="hr">
+                            <div class="mode-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="mode-details">
+                                <h4>HR & Behavioral</h4>
+                                <p>Soft skills, experience, etc.</p>
+                            </div>
+                        </div>
+                        <div class="mode-option" data-mode="company">
+                            <div class="mode-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="mode-details">
+                                <h4>Company-Specific</h4>
+                                <p>Google, Microsoft, etc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="difficulty-selector">
+                    <h3>Difficulty Level</h3>
+                    <div class="difficulty-options">
+                        <button class="difficulty-btn active" data-difficulty="beginner">Beginner</button>
+                        <button class="difficulty-btn" data-difficulty="intermediate">Intermediate</button>
+                        <button class="difficulty-btn" data-difficulty="advanced">Advanced</button>
+                    </div>
+                </div>
+
+                <div class="tech-domain-selector" id="tech-domain-selector">
+                    <h3>Technical Domain</h3>
+                    <select id="tech-domain" class="domain-select">
+                        <option value="dsa">Data Structures & Algorithms</option>
+                        <option value="webdev">Web Development</option>
+                        <option value="ml">Machine Learning</option>
+                        <option value="db">Database Systems</option>
+                        <option value="os">Operating Systems</option>
+                        <option value="networking">Computer Networks</option>
+                    </select>
+                </div>
+
+                <div class="company-selector hidden" id="company-selector">
+                    <h3>Select Company</h3>
+                    <select id="company-select" class="company-select">
+                        <option value="google">Google</option>
+                        <option value="microsoft">Microsoft</option>
+                        <option value="amazon">Amazon</option>
+                        <option value="meta">Meta</option>
+                        <option value="tcs">TCS</option>
+                        <option value="infosys">Infosys</option>
+                        <option value="wipro">Wipro</option>
+                    </select>
+                </div>
+
+                <div class="input-mode-selector">
+                    <h3>Answer Mode</h3>
+                    <div class="input-options">
+                        <button class="input-btn active" data-input="text">
+                            <i class="fas fa-keyboard"></i>
+                            <span>Text</span>
+                        </button>
+                        <button class="input-btn" data-input="voice">
+                            <i class="fas fa-microphone"></i>
+                            <span>Voice</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="interview-actions">
+                    <button id="start-interview-btn" class="juno-button primary"><i class="fas fa-play"></i> Start Interview</button>
+                    <button id="tech-analysis-btn" class="juno-button secondary" onclick="window.techSkillsAnalysis ? window.techSkillsAnalysis.showAnalysisModal() : alert('Loading analysis tool...')"><i class="fas fa-chart-bar"></i> Technical Skills Analysis</button>
+                </div>
+            </div>
+
+            <div class="interview-main">
+                <div class="interview-welcome active" id="interview-welcome">
+                    <div class="welcome-illustration">
+                        <img src="https://img.freepik.com/free-vector/programming-concept-illustration_114360-1351.jpg" alt="Technical programming illustration">
+                    </div>
+                    <h2>Ready to Ace Your Next Interview?</h2>
+                    <p>Select an interview mode, difficulty level, and click "Start Interview" to begin your practice session.</p>
+                    <div class="welcome-stats">
+                        <div class="stat-item" data-value="500">
+                            <div class="stat-icon"><i class="fas fa-question-circle"></i></div>
+                            <div class="stat-value">500+</div>
+                            <div class="stat-label">QUESTIONS</div>
+                        </div>
+                        <div class="stat-item" data-value="15">
+                            <div class="stat-icon"><i class="fas fa-building"></i></div>
+                            <div class="stat-value">15+</div>
+                            <div class="stat-label">COMPANIES</div>
+                        </div>
+                        <div class="stat-item" data-value="98">
+                            <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="stat-value">98%</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-illustration">
+                        <div class="tech-icons">
+                            <div class="tech-icon" data-tech-type="coding"><i class="fas fa-laptop-code"></i></div>
+                            <div class="tech-icon" data-tech-type="algorithms"><i class="fas fa-code-branch"></i></div>
+                            <div class="tech-icon" data-tech-type="database"><i class="fas fa-database"></i></div>
+                            <div class="tech-icon" data-tech-type="system"><i class="fas fa-server"></i></div>
+                        </div>
+                        
+                        <!-- Tech Info Modal -->
+                        <div class="tech-info-modal" id="techInfoModal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 id="modalTitle">Technical Information</h3>
+                                    <span class="close-modal">&times;</span>
+                                </div>
+                                <div class="modal-body" id="modalBody">
+                                    <!-- Content will be dynamically inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interview-session hidden" id="interview-session">
+                    <div class="session-header">
+                        <div class="session-info">
+                            <h3 id="session-type">Technical Interview - Intermediate</h3>
+                            <div class="session-progress">
+                                <span id="current-question">1</span>/<span id="total-questions">10</span> Questions
+                            </div>
+                        </div>
+                        <div class="session-timer">
+                            <i class="fas fa-clock"></i>
+                            <span id="timer">00:00</span>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <h3 id="question-text">What is the time complexity of a binary search algorithm and how would you implement it?</h3>
+                        <div class="question-context" id="question-context">
+                            <p>Consider explaining the algorithm step by step and analyzing its efficiency.</p>
+                        </div>
+                    </div>
+
+                    <div class="answer-container">
+                        <div class="text-input-container active" id="text-input-container">
+                            <textarea id="answer-text" placeholder="Type your answer here..."></textarea>
+                        </div>
+                        <div class="voice-input-container hidden" id="voice-input-container">
+                            <div class="voice-controls">
+                                <button id="start-recording-btn" class="voice-btn">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>Start Recording</span>
+                                </button>
+                                <button id="stop-recording-btn" class="voice-btn" disabled>
+                                    <i class="fas fa-stop"></i>
+                                    <span>Stop Recording</span>
+                                </button>
+                            </div>
+                            <div class="voice-status">
+                                <div id="voice-status-text">Click "Start Recording" to begin</div>
+                                <div class="voice-waves hidden" id="voice-waves">
+                                    <span class="wave"></span>
+                                    <span class="wave"></span>
+                                    <span class="wave"></span>
+                                    <span class="wave"></span>
+                                    <span class="wave"></span>
+                                </div>
+                            </div>
+                            <div class="voice-transcript" id="voice-transcript"></div>
+                        </div>
+                    </div>
+
+                    <div class="answer-actions">
+                        <button id="submit-answer-btn" class="juno-button primary"><i class="fas fa-paper-plane"></i> Submit Answer</button>
+                        <button id="skip-question-btn" class="juno-button secondary"><i class="fas fa-forward"></i> Skip Question</button>
+                    </div>
+                </div>
+
+                <div class="feedback-container hidden" id="feedback-container">
+                    <div class="feedback-header">
+                        <h3>AI Feedback</h3>
+                        <div class="feedback-score">
+                            <div class="score-circle">
+                                <span id="feedback-score-value">85</span>
+                            </div>
+                            <div class="score-label">Score</div>
+                        </div>
+                    </div>
+
+                    <div class="feedback-content">
+                        <div class="feedback-section">
+                            <h4><i class="fas fa-check-circle"></i> Strengths</h4>
+                            <ul id="feedback-strengths">
+                                <li>Clear explanation of binary search algorithm</li>
+                                <li>Correct time complexity analysis (O(log n))</li>
+                                <li>Good code structure and readability</li>
+                            </ul>
+                        </div>
+                        <div class="feedback-section">
+                            <h4><i class="fas fa-exclamation-circle"></i> Areas for Improvement</h4>
+                            <ul id="feedback-improvements">
+                                <li>Consider edge cases (empty array, single element)</li>
+                                <li>Discuss space complexity</li>
+                                <li>Mention iterative vs recursive approaches</li>
+                            </ul>
+                        </div>
+                        <div class="feedback-section">
+                            <h4><i class="fas fa-lightbulb"></i> Suggested Answer</h4>
+                            <div class="suggested-answer" id="suggested-answer">
+                                <p>Binary search has a time complexity of O(log n) because it divides the search space in half with each iteration...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feedback-actions">
+                        <button id="next-question-btn" class="juno-button primary"><i class="fas fa-arrow-right"></i> Next Question</button>
+                        <button id="end-interview-btn" class="juno-button secondary"><i class="fas fa-times"></i> End Interview</button>
+                    </div>
+                </div>
+
+                <div class="interview-summary hidden" id="interview-summary">
+                    <div class="summary-header">
+                        <h3>Interview Summary</h3>
+                        <div class="summary-score">
+                            <div class="score-circle large">
+                                <span id="summary-score-value">78</span>
+                            </div>
+                            <div class="score-label">Overall Score</div>
+                        </div>
+                    </div>
+
+                    <div class="summary-stats">
+                        <div class="summary-stat">
+                            <div class="stat-label">Questions</div>
+                            <div class="stat-value" id="summary-questions">10</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="stat-label">Correct</div>
+                            <div class="stat-value" id="summary-correct">7</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="stat-label">Time</div>
+                            <div class="stat-value" id="summary-time">24:15</div>
+                        </div>
+                    </div>
+
+                    <div class="performance-chart">
+                        <h4>Performance by Area</h4>
+                        <div class="chart-container">
+                            <canvas id="performance-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="improvement-suggestions">
+                        <h4><i class="fas fa-lightbulb"></i> Suggestions for Improvement</h4>
+                        <div class="suggestion-cards" id="suggestion-cards">
+                            <div class="suggestion-card">
+                                <div class="suggestion-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="suggestion-content">
+                                    <h5>Data Structures</h5>
+                                    <p>Review tree and graph algorithms</p>
+                                    <a href="#" class="suggestion-link">View Resources <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="suggestion-card">
+                                <div class="suggestion-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="suggestion-content">
+                                    <h5>Communication</h5>
+                                    <p>Practice explaining your thought process</p>
+                                    <a href="#" class="suggestion-link">View Resources <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="suggestion-card">
+                                <div class="suggestion-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="suggestion-content">
+                                    <h5>System Design</h5>
+                                    <p>Learn more about scalability concepts</p>
+                                    <a href="#" class="suggestion-link">View Resources <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summary-actions">
+                        <button id="start-new-btn" class="juno-button primary"><i class="fas fa-redo"></i> Start New Interview</button>
+                        <button id="download-report-btn" class="juno-button secondary"><i class="fas fa-download"></i> Download Report</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interview-history chat-history-panel">
+                <div class="chat-history-header">
+                    <h3><i class="fas fa-history"></i> Recent Sessions</h3>
+                </div>
+                <div class="chat-history-sessions" id="recent-chat-history">
+                    <!-- Chat history sessions will be inserted here by the ChatHistoryManager -->
+                </div>
+                <a href="#" class="view-all-history" id="view-all-history">
+                    View All History <i class="fas fa-arrow-right"></i>
+                </a>
+                
+                <!-- Chat conversation view for displaying session history -->
+                <div class="chat-conversation-view" id="recent-chat-conversation" style="display: none;">
+                    <div class="conversation-header">
+                        <button class="back-to-sessions" id="back-to-sessions">
+                            <i class="fas fa-arrow-left"></i> Back to Sessions
+                        </button>
+                        <h4 class="conversation-title" id="recent-conversation-title">Session Title</h4>
+                    </div>
+                    <div class="conversation-messages" id="recent-conversation-messages">
+                        <!-- Messages will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Chat History Modal will be created dynamically by the ChatHistoryManager -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="interview-prep.js"></script>
+    <script src="tech-icon-interactions.js"></script>
+    <script src="interview-animations.js"></script>
+    <script src="interview-advanced-animations.js"></script>
+    <script src="interview-stats-animations.js"></script>
+    
+    <!-- Load tech data modules in correct order -->
+    <script src="tech-data-api.js"></script>
+    <script src="tech-data-visualization.js"></script>
+    <script src="tech-icon-interactions.js"></script>
+    
+    <script src="query-chatbot.js"></script>
+    <script src="voice-recognition.js"></script>
+    <script src="tech-skills-analysis.js"></script>
+    <script>
+        // Direct script to ensure difficulty buttons and mode options work
+        document.addEventListener('DOMContentLoaded', function() {
+            // First, clear all active classes to start fresh
+            const allDifficultyBtns = document.querySelectorAll('.difficulty-btn');
+            allDifficultyBtns.forEach(b => b.classList.remove('active'));
+            
+            // Set only the beginner button as active initially
+            const beginnerBtn = document.querySelector('.difficulty-btn[data-difficulty="beginner"]');
+            if (beginnerBtn) beginnerBtn.classList.add('active');
+            
+            // Get all difficulty buttons again after DOM is fully loaded
+            const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+            
+            // Clear any existing event listeners and add new ones
+            difficultyBtns.forEach(btn => {
+                // Create a completely new button to replace the old one (removes all event listeners)
+                const newBtn = btn.cloneNode(true);
+                if (btn.parentNode) {
+                    btn.parentNode.replaceChild(newBtn, btn);
+                }
+                
+                // Add new event listener
+                newBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Remove active class from ALL buttons
+                    document.querySelectorAll('.difficulty-btn').forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    
+                    // Add active class ONLY to this button
+                    this.classList.add('active');
+                    
+                    // Get the selected difficulty
+                    const selectedDifficulty = this.getAttribute('data-difficulty');
+                    console.log('Difficulty selected (direct):', selectedDifficulty);
+                    
+                    // Update interview context if it exists (for the chatbot)
+                    if (typeof window.interviewContext !== 'undefined') {
+                        window.interviewContext.difficulty = selectedDifficulty;
+                        console.log('Updated interview context (direct):', window.interviewContext);
+                    }
+                });
+            });
+            
+            // Fix for mode options - ensure they work properly
+            const modeOptions = document.querySelectorAll('.mode-option');
+            
+            // Clear any existing event listeners and add new ones for mode options
+            modeOptions.forEach(option => {
+                // Create a completely new option to replace the old one (removes all event listeners)
+                const newOption = option.cloneNode(true);
+                if (option.parentNode) {
+                    option.parentNode.replaceChild(newOption, option);
+                }
+                
+                // Add new event listener
+                newOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Remove active class from all options
+                    document.querySelectorAll('.mode-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                    
+                    // Get the selected mode
+                    const selectedMode = this.getAttribute('data-mode');
+                    console.log('Mode selected (direct):', selectedMode);
+                    
+                    // Update interview context if it exists (for the chatbot)
+                    if (typeof window.interviewContext !== 'undefined') {
+                        window.interviewContext.mode = selectedMode;
+                        console.log('Updated interview context (direct):', window.interviewContext);
+                    }
+                    
+                    // Show/hide relevant selectors based on mode
+                    if (typeof toggleModeSelectors === 'function') {
+                        toggleModeSelectors(selectedMode);
+                    }
+                });
+            });
+            
+            console.log('Enhanced mode options and difficulty button handlers initialized');
+        });
+    </script>
+    
+    <!-- Chat History Manager -->
+    <script src="chat-history.js"></script>
+</body>
+</html>
+
+

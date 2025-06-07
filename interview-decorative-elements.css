@@ -1,0 +1,391 @@
+/* Decorative Elements for Interview Preparation Panel */
+:root {
+    --interview-primary: #673AB7;
+    --interview-secondary: #3F51B5;
+    --interview-accent: #FF4081;
+    --interview-gradient: linear-gradient(135deg, var(--interview-primary), var(--interview-secondary));
+    --interview-light-bg: rgba(103, 58, 183, 0.05);
+    --interview-shadow: 0 10px 30px rgba(103, 58, 183, 0.15);
+}
+
+/* Decorative Background Patterns */
+.interview-prep-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.interview-prep-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-image: radial-gradient(circle, rgba(103, 58, 183, 0.1) 20%, transparent 21%),
+                      radial-gradient(circle, rgba(103, 58, 183, 0.1) 20%, transparent 21%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.interview-prep-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background-image: linear-gradient(45deg, rgba(103, 58, 183, 0.05) 25%, transparent 25%),
+                      linear-gradient(-45deg, rgba(103, 58, 183, 0.05) 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, rgba(103, 58, 183, 0.05) 75%),
+                      linear-gradient(-45deg, transparent 75%, rgba(103, 58, 183, 0.05) 75%);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Enhanced Header with Decorative Elements */
+.interview-header {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.interview-header::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 64, 129, 0.1) 0%, rgba(255, 64, 129, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.interview-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(63, 81, 181, 0.1) 0%, rgba(63, 81, 181, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Decorative Elements for Sidebar */
+.interview-sidebar {
+    position: relative;
+    overflow: hidden;
+}
+
+.interview-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background-image: 
+        linear-gradient(45deg, transparent 50%, rgba(103, 58, 183, 0.05) 50%),
+        linear-gradient(-45deg, transparent 50%, rgba(103, 58, 183, 0.05) 50%);
+    background-size: 10px 10px;
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Decorative Elements for Mode Options */
+.mode-option {
+    position: relative;
+    overflow: hidden;
+}
+
+.mode-option::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-image: radial-gradient(circle, rgba(103, 58, 183, 0.1) 30%, transparent 31%);
+    background-size: 8px 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.mode-option:hover::after {
+    opacity: 1;
+}
+
+/* Decorative Dots for Difficulty Buttons */
+.difficulty-options {
+    position: relative;
+}
+
+.difficulty-options::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 6px;
+    background-image: radial-gradient(circle, var(--interview-primary) 30%, transparent 31%);
+    background-size: 6px 6px;
+    background-repeat: repeat-x;
+    opacity: 0.5;
+}
+
+/* Enhanced Welcome Illustration */
+.welcome-illustration {
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-illustration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(103, 58, 183, 0.05) 0%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.welcome-illustration::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background-image: 
+        radial-gradient(circle, rgba(103, 58, 183, 0.1) 30%, transparent 31%),
+        radial-gradient(circle, rgba(103, 58, 183, 0.1) 30%, transparent 31%);
+    background-size: 10px 10px;
+    background-position: 0 0, 5px 5px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Enhanced Stats Section */
+.welcome-stats {
+    position: relative;
+}
+
+.welcome-stats::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--interview-primary) 50%, transparent 100%);
+    opacity: 0.3;
+}
+
+.stat-item {
+    position: relative;
+}
+
+.stat-item::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: var(--interview-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.stat-item:hover::after {
+    opacity: 0.7;
+    width: 50px;
+}
+
+/* Glowing Effect for Primary Buttons */
+.juno-button.primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.juno-button.primary::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+}
+
+.juno-button.primary:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0.3; }
+}
+
+/* Decorative Elements for Interview Session */
+.interview-session {
+    position: relative;
+}
+
+.interview-session::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background-image: 
+        linear-gradient(45deg, transparent 90%, rgba(103, 58, 183, 0.1) 90%),
+        linear-gradient(-45deg, transparent 90%, rgba(103, 58, 183, 0.1) 90%);
+    background-size: 10px 10px;
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Decorative Corner for Question Container */
+.question-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.question-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid var(--interview-primary);
+    border-left: 2px solid var(--interview-primary);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.question-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid var(--interview-primary);
+    border-right: 2px solid var(--interview-primary);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/* Animated Gradient Border for Active Elements */
+@keyframes gradient-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.mode-option.active,
+.difficulty-btn.active,
+.input-btn.active {
+    position: relative;
+}
+
+.mode-option.active::before,
+.difficulty-btn.active::before,
+.input-btn.active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, var(--interview-primary), var(--interview-secondary), var(--interview-accent), var(--interview-primary));
+    background-size: 300% 300%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: gradient-border 3s ease infinite;
+    opacity: 0.7;
+}
+
+/* Glowing Dots Animation */
+.glowing-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.glowing-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--interview-primary);
+    opacity: 0;
+    animation: glow 3s infinite;
+}
+
+@keyframes glow {
+    0% { transform: scale(1); opacity: 0; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 0; }
+}
+
+/* Progress Circle Animation */
+.progress-circle-value {
+    transition: stroke-dashoffset 2s cubic-bezier(0.1, 0.5, 0.5, 1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .interview-prep-container::before,
+    .interview-prep-container::after {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .interview-prep-container::before,
+    .interview-prep-container::after {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .interview-prep-container::before,
+    .interview-prep-container::after {
+        width: 100px;
+        height: 100px;
+    }
+}

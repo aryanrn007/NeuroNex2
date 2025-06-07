@@ -1,0 +1,763 @@
+/* Enhanced LaunchPad Panel with Modern UI/UX */
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+:root {
+    --launchpad-primary: #7e22ce;
+    --launchpad-secondary: #a855f7;
+    --launchpad-accent: #f0abfc;
+    --launchpad-gradient: linear-gradient(135deg, #7e22ce, #a855f7);
+    --card-radius: 16px;
+    --input-radius: 12px;
+}
+
+/* Main Container */
+.suggestions-main-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* LaunchPad Header Section */
+.company-opportunities-section {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 2px 24px 0 rgba(126, 34, 206, 0.15);
+    padding: 0;
+    margin-bottom: 2.5rem;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation: fadeIn 0.8s ease-out forwards;
+    transform-origin: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.company-opportunities-section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(126, 34, 206, 0.15);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* LaunchPad Header */
+.company-opportunities-section h2 {
+    background: linear-gradient(270deg, var(--launchpad-primary), var(--launchpad-secondary), var(--launchpad-accent), var(--launchpad-secondary));
+    background-size: 300% 100%;
+    color: white;
+    padding: 1.5rem;
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    animation: gradientShift 8s ease infinite;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.company-opportunities-section h2:hover {
+    padding-left: 2.5rem;
+    letter-spacing: 1px;
+    animation: gradientShift 3s ease infinite;
+}
+
+.tag {
+    background-color: rgba(126, 34, 206, 0.08);
+    color: var(--launchpad-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    transform: translateZ(0);
+    margin-bottom: 0.3rem;
+}
+
+@keyframes rocketFloat {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes rocketLaunch {
+    0% { transform: translateY(0) rotate(0deg); }
+    30% { transform: translateY(-10px) rotate(-10deg); }
+    100% { transform: translateY(-50px) rotate(10deg); opacity: 0; }
+}
+
+.company-opportunities-section h2 i.fas.fa-rocket {
+    display: inline-block;
+    animation: rocketFloat 3s ease-in-out infinite;
+    transform-origin: center;
+    transition: all 0.3s ease;
+}
+
+.company-opportunities-section h2:hover i.fas.fa-rocket {
+    animation: rocketLaunch 1s ease-out forwards;
+    color: #f0abfc;
+}
+
+.company-opportunities-section h2::after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.company-opportunities-section h2:hover::after {
+    right: 20px;
+    opacity: 1;
+}
+
+.company-opportunities-section h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+}
+
+.company-opportunities-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    transform: translate(-30%, 30%);
+}
+
+.company-opportunities-section h2 i {
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Filters Section */
+.opportunity-filters {
+    background: white;
+    padding: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.opportunity-filters:hover {
+    background: linear-gradient(to right, rgba(240, 240, 255, 0.5), white, rgba(240, 240, 255, 0.5));
+    box-shadow: inset 0 0 15px rgba(126, 34, 206, 0.05);
+    padding: 1.8rem 1.5rem;
+}
+
+/* CGPA Display */
+.opportunity-filters p {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background: rgba(126, 34, 206, 0.05);
+    border-radius: var(--input-radius);
+    font-size: 0.95rem;
+    color: #333;
+    border-left: 3px solid var(--launchpad-primary);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.opportunity-filters p:hover {
+    background: rgba(126, 34, 206, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(126, 34, 206, 0.1);
+    border-left-width: 5px;
+}
+
+.opportunity-filters p::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.opportunity-filters p:hover::after {
+    transform: translateX(100%);
+}
+
+.opportunity-filters p strong {
+    color: var(--launchpad-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Find Companies Button */
+#find-companies-btn {
+    background: linear-gradient(135deg, var(--launchpad-primary), var(--launchpad-secondary));
+    background-size: 200% 100%;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--input-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-position 0.5s ease;
+    box-shadow: 0 5px 15px rgba(126, 34, 206, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transform-origin: center;
+}
+
+#find-companies-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+    z-index: 2;
+    transition: left 0.7s ease;
+}
+
+#find-companies-btn:hover {
+    background-position: 100% 0;
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 12px 25px rgba(126, 34, 206, 0.3);
+    letter-spacing: 1px;
+}
+
+#find-companies-btn:hover::before {
+    left: 100%;
+}
+
+#find-companies-btn:active {
+    transform: scale(0.95) translateY(0);
+    box-shadow: 0 5px 10px rgba(126, 34, 206, 0.2);
+}
+
+/* Filter Groups */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+}
+
+.filter-group:hover {
+    transform: translateY(-3px);
+}
+
+.filter-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    margin-left: 0.3rem;
+}
+
+.filter-group select,
+.filter-input {
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--input-radius);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+    color: #333;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-input:hover, .filter-input:focus {
+    border-color: var(--launchpad-primary);
+    box-shadow: 0 0 0 3px rgba(126, 34, 206, 0.1);
+    background: white;
+    transform: translateY(-2px);
+}
+
+.filter-input:focus {
+    outline: none;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+    outline: none;
+    border-color: var(--launchpad-secondary);
+    box-shadow: 0 5px 15px rgba(126, 34, 206, 0.1);
+}
+
+.filter-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237e22ce' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+/* Find Companies Button */
+#find-comp.apply-button {
+    background: linear-gradient(135deg, var(--launchpad-primary), var(--launchpad-secondary));
+    background-size: 200% 100%;
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: var(--input-radius);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease, background-position 0.5s ease;
+    margin-top: auto;
+    width: 100%;
+    box-shadow: 0 6px 15px rgba(126, 34, 206, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    letter-spacing: 0.5px;
+}
+
+.apply-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+    z-index: 2;
+    transition: left 0.7s ease;
+}
+
+.apply-button:hover {
+    background-position: 100% 0;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(126, 34, 206, 0.2);
+    border-color: rgba(126, 34, 206, 0.3);
+}
+
+.apply-button:hover::before {
+    left: 100%;
+}
+
+/* Company Suggestions Grid */
+.company-suggestions-grid {
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    background-color: rgba(250, 250, 255, 0.5);
+    min-height: 200px;
+}
+
+/* No Suggestions Message */
+.no-suggestions {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #666;
+    font-size: 1rem;
+    background: rgba(126, 34, 206, 0.03);
+    border-radius: var(--card-radius);
+    border: 1px dashed rgba(126, 34, 206, 0.2);
+}
+
+/* Company Card */
+.company-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardFadeIn 0.5s ease forwards;
+    animation-delay: calc(var(--card-index, 0) * 0.1s);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes cardFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.company-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(126, 34, 206, 0.15);
+    border-color: rgba(126, 34, 206, 0.2);
+}
+
+.company-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--launchpad-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.company-card:hover::before {
+    opacity: 1;
+}
+
+/* Company Card Header */
+.company-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(126, 34, 206, 0.1);
+}
+
+.company-card-header::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--launchpad-primary), var(--launchpad-accent), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.company-card:hover .company-card-header::after {
+    transform: translateX(0);
+}
+
+.company-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(126, 34, 206, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.company-card:hover .company-logo {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(126, 34, 206, 0.2);
+    border-color: rgba(126, 34, 206, 0.3);
+}
+
+.company-name {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.company-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.company-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.company-meta-item i {
+    color: var(--launchpad-primary);
+    font-size: 0.9rem;
+    width: 18px;
+}
+
+.company-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.8rem;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Company Card Footer */
+.company-card-footer {
+    padding: 1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 250, 255, 0.5);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.match-score {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--launchpad-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.match-score-bar {
+    width: 50px;
+    height: 5px;
+    background: rgba(126, 34, 206, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.match-score-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--launchpad-gradient);
+}
+
+.view-details-btn {
+    background: none;
+    border: none;
+    color: var(--launchpad-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+    background: rgba(126, 34, 206, 0.05);
+    transform: translateX(3px);
+}
+
+.view-details-btn i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.view-details-btn:hover i {
+    transform: translateX(3px);
+}
+
+/* Company Modal */
+#company-details-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#company-details-modal.active {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 800px;
+    border-radius: var(--card-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+}
+
+#company-details-modal.active .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-modal-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .company-opportunities-section {
+    background: var(--card-bg);
+}
+
+.dark-mode .opportunity-filters,
+.dark-mode .company-card,
+.dark-mode .modal-content {
+    background: var(--card-bg);
+}
+
+.dark-mode .company-suggestions-grid {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .no-suggestions {
+    background: rgba(126, 34, 206, 0.1);
+    border: 1px dashed rgba(126, 34, 206, 0.3);
+    color: var(--text-color);
+}
+
+.dark-mode .company-card-footer {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .opportunity-filters {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    #find-companies-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .company-suggestions-grid {
+        grid-template-columns: 1fr;
+    }
+}

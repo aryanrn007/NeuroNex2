@@ -1,0 +1,221 @@
+/* Enhanced Career Resources Panel Styling */
+.career-resources {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.career-resources .section-header {
+    margin-bottom: 16px;
+}
+
+.career-resources .section-header h2 {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+}
+
+.career-resources .section-header h2 i {
+    color: #6c2fff;
+}
+
+/* Compact grid layout */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+/* Improved resource card styling */
+.resource-card {
+    background-color: #f8f9fc;
+    border-radius: 10px;
+    padding: 16px;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.resource-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Position icon in top-left for better layout */
+.resource-card .resource-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: white;
+    font-size: 16px;
+}
+
+/* More compact text elements */
+.resource-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #333;
+}
+
+.resource-card p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+    margin: 0 0 12px 0;
+    flex-grow: 1;
+}
+
+/* Smaller, more subtle buttons */
+.resource-card .resource-btn {
+    background-color: transparent;
+    color: #6c2fff;
+    border: 1px solid #6c2fff;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.resource-card .resource-btn:hover {
+    background-color: #6c2fff;
+    color: white;
+}
+
+/* Different colors for different resource types */
+.resource-card:nth-child(1) .resource-icon {
+    background-color: #6c2fff;
+}
+
+.resource-card:nth-child(2) .resource-icon {
+    background-color: #2f80ed;
+}
+
+.resource-card:nth-child(3) .resource-icon {
+    background-color: #27ae60;
+}
+
+.resource-card:nth-child(4) .resource-icon {
+    background-color: #f2994a;
+}
+
+.resource-card:nth-child(5) .resource-icon {
+    background-color: #9c27b0;
+}
+
+/* Glossy animation for the Coming Soon card */
+.resource-card:nth-child(5) {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fc 0%, #f0f2f8 100%);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 16px rgba(108, 47, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.resource-card:nth-child(5):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(108, 47, 255, 0.25);
+}
+
+/* Glossy shine effect - colorful rainbow reflection */
+.resource-card:nth-child(5)::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(156, 39, 176, 0.1) 20%,
+        rgba(63, 81, 181, 0.1) 30%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(76, 175, 80, 0.1) 70%,
+        rgba(255, 193, 7, 0.1) 80%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: glossyShine 4s infinite linear;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Second glossy effect for more dynamic appearance */
+.resource-card:nth-child(5)::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(150deg);
+    animation: glossyShine2 5s infinite linear;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Subtle background color animation */
+.resource-card:nth-child(5) {
+    animation: subtleBackgroundShift 8s infinite alternate ease-in-out;
+}
+
+@keyframes glossyShine {
+    0% {
+        transform: rotate(30deg) translate(-100%, -100%);
+    }
+    100% {
+        transform: rotate(30deg) translate(100%, 100%);
+    }
+}
+
+@keyframes glossyShine2 {
+    0% {
+        transform: rotate(150deg) translate(100%, -100%);
+    }
+    100% {
+        transform: rotate(150deg) translate(-100%, 100%);
+    }
+}
+
+@keyframes subtleBackgroundShift {
+    0% { background: linear-gradient(135deg, #f8f9fc 0%, #f0f2f8 100%); }
+    33% { background: linear-gradient(135deg, #f5f7ff 0%, #eef4ff 100%); }
+    66% { background: linear-gradient(135deg, #f9f9ff 0%, #f0f0ff 100%); }
+    100% { background: linear-gradient(135deg, #fcf9ff 0%, #f5f0ff 100%); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}

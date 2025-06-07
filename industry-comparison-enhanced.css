@@ -1,0 +1,298 @@
+/* Enhanced Industry Salary Comparison Panel Styles */
+
+/* Main Container Styling */
+.industry-chart-container {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(39, 174, 96, 0.05);
+    overflow: hidden;
+    min-height: 350px;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards 0.2s;
+}
+
+.industry-chart-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(39, 174, 96, 0.15);
+}
+
+/* Header Styling */
+.industry-chart-container h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+    display: inline-block;
+}
+
+.industry-chart-container h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #27ae60, #2980b9);
+    border-radius: 3px;
+    transform: scaleX(0.7);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.industry-chart-container:hover h3::after {
+    transform: scaleX(1);
+}
+
+.industry-chart-container h3 i {
+    color: #27ae60;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.industry-chart-container:hover h3 i {
+    transform: rotate(10deg);
+}
+
+/* Chart Canvas Container */
+.chart-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Chart Tooltip Styling */
+.chart-tooltip {
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 100;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border-left: 4px solid #27ae60;
+    transform: translateY(10px);
+}
+
+.chart-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chart-tooltip-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.chart-tooltip-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #27ae60;
+}
+
+.chart-tooltip-info {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+/* Bar Styling */
+.industry-bar {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.industry-bar:hover {
+    opacity: 0.8;
+}
+
+/* Chart Legend */
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.legend-item:hover {
+    background: rgba(39, 174, 96, 0.1);
+    color: #27ae60;
+    transform: translateY(-2px);
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Interactive Elements */
+.chart-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.chart-view-toggle {
+    display: flex;
+    background: #f1f5f9;
+    border-radius: 30px;
+    padding: 4px;
+    overflow: hidden;
+}
+
+.chart-view-option {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    color: #64748b;
+}
+
+.chart-view-option.active {
+    background: #27ae60;
+    color: white;
+    font-weight: 500;
+}
+
+.chart-info-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+.chart-info-button:hover {
+    background: #27ae60;
+    color: white;
+    transform: rotate(15deg);
+}
+
+/* Decorative Elements */
+.chart-decoration {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.chart-decoration-1 {
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="10" y="10" width="20" height="80" fill="%2327ae60"/><rect x="40" y="30" width="20" height="60" fill="%2327ae60"/><rect x="70" y="20" width="20" height="70" fill="%2327ae60"/></svg>');
+}
+
+.chart-decoration-2 {
+    bottom: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="30" fill="none" stroke="%232980b9" stroke-width="4"/><circle cx="40" cy="40" r="20" fill="none" stroke="%232980b9" stroke-width="3"/><circle cx="40" cy="40" r="10" fill="none" stroke="%232980b9" stroke-width="2"/></svg>');
+}
+
+/* Animations for Chart Bars */
+.bar-animation {
+    animation: barGrow 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transform-origin: bottom;
+}
+
+@keyframes barGrow {
+    from {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* Animations for Container */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .industry-chart-container {
+        padding: 1.5rem;
+    }
+    
+    .industry-chart-container h3 {
+        font-size: 1.3rem;
+    }
+    
+    .chart-legend {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+}
+
+/* Additional Chart Elements */
+.axis-label {
+    position: absolute;
+    font-size: 0.8rem;
+    color: #64748b;
+    pointer-events: none;
+}
+
+.y-axis-label {
+    transform: rotate(-90deg);
+    left: -30px;
+    top: 50%;
+    transform-origin: left center;
+}
+
+.x-axis-label {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}

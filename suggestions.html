@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to LaunchPad...</title>
+    <link rel="stylesheet" href="style.css"> <!-- Main shared styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta http-equiv="refresh" content="0;url=launchpad.html">
+    <style>
+        .redirect-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 2rem;
+        }
+        .rocket-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #7e22ce;
+            animation: float 2s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+        .redirect-link {
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .redirect-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(126, 34, 206, 0.3);
+        }
+    </style>
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+</head>
+<body>
+    <div class="redirect-container">
+        <i class="fas fa-rocket rocket-icon"></i>
+        <h1>Redirecting to LaunchPad...</h1>
+        <p>The LaunchPad panel has been moved to a new location.</p>
+        <a href="launchpad.html" class="redirect-link">Go to LaunchPad <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <script>
+        // Redirect to launchpad.html after a short delay
+        setTimeout(function() {
+            window.location.href = 'launchpad.html';
+        }, 2000);
+    </script>
+
+    <footer>
+        <p> © 2025 NeuraNex. Developed by Aryan and team. All rights reserved.</p>
+    </footer>
+
+    <script src="suggestions.js"></script>
+</body>
+</html>
+

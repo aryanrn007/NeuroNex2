@@ -1,0 +1,294 @@
+/* Enhanced Salary Filter Panel Styles */
+
+/* Main Filter Section */
+.filter-section {
+    background: linear-gradient(145deg, #ffffff, #f5f9ff);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    padding: 1.8rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(39, 174, 96, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #27ae60, #2980b9);
+}
+
+.filter-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    font-weight: 600;
+    border-bottom: none;
+    position: relative;
+    padding-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.filter-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #27ae60, #2980b9);
+    border-radius: 3px;
+}
+
+.filter-section h3 i {
+    margin-right: 10px;
+    color: #27ae60;
+}
+
+/* Filter Groups */
+.filter-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.filter-group:hover {
+    transform: translateY(-2px);
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 0.7rem;
+    font-weight: 500;
+    color: #34495e;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.filter-group:hover label {
+    color: #27ae60;
+}
+
+/* Input Fields */
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 0.9rem 1rem 0.9rem 2.8rem;
+    border: 2px solid #e0e6ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background-color: #f8fafc;
+    color: #2c3e50;
+}
+
+.input-with-icon input:focus {
+    border-color: #27ae60;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+    background-color: #fff;
+}
+
+.input-with-icon input::placeholder {
+    color: #a0aec0;
+    font-style: italic;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a0aec0;
+    transition: color 0.3s;
+    font-size: 1.1rem;
+}
+
+.input-with-icon:focus-within .input-icon {
+    color: #27ae60;
+}
+
+/* Select Dropdowns */
+.filter-select {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 2px solid #e0e6ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #f8fafc;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2327ae60' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 1rem) center;
+    background-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #2c3e50;
+}
+
+.filter-select:focus {
+    border-color: #27ae60;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+    background-color: #fff;
+}
+
+/* Location Tabs */
+.location-tabs {
+    display: flex;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #e0e6ed;
+    background-color: #f8fafc;
+}
+
+.location-tab {
+    flex: 1;
+    padding: 0.8rem;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    color: #64748b;
+    position: relative;
+    overflow: hidden;
+}
+
+.location-tab::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(90deg, #27ae60, #2980b9);
+    transition: height 0.3s;
+    z-index: 0;
+    opacity: 0.1;
+}
+
+.location-tab:hover::before {
+    height: 100%;
+}
+
+.location-tab.active {
+    background-color: #27ae60;
+    color: white;
+    font-weight: 600;
+}
+
+.location-tab.active::before {
+    opacity: 0;
+}
+
+.location-options {
+    margin-top: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.location-options.hidden {
+    display: none;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.juno-button.primary {
+    background: linear-gradient(135deg, #27ae60, #2980b9);
+    color: white;
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
+    width: 100%;
+}
+
+.juno-button.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
+}
+
+.juno-button.primary:active {
+    transform: translateY(-1px);
+}
+
+/* Reset Button Styling */
+.juno-button.secondary {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.2);
+}
+
+.juno-button.secondary:hover {
+    background-color: #5b4cdb;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.3);
+}
+
+.juno-button.secondary:active {
+    transform: translateY(-1px);
+}
+
+/* Filter Applied Badge */
+.filters-applied {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(39, 174, 96, 0.1);
+    color: #27ae60;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(39, 174, 96, 0.1);
+}
+
+.filters-applied i {
+    margin-right: 8px;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.apply-pulse {
+    animation: pulse 1.5s infinite;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .filter-section {
+        padding: 1.5rem;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+    }
+}

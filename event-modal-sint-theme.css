@@ -1,0 +1,162 @@
+/* Event Modal Sint Theme Styles */
+:root.sint-theme .enhanced-modal-backdrop {
+    background-color: rgba(5, 5, 16, 0.8) !important;
+    backdrop-filter: blur(8px);
+}
+
+:root.sint-theme .enhanced-modal-content {
+    background: var(--glass-bg) !important;
+    border: var(--glass-border) !important;
+    backdrop-filter: blur(var(--glass-blur)) !important;
+    -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+    box-shadow: var(--card-shadow) !important;
+    color: var(--text-color) !important;
+}
+
+:root.sint-theme .enhanced-modal-accent-bar {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color)) !important;
+}
+
+:root.sint-theme .enhanced-modal-close {
+    color: var(--text-color) !important;
+    background-color: rgba(110, 0, 255, 0.2) !important;
+    border: 1px solid rgba(110, 0, 255, 0.3) !important;
+}
+
+:root.sint-theme .enhanced-modal-close:hover {
+    background-color: rgba(110, 0, 255, 0.4) !important;
+    box-shadow: var(--neon-glow) !important;
+}
+
+:root.sint-theme .enhanced-event-header h2 {
+    color: var(--text-color) !important;
+    text-shadow: var(--neon-text-shadow) !important;
+}
+
+:root.sint-theme .enhanced-event-organizer {
+    color: var(--text-secondary) !important;
+}
+
+:root.sint-theme .enhanced-info-item span {
+    color: black !important;
+}
+
+:root.sint-theme .enhanced-info-item i {
+    color: var(--secondary-color) !important;
+}
+
+:root.sint-theme .enhanced-event-description-full {
+    color: var(--text-secondary) !important;
+    border-left: 2px solid var(--primary-color) !important;
+}
+
+:root.sint-theme .enhanced-section-title {
+    color: var(--text-color) !important;
+    border-bottom: 1px solid rgba(110, 0, 255, 0.3) !important;
+}
+
+:root.sint-theme .enhanced-problem-statement {
+    background: rgba(10, 10, 32, 0.5) !important;
+    border: 1px solid rgba(110, 0, 255, 0.3) !important;
+    color: var(--text-secondary) !important;
+}
+
+:root.sint-theme .enhanced-problem-statement:before {
+    color: var(--secondary-color) !important;
+}
+
+:root.sint-theme .enhanced-button {
+    background: linear-gradient(135deg, var(--sint-accent-1), var(--sint-accent-2));
+    color: black;
+    border: none;
+    box-shadow: 0 0 10px rgba(var(--sint-accent-1-rgb), 0.5);
+    transition: all 0.3s ease;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+}
+
+:root.sint-theme .enhanced-primary-button {
+    color: white !important;
+}
+
+:root.sint-theme .enhanced-button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color)) !important;
+    transition: all 0.4s ease !important;
+    z-index: -1 !important;
+}
+
+:root.sint-theme .enhanced-button:hover::before {
+    left: 0 !important;
+}
+
+:root.sint-theme .enhanced-button:hover {
+    box-shadow: var(--neon-glow) !important;
+    transform: translateY(-3px) !important;
+}
+
+:root.sint-theme .enhanced-secondary-button {
+    background: rgba(10, 10, 32, 0.7) !important;
+    border: 1px solid rgba(110, 0, 255, 0.3) !important;
+    color: var(--text-color) !important;
+}
+
+:root.sint-theme .enhanced-secondary-button:hover {
+    background: rgba(110, 0, 255, 0.2) !important;
+    box-shadow: var(--neon-glow) !important;
+}
+
+/* Registration Form Sint Theme */
+:root.sint-theme .enhanced-form-label {
+    color: var(--text-secondary) !important;
+}
+
+:root.sint-theme .enhanced-form-input,
+:root.sint-theme .enhanced-form-select {
+    background: rgba(10, 10, 32, 0.5) !important;
+    border: 1px solid rgba(110, 0, 255, 0.3) !important;
+    color: var(--text-color) !important;
+}
+
+:root.sint-theme .enhanced-form-input:focus,
+:root.sint-theme .enhanced-form-select:focus {
+    border-color: var(--secondary-color) !important;
+    box-shadow: 0 0 0 2px rgba(0, 194, 255, 0.2) !important;
+}
+
+/* Animation for modal in Sint theme */
+:root.sint-theme .modal-opening {
+    animation: sintModalOpen 0.3s forwards;
+}
+
+:root.sint-theme .modal-closing {
+    animation: sintModalClose 0.3s forwards;
+}
+
+@keyframes sintModalOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes sintModalClose {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}

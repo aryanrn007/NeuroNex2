@@ -1,0 +1,375 @@
+/* Enhanced Event Modal with Modern UI/UX */
+
+/* Modal Container */
+#event-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    overflow-y: auto;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+/* Modal Content */
+#event-modal .modal-content {
+    background-color: var(--card-bg, white);
+    background-image: linear-gradient(120deg, rgba(240, 242, 255, 0.7) 0%, rgba(255, 255, 255, 0.9) 100%);
+    margin: 3% auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    animation: modalFadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Modal Accent Bar */
+#event-modal .modal-accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary-color, #6a11cb), var(--secondary-color, #2575fc));
+    z-index: 2;
+}
+
+/* Close Button */
+#event-modal .close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+    color: var(--text-color, #333);
+    font-size: 1.2rem;
+}
+
+#event-modal .close-modal:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+}
+
+/* Event Details Container */
+#event-details {
+    padding: 2rem;
+}
+
+/* Event Title */
+#event-modal #event-details h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color, #6a11cb);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+#event-modal #event-details h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color, #6a11cb), var(--secondary-color, #2575fc));
+    border-radius: 3px;
+}
+
+/* Event Content */
+.event-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+/* Sections */
+#event-modal #event-details section {
+    padding: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+#event-modal #event-details section:nth-child(odd) {
+    background-color: rgba(230, 240, 255, 0.5);
+}
+
+#event-modal #event-details section:nth-child(even) {
+    background-color: rgba(255, 240, 245, 0.5);
+}
+
+#event-modal #event-details section:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-left: 3px solid var(--primary-color, #6a11cb);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.1);
+}
+
+/* Section Headers */
+#event-modal #event-details h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color, #333);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#event-modal #event-details h3::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color, #6a11cb);
+    border-radius: 50%;
+}
+
+/* Event Meta Information */
+#event-modal .event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+#event-modal .event-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+    color: var(--text-secondary, #666);
+    transition: all 0.3s ease;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#event-modal .event-meta-item:hover {
+    transform: translateX(5px);
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+#event-modal .event-meta-item:nth-child(1) i {
+    background-color: #FF5E62;
+}
+
+#event-modal .event-meta-item:nth-child(2) i {
+    background-color: #2575FC;
+}
+
+#event-modal .event-meta-item:nth-child(3) i {
+    background-color: #F8B500;
+}
+
+#event-modal .event-meta-item:nth-child(4) i {
+    background-color: #6A11CB;
+}
+
+#event-modal .event-meta-item i {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: var(--primary-color, #6a11cb);
+    border-radius: 50%;
+    font-size: 0.7rem;
+    padding: 0.7rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Content */
+#event-modal #event-details p, 
+#event-modal #event-details ul, 
+#event-modal #event-details pre {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary, #666);
+    margin-bottom: 0;
+}
+
+/* Lists */
+#event-modal #event-details ul {
+    padding-left: 1.5rem;
+    list-style-type: none;
+}
+
+#event-modal #event-details ul li {
+    position: relative;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+#event-modal #event-details ul li::before {
+    content: '•';
+    position: absolute;
+    left: -1rem;
+    color: var(--primary-color, #6a11cb);
+    font-weight: bold;
+}
+
+#event-modal #event-details ul li:hover {
+    transform: translateX(3px);
+}
+
+/* Prize Details */
+#event-modal #event-details pre {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, rgba(106, 17, 203, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+    padding: 1.2rem;
+    border-radius: 12px;
+    white-space: pre-wrap;
+    border-left: 3px solid var(--primary-color, #6a11cb);
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.08);
+    color: #444;
+    font-weight: 500;
+}
+
+/* Register Button Container */
+#event-modal .event-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 1rem 0;
+}
+
+/* Register Button */
+#event-modal .register-now-btn {
+    background: linear-gradient(135deg, var(--primary-color, #6a11cb), var(--secondary-color, #2575fc));
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+    position: relative;
+    overflow: hidden;
+    background-size: 200% auto;
+    animation: gradientShift 3s ease infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+#event-modal .register-now-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+#event-modal .register-now-btn:hover::before {
+    transform: translateX(100%);
+}
+
+#event-modal .register-now-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(106, 17, 203, 0.4);
+}
+
+/* Dark Mode Adjustments */
+.dark-mode #event-modal {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dark-mode #event-modal .modal-content {
+    background-color: var(--card-bg);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode #event-modal .close-modal {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+.dark-mode #event-modal .close-modal:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode #event-modal #event-details section {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.dark-mode #event-modal #event-details section:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode #event-modal #event-details pre {
+    background-color: rgba(106, 17, 203, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #event-modal .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+    
+    #event-modal #event-details {
+        padding: 1.5rem;
+    }
+    
+    #event-modal #event-details h2 {
+        font-size: 1.8rem;
+    }
+    
+    .event-details-content {
+        gap: 1.5rem;
+    }
+    
+    #event-modal .register-now-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+}

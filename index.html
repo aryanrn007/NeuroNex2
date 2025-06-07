@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroNex – College Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="title-animation.css">
+    <link rel="stylesheet" href="sint-theme.css">
+    <link rel="stylesheet" href="panel-animations.css">
+    <link rel="stylesheet" href="juno-data.css">
+    <link rel="stylesheet" href="juno-profile-enhanced.css">
+    <link rel="stylesheet" href="tech-events-panel.css">
+    <link rel="stylesheet" href="tech-events-banner.css">
+    <link rel="stylesheet" href="settings-buttons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+    <script src="scroll-snap.js"></script>
+    <script src="page-scroll-navigation.js"></script>
+</head>
+<body>
+    <!-- ... your existing body content ... -->
+    <header>
+        <h1><i class="fas fa-graduation-cap"></i> NeuraNex – Powered by Saarthi</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="brainbox.html" class="nav-link"><i class="fas fa-brain"></i> BrainBox</a>
+            <a href="skillsync.html" class="nav-link"><i class="fas fa-users"></i> SkillSync</a>
+            <a href="techverse.html" class="nav-link"><i class="fas fa-laptop-code"></i> TechVerse</a>
+            <a href="launchpad.html" class="nav-link"><i class="fas fa-rocket"></i> LaunchPad</a>
+        </nav>
+        <div>
+            <span id="loggedInUserName" class="user-name-display"></span>
+            <button id="settings-button" aria-label="Settings"><i class="fas fa-cog"></i></button>
+        </div>
+    </header>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel" class="settings-panel panel-animate">
+        <div class="settings-content panel-animate">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <button id="close-settings" class="close-settings-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="settings-section">
+                <h3>Theme</h3>
+                <div class="theme-options">
+                    <button class="theme-option" data-theme="light">
+                        <i class="fas fa-sun"></i>
+                        <span>Light</span>
+                    </button>
+                    <button class="theme-option" data-theme="office">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Office</span>
+                    </button>
+                    
+                    <button class="theme-option" data-theme="sint">
+                        <i class="fas fa-robot"></i>
+                        <span>Sint</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Settings Panel Buttons with Enhanced UI -->
+            <div class="settings-buttons-container" style="margin: 2rem 0; text-align: center;">
+                <button id="aboutMeBtn" class="settings-button"><i class="fas fa-user"></i> About Me</button>
+                <button id="fetchJunoDataBtn" class="settings-button"><i class="fas fa-sync"></i> Fetch My Juno Data</button>
+            </div>
+            <!-- Logout button at the bottom of settings panel -->
+            <div style="margin-top: 2rem; text-align: center;">
+                <button id="logout-button" class="settings-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-layout">
+        <section id="student-profile-section" class="student-profile-section panel-animate slide-in-left">
+            <!-- Profile card will be populated by JS -->
+        </section>
+        
+        <!-- Dashboard content will go here -->
+
+        <section id="ai-chatbot-section" class="ai-chatbot-section glassmorphic panel-animate slide-in-right">
+            <div class="chatbot-topbar">
+                <span class="chatbot-title" id="chatbot-logo-title">
+                    <div class="chatbot-logo-ball"></div>
+                    <div class="aura-text-container">
+                        <span class="aura-text">A</span>
+                        <span class="aura-text">U</span>
+                        <span class="aura-text">R</span>
+                        <span class="aura-text">A</span>
+                    </div>
+                    <span class="sr-only">AURA AI</span>
+                </span>
+                <button class="chatbot-menu-btn" id="chatbot-menu-btn" aria-label="Menu" onclick="toggleMenu(event)"><i class="fas fa-bars"></i></button>
+                <div class="chatbot-menu-dropdown" id="chatbot-menu-dropdown">
+                    <button class="chatbot-menu-item" onclick="startNewChat()"> <i class="fas fa-plus"></i> New Chat</button>
+                </div>
+            </div>
+            <div class="chatbot-container">
+                <div id="chat-window" class="chat-window">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div class="chat-input-area">
+                    <div class="main-chat-input">
+                        <div class="chat-emoji" id="chat-emoji">😊</div>
+                        <div class="emoji-picker-container" id="emoji-picker-container">
+                            <emoji-picker id="emoji-picker"></emoji-picker>
+                        </div>
+                        <input type="text" id="chat-input" placeholder="Type here">
+                        <button id="send-chat-btn" aria-label="Send message" class="glow-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for About Me -->
+    <div id="aboutMeModal" class="modal panel-animate">
+        <div class="modal-content panel-animate">
+            <span class="close-modal-btn" id="closeAboutMeModal">&times;</span>
+            <section id="achievements-section" class="achievements-section panel-animate fade-in">
+                <h2><i class="fas fa-trophy"></i> Achievements</h2>
+                <div class="badges-list panel-animate">
+                    <div class="badge panel-animate scale-in" style="animation-delay: 0.1s"><i class="fas fa-award"></i><span>No Backlogs</span></div>
+                    <div class="badge panel-animate scale-in" style="animation-delay: 0.2s"><i class="fas fa-star"></i><span>CGPA > 8.5</span></div>
+                    <div class="badge panel-animate scale-in" style="animation-delay: 0.3s"><i class="fas fa-user-check"></i><span>Attendance 90%+</span></div>
+                </div>
+            </section>
+            <section id="progress-section" class="progress-section panel-animate fade-in">
+                <h2><i class="fas fa-chart-line"></i> Progress</h2>
+                <div class="progress-graphs" style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 2rem;">
+                    <div style="text-align:center;">
+                        <canvas id="cgpaChart" width="120" height="120"></canvas>
+                        <div>CGPA</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <canvas id="attendanceChart" width="120" height="120"></canvas>
+                        <div>Attendance</div>
+                    </div>
+                </div>
+                <div class="progress-bars panel-animate animate-progress">
+                    <div class="progress-bar-block">
+                        <span>CGPA</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width:87.5%"></div></div>
+                        <span class="progress-value">8.75 / 10</span>
+                    </div>
+                    <div class="progress-bar-block">
+                        <span>Attendance</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width:92%"></div></div>
+                        <span class="progress-value">92%</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="modal panel-animate">
+        <div class="modal-content panel-animate">
+            <button class="close-modal-btn" id="closeEditProfileModal">&times;</button>
+            <h2 style="margin-bottom: 1.2rem;"><i class="fas fa-user-edit"></i> Edit Profile</h2>
+            <form id="editProfileForm">
+                <!-- Cover Photo & Avatar -->
+                <div style="display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1.2rem;">
+                    <div style="flex:1;">
+                        <label>Cover Photo<br>
+                            <input type="file" id="coverPhotoInput" accept="image/*">
+                            <img id="coverPhotoPreview" src="" alt="Cover Preview" style="width:100%;max-width:120px;margin-top:0.5rem;display:block;">
+                        </label>
+                    </div>
+                    <div style="flex:1; text-align:center;">
+                        <label>Avatar<br>
+                            <input type="file" id="avatarInput" accept="image/*">
+                            <img id="avatarPreview" src="" alt="Avatar Preview" style="width:70px;height:70px;border-radius:50%;margin-top:0.5rem;object-fit:cover;display:block;">
+                        </label>
+                    </div>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label>Status<br><input type="text" id="statusInput" class="juno-input" placeholder="Set a status..."></label>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="flex:1;"><label>Blood Group<br><input type="text" id="bloodGroupInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Mother Tongue<br><input type="text" id="motherTongueInput" class="juno-input"></label></div>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="flex:1;"><label>Aadhaar Card No.<br><input type="text" id="aadhaarInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Category<br><input type="text" id="categoryInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Caste<br><input type="text" id="casteInput" class="juno-input"></label></div>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="flex:1;"><label>Country<br><input type="text" id="countryInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>State<br><input type="text" id="stateInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>City<br><input type="text" id="cityInput" class="juno-input"></label></div>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label>Address<br><input type="text" id="addressInput" class="juno-input"></label>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="flex:1;"><label>Pincode<br><input type="text" id="pincodeInput" class="juno-input"></label></div>
+                </div>
+                <hr style="margin: 1.2rem 0;">
+                <!-- Parents Details -->
+                <h3>Father's Details</h3>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="flex:1;"><label>Name<br><input type="text" id="fatherNameInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Occupation<br><input type="text" id="fatherOccupationInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Contact<br><input type="text" id="fatherContactInput" class="juno-input"></label></div>
+                </div>
+                <h3>Mother's Details</h3>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="flex:1;"><label>Name<br><input type="text" id="motherNameInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Occupation<br><input type="text" id="motherOccupationInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Contact<br><input type="text" id="motherContactInput" class="juno-input"></label></div>
+                </div>
+                <hr style="margin: 1.2rem 0;">
+                <!-- 10th (SSC) Details -->
+                <h3>10th (SSC) Details</h3>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="flex:1;"><label>Board<br><input type="text" id="sscBoardInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>School<br><input type="text" id="sscSchoolInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Year<br><input type="text" id="sscYearInput" class="juno-input"></label></div>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="flex:1;"><label>Marks<br><input type="text" id="sscMarksInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Percentage<br><input type="text" id="sscPercentageInput" class="juno-input"></label></div>
+                </div>
+                <hr style="margin: 1.2rem 0;">
+                <!-- 12th (HSC) Details -->
+                <h3>12th (HSC) Details</h3>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="flex:1;"><label>Board<br><input type="text" id="hscBoardInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>School<br><input type="text" id="hscSchoolInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Year<br><input type="text" id="hscYearInput" class="juno-input"></label></div>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div style="flex:1;"><label>Marks<br><input type="text" id="hscMarksInput" class="juno-input"></label></div>
+                    <div style="flex:1;"><label>Percentage<br><input type="text" id="hscPercentageInput" class="juno-input"></label></div>
+                </div>
+                <div style="text-align: right;">
+                    <button type="submit" class="juno-button" style="margin-right: 0.5rem; background: #f44336; color: #fff;">Delete</button>
+                    <button type="submit" class="juno-button">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- NeuroNex Data Modal -->
+    <div id="juno-data-modal" class="modal panel-animate">
+        <div id="juno-data-container" class="modal-content panel-animate">
+            <!-- NeuroNex data will be loaded here -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 NeuraNex. Developed by Aryan and team. All rights reserved.</p>
+    </footer>
+    
+    <!-- Panel Animations JS -->
+    <script src="panel-animations.js"></script>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "openrouter": "https://cdn.jsdelivr.net/npm/openrouter@latest/dist/openrouter.min.js"
+      }
+    }
+    </script>
+    
+    <!-- Direct welcome message implementation (loads first) -->
+    <script src="direct-welcome.js"></script>
+    
+    <!-- Your custom script, now as a module -->
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.94/build/spline-viewer.js"></script>
+    <script src="sint-theme.js"></script>
+    <!-- Chart.js CDN for progress graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Enhanced NeuroNex Profile -->
+    <script src="juno-profile-enhanced.js"></script>
+    <!-- Enhanced Settings Buttons -->
+    <script src="settings-buttons.js"></script>
+</body>
+</html>
+

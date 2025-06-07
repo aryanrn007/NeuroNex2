@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaunchPad - Career Accelerator | NeuroNex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="launchpad.css">
+    <link rel="stylesheet" href="resources-panel.css">
+    <link rel="stylesheet" href="launchpad-enhanced.css">
+    <link rel="stylesheet" href="launchpad-enhanced-v2.css">
+    <link rel="stylesheet" href="remove-vertical-bar.css">
+    <link rel="stylesheet" href="remove-green-square.css">
+    <link rel="stylesheet" href="scholarship-panel-enhanced.css">
+    <link rel="stylesheet" href="profile-card-enhanced.css">
+    <link rel="stylesheet" href="trending-companies-enhanced.css">
+    <link rel="stylesheet" href="flipkart-logo.css">
+    <link rel="stylesheet" href="wipro-logo.css">
+    <link rel="stylesheet" href="career-resources-enhanced.css">
+    <link rel="stylesheet" href="company-cards-redesign.css">
+    <link rel="stylesheet" href="resource-cards-enhanced.css">
+    <link rel="stylesheet" href="modern-card-design.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="resources-panel.css">
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+    <script src="scroll-snap.js"></script>
+    <script src="page-scroll-navigation.js"></script>
+    <script src="scholarship-api.js"></script>
+</head>
+<body>
+    <header>
+        <h1>NeuraNex – Powered by Saarthi</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="brainbox.html" class="nav-link"><i class="fas fa-brain"></i> BrainBox</a>
+            <a href="skillsync.html" class="nav-link"><i class="fas fa-users"></i> SkillSync</a>
+            <a href="techverse.html" class="nav-link"><i class="fas fa-laptop-code"></i> TechVerse</a>
+            <a href="launchpad.html" class="nav-link active"><i class="fas fa-rocket"></i> LaunchPad</a>
+        </nav>
+        <div>
+            <span id="loggedInUserNameLP" class="user-name-display"></span>
+        </div>
+    </header>
+
+    <!-- Enhanced Scholarship Panel for Indian Government Scholarships -->
+    <div id="scholarship-panel" class="scholarship-panel">
+        <div class="scholarship-content">
+            <div class="scholarship-header">
+                <h2><i class="fas fa-award"></i> Government Scholarships</h2>
+                <button id="close-scholarship" class="close-scholarship-btn" aria-label="Close scholarship panel"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <!-- Scholarship Filters -->
+            <div class="scholarship-filters">
+                <div class="search-container">
+                    <input type="text" id="scholarship-search" placeholder="Search scholarships..." class="search-input">
+                    <button id="search-btn" class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="filter-section">
+                    <h4>Filter By:</h4>
+                    <div class="filter-group">
+                        <label>Category:</label>
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="SC">SC</button>
+                            <button class="filter-btn" data-filter="ST">ST</button>
+                            <button class="filter-btn" data-filter="OBC">OBC</button>
+                            <button class="filter-btn" data-filter="EWS">EWS</button>
+                            <button class="filter-btn" data-filter="General">General</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Education Level:</label>
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="10th">10th</button>
+                            <button class="filter-btn" data-filter="12th">12th</button>
+                            <button class="filter-btn" data-filter="Diploma">Diploma</button>
+                            <button class="filter-btn" data-filter="UG">UG</button>
+                            <button class="filter-btn" data-filter="PG">PG</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>State:</label>
+                        <select id="state-filter" class="state-select">
+                            <option value="all">All States</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="reset-filters" class="reset-btn"><i class="fas fa-sync-alt"></i> Reset Filters</button>
+            </div>
+            
+            <!-- Scholarship List -->
+            <div id="loading-indicator" class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Loading scholarships...</p>
+            </div>
+            
+            <div id="no-results" class="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <p>No scholarships match your filters. Try adjusting your search criteria.</p>
+            </div>
+            
+            <div id="scholarship-list" class="scholarship-list">
+                <!-- Scholarship items will be dynamically loaded here -->
+            </div>
+                
+                <div id="no-results" class="no-results-message" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <p>No scholarships match your current filters.</p>
+                    <p>Try adjusting your search criteria or click "Reset Filters".</p>
+                </div>
+            </div>
+            
+            <!-- Help Section -->
+            <div class="scholarship-section help-section">
+                <h3>Need Assistance?</h3>
+                <p>Our scholarship experts can help you find and apply for the right scholarships based on your profile.</p>
+                <p>Contact: <strong>scholarships@neuranex.edu</strong> or call <strong>1800-123-4567</strong></p>
+                <p class="disclaimer">Disclaimer: The information provided is for reference only. Please verify eligibility criteria and deadlines on the official websites before applying.</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="launchpad-container">
+        <!-- Hero Section -->
+        <section class="launchpad-hero">
+            <div class="hero-content">
+                <h2>Accelerate Your <span class="gradient-text">Career Journey</span></h2>
+                <p>Discover personalized company matches based on your skills, interests, and academic performance. Launch your career with confidence.</p>
+                <button class="explore-btn" id="explore-opportunities-btn">Explore Opportunities <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="hero-image">
+                <img src="https://imageio.forbes.com/specials-images/imageserve/66ce32b736ede62945063ab1/Leadership-and-career-development-concept/0x0.jpg?format=jpg&crop=4500,3000,x0,y0,safe&width=960" alt="Leadership and career development concept" class="forbes-career-image">
+                <div class="floating-stat stat-1">
+                    <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value">500+</span>
+                        <span class="stat-label">Companies</span>
+                    </div>
+                </div>
+                <div class="floating-stat stat-2">
+                    <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value">95%</span>
+                        <span class="stat-label">Placement Rate</span>
+                    </div>
+                </div>
+                <div class="floating-stat stat-3">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value">12 LPA</span>
+                        <span class="stat-label">Avg. Package</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Summary Card -->
+        <section class="profile-summary">
+            <div class="profile-card">
+                <div class="second-glow"></div>
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="images/aaryan.jpg" alt="Aaryan Santosh Gajgeshwar" id="profile-pic" class="profile-image">
+                    </div>
+                    <div class="profile-info">
+                        <h3 id="profile-name">Aaryan Santosh Gajgeshwar</h3>
+                        <p id="profile-program">Computer Science & Engineering</p>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="profile-cgpa">8.5</div>
+                        <div class="stat-label">CGPA</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="profile-skills">12</div>
+                        <div class="stat-label">Skills</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="profile-matches">24</div>
+                        <div class="stat-label">Matches</div>
+                    </div>
+                </div>
+                <div class="profile-skills-container">
+                    <h4>Top Skills</h4>
+                    <div class="skills-tags" id="top-skills-container">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Data Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Filters Section -->
+        <section class="smart-filters">
+            <div class="section-header">
+                <h2><i class="fas fa-filter"></i> Smart Filters</h2>
+                <div class="toggle-view">
+                    <button class="active" data-view="card"><i class="fas fa-th-large"></i></button>
+                    <button data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="domain-filter">Domain/Technology</label>
+                    <select id="domain-filter" class="filter-select">
+                        <option value="">All Domains</option>
+                        <option value="web-development">Web Development</option>
+                        <option value="mobile-development">Mobile Development</option>
+                        <option value="data-science">Data Science</option>
+                        <option value="machine-learning">Machine Learning</option>
+                        <option value="cloud-computing">Cloud Computing</option>
+                        <option value="cybersecurity">Cybersecurity</option>
+                        <option value="devops">DevOps</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="location-filter">Location</label>
+                    <div class="search-input">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="location-filter" placeholder="e.g., Remote, Mumbai, Bangalore">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label for="type-filter">Work Type</label>
+                    <select id="type-filter" class="filter-select">
+                        <option value="">All Types</option>
+                        <option value="In-Office">In-Office</option>
+                        <option value="Remote">Remote</option>
+                        <option value="Hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="salary-filter">Salary Range</label>
+                    <div class="range-slider">
+                        <input type="range" id="salary-filter" min="0" max="50" value="0" class="slider">
+                        <div class="range-value" id="salary-value">₹0 LPA+</div>
+                    </div>
+                </div>
+                <button id="find-companies-btn" class="find-btn">Find Matching Companies</button>
+                <button id="reset-filters-btn" class="reset-btn"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </section>
+
+        <!-- Company Matches Section -->
+        <section class="company-matches">
+            <div class="section-header">
+                <h2><i class="fas fa-rocket"></i> Your Career Launchpad</h2>
+                <div class="matches-info">
+                    <span id="matches-count">0</span> matches found
+                </div>
+            </div>
+            <div id="company-suggestions-grid" class="company-grid">
+                <!-- Company cards will be dynamically inserted here -->
+                <div class="no-matches-message">
+                    <img src="https://d8it4huxumps7.cloudfront.net/uploads/images/63d0d7a2a903d_empty_state.svg" alt="No matches found" class="empty-state-img">
+                    <h3>No matches found</h3>
+                    <p>Adjust your filters or click "Find Matching Companies" to discover opportunities tailored to your profile.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Companies Section -->
+        <section class="trending-companies">
+            <div class="section-header">
+                <h2><i class="fas fa-fire"></i> Trending Companies</h2>
+                <button class="view-all-btn">View All <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="trending-carousel">
+                <button class="carousel-nav prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-container">
+                    <div class="trending-company-card">
+                        <h3>Google</h3>
+                        <div class="company-tags">
+                            <span class="company-tag">Software</span>
+                            <span class="company-tag">AI</span>
+                        </div>
+                        <div class="company-stats">
+                            <div class="stat">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Multiple Locations</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>25-45 LPA</span>
+                            </div>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                    <div class="trending-company-card">
+                        <h3>Microsoft</h3>
+                        <div class="company-tags">
+                            <span class="company-tag">Cloud</span>
+                            <span class="company-tag">DevOps</span>
+                        </div>
+                        <div class="company-stats">
+                            <div class="stat">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Bangalore, Hyderabad</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>20-40 LPA</span>
+                            </div>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                    <div class="trending-company-card">
+                        <h3>Amazon</h3>
+                        <div class="company-tags">
+                            <span class="company-tag">E-commerce</span>
+                            <span class="company-tag">AWS</span>
+                        </div>
+                        <div class="company-stats">
+                            <div class="stat">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Multiple Locations</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>18-35 LPA</span>
+                            </div>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                    <div class="trending-company-card">
+                        <div class="flipkart-logo">
+                            <img src="https://logos-world.net/wp-content/uploads/2020/11/Flipkart-Logo.png" alt="Flipkart Logo">
+                        </div>
+                        <div class="company-tags">
+                            <span class="company-tag">E-commerce</span>
+                            <span class="company-tag">Supply Chain</span>
+                        </div>
+                        <div class="company-stats">
+                            <div class="stat">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Bangalore</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>15-30 LPA</span>
+                            </div>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+
+                </div>
+                <button class="carousel-nav next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Career Resources Section -->
+        <section class="career-resources">
+            <div class="section-header">
+                <h2><i class="fas fa-book"></i> Career Resources</h2>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card resume-card">
+                    <div class="card-header">
+                        <div class="background-pattern"><i class="fas fa-file-alt"></i></div>
+                        <div class="resource-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="card-title">Resume Analyzer</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">Analyze and improve your existing resume to make it more effective, ATS-friendly, and tailored to your target roles.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> ATS optimization</li>
+                            <li><i class="fas fa-check-circle"></i> Content improvement</li>
+                            <li><i class="fas fa-check-circle"></i> Keyword analysis</li>
+                        </ul>
+                        <div class="counter">
+                            <span>Your resumes:</span>
+                            <span class="count">2</span>
+                            <span>analyzed</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="primary-btn" onclick="startResumeAnalyzer()">Analyze Resume</button>
+                        <button class="secondary-btn" onclick="viewResumes()">View Saved</button>
+                    </div>
+                </div>
+                <div class="resource-card interview-card">
+                    <div class="card-header">
+                        <div class="background-pattern"><i class="fas fa-laptop-code"></i></div>
+                        <div class="resource-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="card-title">Interview Prep</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">Master your interview skills with AI-powered practice sessions and feedback.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Technical questions</li>
+                            <li><i class="fas fa-check-circle"></i> Behavioral scenarios</li>
+                            <li><i class="fas fa-check-circle"></i> Performance analysis</li>
+                        </ul>
+                        <div class="counter">
+                            <span>Completed:</span>
+                            <span class="count">3</span>
+                            <span>interviews</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="primary-btn" onclick="startInterviewPractice()">Start Practice</button>
+                        <button class="secondary-btn" onclick="viewPastInterviews()">View History</button>
+                    </div>
+                </div>
+                <div class="resource-card salary-card">
+                    <div class="card-header">
+                        <div class="background-pattern"><i class="fas fa-chart-line"></i></div>
+                        <div class="resource-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="card-title">Salary Insights</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">Research competitive compensation data to negotiate better offers.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Industry benchmarks</li>
+                            <li><i class="fas fa-check-circle"></i> Location adjustments</li>
+                            <li><i class="fas fa-check-circle"></i> Experience-based ranges</li>
+                        </ul>
+                        <div class="counter">
+                            <span>Saved:</span>
+                            <span class="count">5</span>
+                            <span>insights</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="primary-btn" onclick="viewSalaryInsights()">View Insights</button>
+                        <button class="secondary-btn" onclick="compareSalaries()">Compare</button>
+                    </div>
+                </div>
+                <div class="resource-card networking-card">
+                    <div class="card-header">
+                        <div class="background-pattern"><i class="fas fa-users"></i></div>
+                        <div class="resource-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="card-title">Networking Tips</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">Build your professional network with expert strategies and proven techniques.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> LinkedIn optimization</li>
+                            <li><i class="fas fa-check-circle"></i> Conversation starters</li>
+                            <li><i class="fas fa-check-circle"></i> Follow-up templates</li>
+                        </ul>
+                        <div class="counter">
+                            <span>Your network:</span>
+                            <span class="count">48</span>
+                            <span>connections</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="primary-btn" onclick="readNetworkingGuide()">Read Guide</button>
+                        <button class="secondary-btn" onclick="startNetworkingChallenge()">Take Challenge</button>
+                    </div>
+                </div>
+                <div class="resource-card coming-soon-card">
+                    <div class="card-content" style="padding: 20px;">
+                        <div class="resource-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 style="text-align: center; margin: 15px 0 10px;">Coming Soon</h3>
+                        <p style="text-align: center;">More exciting features are on the way</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Company Details Modal -->
+    <div id="company-details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn" id="close-company-modal">&times;</span>
+            <div id="modal-company-header" class="modal-company-header">
+                <h2 id="modal-company-name">Company Name</h2>
+                <div class="company-match-score">
+                    <div class="match-circle">
+                        <span id="match-percentage">95%</span>
+                    </div>
+                    <span class="match-label">Match</span>
+                </div>
+            </div>
+            <div id="modal-company-body" class="modal-company-body">
+                <!-- Content will be dynamically populated -->
+            </div>
+            <div class="modal-company-footer">
+                <button id="modal-apply-btn" class="apply-btn">Apply Now</button>
+                <button id="modal-save-btn" class="save-btn"><i class="far fa-bookmark"></i> Save</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 NeuraNex. Developed by Aryan and team. All rights reserved.</p>
+    </footer>
+
+    <script src="launchpad-new.js"></script>
+    <script src="company-cards-redesign.js"></script>
+    <script src="launchpad.js"></script>
+    <script src="resource-cards.js"></script>
+    <script src="direct-challenge-fix.js"></script>
+    <script src="modern-card-design.js"></script>
+    <!-- Scripts -->    
+    <script src="profile-image-updater.js"></script>
+    
+    <!-- Scholarship Panel Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scholarship Panel Toggle
+            document.getElementById('scholarship-btn').addEventListener('click', function() {
+                document.getElementById('scholarship-panel').classList.toggle('active');
+            });
+            
+            document.getElementById('close-scholarship').addEventListener('click', function() {
+                document.getElementById('scholarship-panel').classList.remove('active');
+            });
+            
+            // Get all filter elements
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const stateFilter = document.getElementById('state-filter');
+            const searchInput = document.getElementById('scholarship-search');
+            const searchButton = document.getElementById('search-btn');
+            const resetButton = document.getElementById('reset-filters');
+            const scholarshipItems = document.querySelectorAll('.scholarship-item');
+            const noResultsMessage = document.getElementById('no-results');
+            
+            // Filter function
+            function filterScholarships() {
+                let visibleCount = 0;
+                
+                // Get active category filter
+                const activeCategoryBtn = document.querySelector('.filter-buttons:nth-child(1) .filter-btn.active');
+                const categoryFilter = activeCategoryBtn ? activeCategoryBtn.getAttribute('data-filter') : 'all';
+                
+                // Get active education filter
+                const activeEducationBtn = document.querySelector('.filter-buttons:nth-child(2) .filter-btn.active');
+                const educationFilter = activeEducationBtn ? activeEducationBtn.getAttribute('data-filter') : 'all';
+                
+                // Get state filter
+                const stateFilterValue = stateFilter.value;
+                
+                // Get search query
+                const searchQuery = searchInput.value.toLowerCase().trim();
+                
+                // Apply filters to each scholarship item
+                scholarshipItems.forEach(item => {
+                    // Get item data attributes
+                    const itemCategories = item.getAttribute('data-category').split(',');
+                    const itemEducation = item.getAttribute('data-education').split(',');
+                    const itemState = item.getAttribute('data-state');
+                    
+                    // Get item text content for search
+                    const itemText = item.textContent.toLowerCase();
+                    
+                    // Check if item matches all filters
+                    const matchesCategory = categoryFilter === 'all' || itemCategories.includes(categoryFilter);
+                    const matchesEducation = educationFilter === 'all' || itemEducation.includes(educationFilter);
+                    const matchesState = stateFilterValue === 'all' || itemState === stateFilterValue;
+                    const matchesSearch = searchQuery === '' || itemText.includes(searchQuery);
+                    
+                    // Show or hide item based on filter matches
+                    if (matchesCategory && matchesEducation && matchesState && matchesSearch) {
+                        item.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Show or hide no results message
+                if (visibleCount === 0) {
+                    noResultsMessage.style.display = 'block';
+                } else {
+                    noResultsMessage.style.display = 'none';
+                }
+            }
+            
+            // Add click event to category and education filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from siblings
+                    const siblings = Array.from(this.parentNode.children);
+                    siblings.forEach(sibling => sibling.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Apply filters
+                    filterScholarships();
+                });
+            });
+            
+            // Add change event to state filter
+            stateFilter.addEventListener('change', filterScholarships);
+            
+            // Add input event to search input
+            searchInput.addEventListener('input', filterScholarships);
+            
+            // Add click event to search button
+            searchButton.addEventListener('click', filterScholarships);
+            
+            // Add click event to reset button
+            resetButton.addEventListener('click', function() {
+                // Reset category and education filters
+                document.querySelectorAll('.filter-buttons').forEach(group => {
+                    const buttons = Array.from(group.children);
+                    buttons.forEach(button => button.classList.remove('active'));
+                    buttons[0].classList.add('active'); // Set 'All' button as active
+                });
+                
+                // Reset state filter
+                stateFilter.value = 'all';
+                
+                // Reset search input
+                searchInput.value = '';
+                
+                // Apply filters
+                filterScholarships();
+            });
+            
+            // Initialize filters
+            filterScholarships();
+        });
+        
+        // External links handling
+        const applyLinks = document.querySelectorAll('.apply-btn');
+        applyLinks.forEach(link => {
+            if (link.tagName === 'A' && link.hasAttribute('href')) {
+                link.addEventListener('click', function(e) {
+                    // Prevent default if it's just a placeholder link
+                    if (link.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        alert('Application portal will be available soon.');
+                    } else {
+                        // For real links, show a confirmation message
+                        alert('You will be redirected to the official scholarship application portal.');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+

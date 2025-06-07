@@ -1,0 +1,298 @@
+/* BrainBox File Cards Styling */
+.file-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 1.8rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.file-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0.3);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.file-card:hover::before {
+    transform: scaleX(1);
+}
+
+.dark-mode .file-card {
+    background-color: rgba(36, 36, 62, 0.9);
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.file-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(106, 17, 203, 0.15);
+    border-color: rgba(106, 17, 203, 0.2);
+}
+
+.file-card h3 {
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.file-card h3 i {
+    font-size: 1.4em;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.file-card:hover h3 i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Add type indicators and styles */
+.file-card::after {
+    content: attr(data-type);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.file-card:hover::after {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.file-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+}
+
+.file-card .file-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.file-card .file-tags .tag {
+    background-color: rgba(106, 17, 203, 0.08);
+    color: var(--primary-color);
+    padding: 0.35rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    border: 1px solid rgba(106, 17, 203, 0.15);
+    display: flex;
+    align-items: center;
+}
+
+.file-card .file-tags .tag::before {
+    content: '#';
+    margin-right: 3px;
+    font-weight: 700;
+    color: var(--primary-color);
+    opacity: 0.6;
+}
+
+.file-card .file-tags .tag:hover {
+    background-color: rgba(106, 17, 203, 0.15);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 10px rgba(106, 17, 203, 0.15);
+    filter: brightness(1.05);
+}
+
+.file-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1.2rem;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 200; /* Higher than any overlay */
+}
+
+.file-actions .action-btn,
+.file-actions a.action-btn {
+    padding: 0.7rem 1.1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white !important;
+    border: none;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.file-actions .action-btn:hover,
+.file-actions a.action-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(106, 17, 203, 0.35);
+    filter: brightness(1.05);
+}
+
+.file-actions .action-btn i,
+.file-actions a.action-btn i {
+    font-size: 1.1em;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    color: white !important;
+}
+
+.file-actions .action-btn:hover i,
+.file-actions a.action-btn:hover i {
+    transform: scale(1.2);
+}
+
+.file-actions .action-btn::before,
+.file-actions a.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.file-actions .action-btn:hover::before,
+.file-actions a.action-btn:hover::before {
+    left: 100%;
+}
+
+/* Sint Theme Overrides */
+:root.sint-theme .file-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(110, 0, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(110, 0, 255, 0.08);
+}
+
+:root.sint-theme .file-card:hover {
+    box-shadow: 0 15px 30px rgba(110, 0, 255, 0.15);
+    border-color: rgba(110, 0, 255, 0.2);
+}
+
+:root.sint-theme .file-card::before {
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+/* Make text black in Sint theme */
+:root.sint-theme .file-card h3 {
+    color: #000000;
+    border-bottom: 1px dashed rgba(110, 0, 255, 0.2);
+}
+
+:root.sint-theme .file-card p {
+    color: #000000;
+}
+
+:root.sint-theme .file-card .file-tags .tag {
+    background-color: rgba(110, 0, 255, 0.08);
+    border: 1px solid rgba(110, 0, 255, 0.15);
+    color: #000000;
+}
+
+:root.sint-theme .file-card .file-tags .tag::before {
+    color: var(--primary-color);
+}
+
+/* Make icons purple in Sint theme */
+:root.sint-theme .file-card h3 i {
+    color: var(--primary-color);
+    filter: drop-shadow(0 2px 4px rgba(110, 0, 255, 0.2));
+}
+
+:root.sint-theme .file-actions .action-btn,
+:root.sint-theme .file-actions a.action-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: #000000 !important;
+}
+
+:root.sint-theme .file-actions .action-btn:hover,
+:root.sint-theme .file-actions a.action-btn:hover {
+    box-shadow: 0 6px 15px rgba(110, 0, 255, 0.3);
+}
+
+:root.sint-theme .file-actions .action-btn i,
+:root.sint-theme .file-actions a.action-btn i {
+    color: #000000 !important;
+}
+
+/* File status indicators */
+.file-status-indicator {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+    transition: all 0.3s ease;
+}
+
+.file-status-indicator.new {
+    background-color: #2196F3;
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
+    animation: pulse 2s infinite;
+}
+
+.file-status-indicator.popular {
+    background-color: #FF9800;
+    box-shadow: 0 0 8px rgba(255, 152, 0, 0.6);
+}
+
+.file-status-indicator.updated {
+    background-color: #9C27B0;
+    box-shadow: 0 0 8px rgba(156, 39, 176, 0.6);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}

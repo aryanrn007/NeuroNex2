@@ -1,0 +1,93 @@
+[
+  {
+    "id": "AaryanSantoshGajgeshwar",
+    "fullName": "Aaryan Santosh Gajgeshwar",
+    "branch": "CSE",
+    "cgpa": 8.75,
+    "attendance": 92,
+    "backlogs": 0,
+    "keySkills": ["Python", "Machine Learning", "Data Analysis", "AWS Certified Cloud Practitioner"],
+    "suggestedCompanies": ["Google", "Amazon", "Microsoft", "Infosys"],
+    "linkedInProfile": "https://www.linkedin.com/in/aaryan-gajgeshwar-2259b7308/",
+    "profilePic": "images/aaryan.jpg",
+    "password": "aaryan123"
+  },
+  {
+    "id": "AdityaMadhukarMane",
+    "fullName": "Aditya Madhukar Mane",
+    "branch": "IT",
+    "cgpa": 7.9,
+    "attendance": 85,
+    "backlogs": 1,
+    "keySkills": ["Java", "Spring Boot", "SQL", "Web Development"],
+    "suggestedCompanies": ["TCS", "Wipro", "Capgemini", "Accenture"],
+    "linkedInProfile": "https://www.linkedin.com/in/aditya-mane-7a454732b/",
+    "profilePic": "images/aditya.jpg",
+    "password": "aditya123"
+  },
+  {
+    "id": "AnanyaPradeepSutar",
+    "fullName": "Ananya Pradeep Sutar",
+    "branch": "IT",
+    "cgpa": 8.5,
+    "attendance": 90,
+    "backlogs": 0,
+    "keySkills": ["JavaScript", "React", "Node.js", "MongoDB", "UI/UX Design"],
+    "suggestedCompanies": ["Swiggy", "Zomato", "Myntra", "PhonePe"],
+    "linkedInProfile": "https://www.linkedin.com/in/ananya-sutar-0a475b358/",
+    "profilePic": "images/ananya.jpg",
+    "password": "ananya123"
+  },
+  {
+    "id": "KhadijaYunusMulla",
+    "fullName": "Khadija Yunus Mulla",
+    "branch": "CSE",
+    "cgpa": 7.5,
+    "attendance": 82,
+    "backlogs": 2,
+    "keySkills": ["Python", "Django", "Databases", "Problem Solving"],
+    "suggestedCompanies": ["Persistent Systems", "Cognizant", "Mindtree"],
+    "linkedInProfile": "https://www.linkedin.com/in/khadija-mulla-05407032b/",
+    "profilePic": "images/khadija.jpg",
+    "password": "khadija123"
+  },
+  {
+    "id": "SakshiManikSherkhane",
+    "fullName": "Sakshi Manik Sherkhane",
+    "branch": "CSE",
+    "cgpa": 9.1,
+    "attendance": 95,
+    "backlogs": 0,
+    "keySkills": ["C++", "Data Structures", "Algorithms", "Competitive Programming"],
+    "suggestedCompanies": ["Directi", "Adobe", "Flipkart", "Salesforce"],
+    "linkedInProfile": "https://www.linkedin.com/in/sakshi-sherkhane-a3732332b/",
+    "profilePic": "images/sakshi.jpg",
+    "password": "sakshi123"
+  },
+  {
+    "id": "ShrutiRavindraShanware",
+    "fullName": "Shruti Ravindra Shanware",
+    "branch": "Mechanical",
+    "cgpa": 8.9,
+    "attendance": 93,
+    "backlogs": 0,
+    "keySkills": ["AutoCAD", "SolidWorks", "FEA", "GD&T", "NPTEL: Engineering Drawing"],
+    "suggestedCompanies": ["Tata Motors", "Mahindra & Mahindra", "L&T", "Bajaj Auto"],
+    "linkedInProfile": "https://www.linkedin.com/in/shrutishanware-example/",
+    "profilePic": "images/shruti.jpg",
+    "password": "shruti123"
+  },
+  {
+    "id": "SrushtiChandrakantKore",
+    "fullName": "Srushti Chandrakant Kore",
+    "branch": "ENTC",
+    "cgpa": 8.2,
+    "attendance": 88,
+    "backlogs": 0,
+    "keySkills": ["Embedded Systems", "IoT", "VLSI", "NPTEL: Introduction to IoT"],
+    "suggestedCompanies": ["Qualcomm", "Intel", "Texas Instruments", "Bosch"],
+    "linkedInProfile": "https://www.linkedin.com/in/srushti-kore-22154832b/",
+    "profilePic": "images/srushti.jpg",
+    "password": "srushti123"
+  }
+]

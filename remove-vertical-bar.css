@@ -1,0 +1,52 @@
+/* CSS to remove the green vertical bar on the right side of the screen */
+
+/* Hide any fixed position elements on the right edge */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px; /* Slightly wider than the bar to ensure it's covered */
+    height: 100vh;
+    background-color: transparent;
+    z-index: 9999; /* Higher than most elements */
+    pointer-events: none; /* Allow clicking through this element */
+}
+
+/* Hide scrollbars across the site */
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+    display: none;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: none;
+}
+
+/* For IE/Edge */
+* {
+    -ms-overflow-style: none;
+}
+
+/* Ensure no fixed elements appear on the right edge */
+[style*="position: fixed"][style*="right: 0"],
+[style*="position:fixed"][style*="right:0"],
+[style*="position: absolute"][style*="right: 0"],
+[style*="position:absolute"][style*="right:0"] {
+    display: none !important;
+}
+
+/* Target any potential green bars */
+[style*="background-color: #4CAF50"][style*="position: fixed"],
+[style*="background-color:#4CAF50"][style*="position:fixed"],
+[style*="background: #4CAF50"][style*="position: fixed"],
+[style*="background:#4CAF50"][style*="position:fixed"] {
+    display: none !important;
+}
+
+/* Ensure the scholarship panel still works properly */
+.scholarship-panel {
+    z-index: 9998; /* Just below our overlay */
+}

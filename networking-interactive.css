@@ -1,0 +1,182 @@
+/* Networking Interactive Elements CSS */
+:root {
+  --interactive-primary: #6c63ff;
+  --interactive-secondary: #8a84ff;
+  --interactive-accent: #f2994a;
+  --interactive-text-dark: #333;
+  --interactive-text-light: #777;
+  --interactive-background: #f8f9fc;
+}
+
+/* Animated List */
+.animated-list li {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: calc(var(--animation-order, 0) * 0.1s);
+}
+
+.animated-list li:nth-child(1) { --animation-order: 1; }
+.animated-list li:nth-child(2) { --animation-order: 2; }
+.animated-list li:nth-child(3) { --animation-order: 3; }
+.animated-list li:nth-child(4) { --animation-order: 4; }
+.animated-list li:nth-child(5) { --animation-order: 5; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Interactive Card */
+.interactive-card {
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.interactive-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.interactive-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: rotate(45deg);
+  z-index: 0;
+  transition: all 0.5s ease;
+}
+
+.interactive-card:hover::before {
+  transform: rotate(90deg);
+}
+
+/* Metric Items */
+.metric-item {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.metric-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--interactive-primary), var(--interactive-secondary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.metric-item:hover::after {
+  transform: scaleX(1);
+}
+
+/* Interactive Tip */
+.interactive-tip {
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-tip::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  border-color: transparent var(--interactive-primary) transparent transparent;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.interactive-tip:hover::after {
+  border-width: 0 30px 30px 0;
+}
+
+/* Ripple Effect */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Counter Animation */
+.counter {
+  display: inline-block;
+  position: relative;
+}
+
+.counter::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--interactive-primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.counter.animated::after {
+  transform: scaleX(1);
+}
+
+/* Floating Elements */
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Pulse Animation */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

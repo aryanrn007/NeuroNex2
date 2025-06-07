@@ -1,0 +1,381 @@
+/* Enhanced Resume Preview UI/UX */
+
+.resume-preview {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modern gradient header */
+.preview-header {
+    background: linear-gradient(135deg, #6c2fff 0%, #8a4fff 100%);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.preview-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.preview-header h3 i {
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Status badge */
+.preview-status {
+    display: flex;
+    align-items: center;
+}
+
+.status-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    display: inline-block;
+}
+
+/* Preview controls */
+.preview-controls {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    align-items: center;
+}
+
+.preview-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.preview-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.preview-btn.active {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Special styling for the enhanced status button */
+.preview-btn.enhanced-status {
+    background: #2ecc71;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.preview-btn.enhanced-status i {
+    font-size: 10px;
+    margin-right: 2px;
+}
+
+.preview-btn i {
+    font-size: 14px;
+}
+
+#fullscreen-preview-btn {
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+    right: -5px;
+    margin-left: 5px;
+}
+
+#fullscreen-preview-btn i {
+    font-size: 16px;
+}
+
+/* Resume document area */
+.resume-document {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background: #f9fafc;
+    position: relative;
+    min-height: 400px;
+    border: 1px solid #eaedf2;
+    border-top: none;
+}
+
+.resume-document::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(to right, #f1f1f1, #ffffff, #f1f1f1);
+    z-index: 1;
+}
+
+/* Document paper effect */
+.resume-document::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Preview buttons container */
+.preview-buttons-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+/* Preview mode transitions */
+.resume-document.fade-transition {
+    animation: fadeTransition 0.5s ease;
+}
+
+@keyframes fadeTransition {
+    0% {
+        opacity: 0.7;
+        transform: scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Preview tabs */
+.preview-tabs {
+    display: flex;
+    background: white;
+    border-bottom: 1px solid #eaedf2;
+    padding: 0 20px;
+}
+
+.preview-tab {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.preview-tab:hover {
+    color: #6c2fff;
+}
+
+.preview-tab.active {
+    color: #6c2fff;
+    border-bottom-color: #6c2fff;
+}
+
+/* Empty state */
+.empty-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 300px;
+    color: #888;
+    text-align: center;
+    padding: 30px;
+}
+
+.empty-preview i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+.empty-preview p {
+    font-size: 16px;
+    max-width: 300px;
+    line-height: 1.5;
+}
+
+/* Loading state */
+.preview-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 300px;
+}
+
+.preview-loading .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(108, 47, 255, 0.1);
+    border-top-color: #6c2fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .preview-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .preview-controls {
+        margin-left: 0;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .preview-btn {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .resume-document {
+        padding: 20px 15px;
+    }
+}
+
+/* Enhanced document styles */
+.enhanced-document {
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05) inset;
+}
+
+/* Preview mode indicator */
+.preview-mode-indicator {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(108, 47, 255, 0.1);
+    color: #6c2fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 10;
+    opacity: 0.7;
+}
+
+/* Watermark for enhanced version */
+.enhanced-watermark {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: rgba(108, 47, 255, 0.3);
+    font-weight: 500;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Zoom controls */
+.zoom-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+    background: white;
+    border-radius: 20px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.zoom-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #eaedf2;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.zoom-btn:hover {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.zoom-level {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: #555;
+    width: 40px;
+}

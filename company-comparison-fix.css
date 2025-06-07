@@ -1,0 +1,70 @@
+/* Fix for company comparison section width */
+
+/* Make the company comparison section wider */
+.company-comparison {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 25px;
+}
+
+/* Make the company selection dropdowns wider */
+.company-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Style the company select dropdowns */
+.company-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.company-select:focus {
+    border-color: #27ae60;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+}
+
+/* Style the compare button */
+.company-comparison button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #6c2fff;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.company-comparison button:hover {
+    background-color: #5a25d9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(108, 47, 255, 0.2);
+}
+
+.company-comparison button i {
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .company-select-group {
+        width: 100%;
+    }
+}

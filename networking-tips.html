@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking Tips - Career Accelerator | NeuroNex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="networking-tips.css">
+    <link rel="stylesheet" href="video-resources-enhanced.css">
+    <link rel="stylesheet" href="message-templates-viewmore.css">
+    <link rel="stylesheet" href="networking-hero-enhanced.css">
+    <link rel="stylesheet" href="networking-guide-fixed.css">
+    <link rel="stylesheet" href="networking-interactive.css">
+    <link rel="stylesheet" href="networking-challenge-enhanced.css">
+    <link rel="stylesheet" href="downloadable-guide-enhanced.css">
+    <link rel="stylesheet" href="profile-optimization-enhanced.css">
+    <link rel="stylesheet" href="message-templates-enhanced.css">
+    <link rel="stylesheet" href="platform-breakdown-enhanced.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-graduation-cap"></i> NeuraNex – Powered by Saarthi</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="brainbox.html" class="nav-link"><i class="fas fa-brain"></i> BrainBox</a>
+            <a href="skillsync.html" class="nav-link"><i class="fas fa-users"></i> SkillSync</a>
+            <a href="techverse.html" class="nav-link"><i class="fas fa-laptop-code"></i> TechVerse</a>
+            <a href="launchpad.html" class="nav-link"><i class="fas fa-rocket"></i> LaunchPad</a>
+        </nav>
+        <div>
+            <span id="loggedInUserNameNT" class="user-name-display"></span>
+            <button id="settings-buttonNT" class="circle-btn settings-btn" aria-label="Settings"><i class="fas fa-cog"></i></button>
+        </div>
+    </header>
+
+    <!-- Settings Panel -->
+    <div id="settings-panelNT" class="settings-panel">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <button id="close-settingsNT" class="close-settings-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="settings-section">
+                <h3>Theme</h3>
+                <div class="theme-options">
+                    <button class="theme-option" data-theme="light">
+                        <i class="fas fa-sun"></i>
+                        <span>Light</span>
+                    </button>
+                    
+                    <button class="theme-option" data-theme="office">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Office</span>
+                    </button>
+                    
+                </div>
+            </div>
+            <!-- Logout button at the bottom of settings panel -->
+            <div style="margin-top: 2.5rem; text-align: center;">
+                <button id="logout-buttonNT" class="juno-button" style="width: 80%;"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="networking-container">
+        <!-- Reading Progress Bar -->
+        <div class="reading-progress-container">
+            <div class="reading-progress-bar" id="reading-progress"></div>
+        </div>
+
+        <!-- Enhanced Hero Section -->
+        <section class="networking-hero">
+            <!-- Floating Elements -->
+            <div class="hero-floating-element hero-floating-1"></div>
+            <div class="hero-floating-element hero-floating-2"></div>
+            <div class="hero-floating-element hero-floating-3"></div>
+            
+            <div class="hero-content">
+                <h1>Networking <span class="gradient-text">Tips</span></h1>
+                <p>Learn how to build and leverage your professional network for career growth</p>
+                
+                <!-- Stats Section -->
+                <div class="hero-stats">
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="hero-stat-info">
+                            <div class="hero-stat-value">60+</div>
+                            <div class="hero-stat-label">Connections</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="hero-stat-info">
+                            <div class="hero-stat-value">12</div>
+                            <div class="hero-stat-label">Templates</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="hero-stat-info">
+                            <div class="hero-stat-value">85%</div>
+                            <div class="hero-stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="hero-actions">
+                    <button class="hero-btn hero-primary-btn" onclick="scrollToSection('beginner-guide')">
+                        Start Learning
+                    </button>
+                    <button class="hero-btn hero-secondary-btn" onclick="scrollToSection('networking-challenge')">
+                        Take Challenge
+                    </button>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Networking event with professionals">
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="networking-content">
+            <!-- Beginner Guide Section -->
+            <section class="content-section animate-section" id="beginner-guide">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h2>Beginner-Friendly Guide</h2>
+                </div>
+                <div class="section-content challenge-content">
+                    <h3>What is networking?</h3>
+                    <p>Networking is the process of building and maintaining <span class="highlight-term">professional relationships<span class="tooltip">Connections that can help advance your career</span></span> for mutual benefit. It involves connecting with peers, seniors, alumni, industry professionals, and potential employers to exchange information, advice, and support.</p>
+                    
+                    <h3>Why it matters in college and career</h3>
+                    <p>Effective networking can lead to:</p>
+                    <ul class="animated-list">
+                        <li><strong>Hidden opportunities</strong> - Many jobs (70-80%) are never publicly advertised</li>
+                        <li><strong>Mentorship</strong> - Gain guidance from experienced professionals</li>
+                        <li><strong>Industry insights</strong> - Learn about trends and demands in your field</li>
+                        <li><strong>Skill development</strong> - Improve communication and relationship-building abilities</li>
+                        <li><strong>Career advancement</strong> - Access to recommendations and referrals</li>
+                    </ul>
+                    
+                    <div class="quote-block">
+                        <p class="quote-text">"Your network is your net worth. Investing time in building meaningful professional relationships is one of the highest-return activities for your career."</p>
+                    </div>
+                    
+                    <div class="interactive-tip" style="margin-top: 25px; padding: 15px; background: rgba(108, 99, 255, 0.05); border-radius: 8px; border-left: 3px solid var(--guide-primary);">
+                        <h4 style="margin-top: 0; color: var(--guide-primary);"><i class="fas fa-lightbulb" style="margin-right: 8px;"></i>Pro Tip</h4>
+                        <p style="margin-bottom: 0;">Start building your network early in your college career. The connections you make now can become valuable resources throughout your professional journey.</p>
+                    </div>
+                    
+                    <div class="interactive-card" style="margin-top: 30px; background: linear-gradient(135deg, #ffffff, #f8f9fc); border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); padding: 20px; transition: all 0.3s ease;">
+                        <h4 style="color: var(--guide-primary); display: flex; align-items: center; margin-top: 0;">
+                            <i class="fas fa-chart-line" style="margin-right: 10px; background: var(--guide-primary); color: white; padding: 8px; border-radius: 50%; font-size: 14px;"></i>
+                            Networking Success Metrics
+                        </h4>
+                        <div class="metrics-container" style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
+                            <div class="metric-item" style="flex: 1; min-width: 120px; background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.03); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div style="font-size: 24px; font-weight: 700; color: var(--guide-primary);" class="counter" data-target="70">0</div>
+                                <p style="margin: 5px 0 0; font-size: 14px; color: #555;">% of jobs filled through networking</p>
+                            </div>
+                            <div class="metric-item" style="flex: 1; min-width: 120px; background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.03); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div style="font-size: 24px; font-weight: 700; color: var(--guide-primary);" class="counter" data-target="85">0</div>
+                                <p style="margin: 5px 0 0; font-size: 14px; color: #555;">% of jobs filled via networking</p>
+                            </div>
+                            <div class="metric-item" style="flex: 1; min-width: 120px; background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.03); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div style="font-size: 24px; font-weight: 700; color: var(--guide-primary);" class="counter" data-target="3">0</div>
+                                <p style="margin: 5px 0 0; font-size: 14px; color: #555;">× more likely to get hired with a referral</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Platform Breakdown Section -->
+            <section class="content-section tilt-effect" id="platform-breakdown">
+                <!-- Floating Elements -->
+                <div class="platform-floating-element platform-floating-1"></div>
+                <div class="platform-floating-element platform-floating-2"></div>
+                
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h2>Platform Breakdown</h2>
+                </div>
+                <div class="section-content challenge-content">
+                    <div class="platform-cards">
+                        <div class="platform-card linkedin">
+                            <div class="platform-icon linkedin">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <h3>LinkedIn</h3>
+                            <p><strong>Best for:</strong> Professional networking, job searching, industry updates</p>
+                            <div class="platform-tips">
+                                <h4>Tips:</h4>
+                                <ul>
+                                    <li>Connect with classmates, professors, and alumni</li>
+                                    <li>Join industry-specific groups and engage regularly</li>
+                                    <li>Share relevant content and comment on others' posts</li>
+                                    <li>Follow companies you're interested in</li>
+                                </ul>
+                            </div>
+                            <div class="platform-pattern linkedin-pattern"></div>
+                        </div>
+                        
+                        <div class="platform-card github">
+                            <div class="platform-icon github">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <h3>GitHub</h3>
+                            <p><strong>Best for:</strong> Technical networking, showcasing coding skills</p>
+                            <div class="platform-tips">
+                                <h4>Tips:</h4>
+                                <ul>
+                                    <li>Contribute to open-source projects</li>
+                                    <li>Create a detailed profile README</li>
+                                    <li>Showcase your best projects with thorough documentation</li>
+                                    <li>Follow developers and organizations in your field</li>
+                                </ul>
+                            </div>
+                            <div class="platform-pattern github-pattern"></div>
+                        </div>
+                        
+                        <div class="platform-card twitter">
+                            <div class="platform-icon twitter">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <h3>Twitter</h3>
+                            <p><strong>Best for:</strong> Industry trends, casual networking, thought leadership</p>
+                            <div class="platform-tips">
+                                <h4>Tips:</h4>
+                                <ul>
+                                    <li>Follow industry leaders and engage with their content</li>
+                                    <li>Share insights and articles related to your field</li>
+                                    <li>Participate in Twitter chats and hashtag discussions</li>
+                                    <li>Keep your profile professional but personable</li>
+                                </ul>
+                            </div>
+                            <div class="platform-pattern twitter-pattern"></div>
+                        </div>
+                        
+                        <div class="platform-card discord">
+                            <div class="platform-icon discord">
+                                <i class="fab fa-discord"></i>
+                            </div>
+                            <h3>Discord</h3>
+                            <p><strong>Best for:</strong> Community building, tech discussions, peer learning</p>
+                            <div class="platform-tips">
+                                <h4>Tips:</h4>
+                                <ul>
+                                    <li>Join servers related to your technologies and interests</li>
+                                    <li>Participate in help channels and knowledge sharing</li>
+                                    <li>Connect with study groups and project teams</li>
+                                    <li>Attend virtual events and workshops</li>
+                                </ul>
+                            </div>
+                            <div class="platform-pattern discord-pattern"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Optimization Section -->
+            <section class="content-section animate-on-scroll" id="profile-optimization">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <h2>Profile Optimization Tips</h2>
+                </div>
+                <div class="section-content challenge-content">
+                    <!-- Profile Tabs Navigation -->
+                    <div class="profile-tabs">
+                        <button class="profile-tab-btn active" data-profile="linkedin">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </button>
+                        <button class="profile-tab-btn" data-profile="github">
+                            <i class="fab fa-github"></i> GitHub
+                        </button>
+                        <button class="profile-tab-btn" data-profile="portfolio">
+                            <i class="fas fa-globe"></i> Portfolio
+                        </button>
+                    </div>
+                    
+                    <div class="profile-optimization-container">
+                        <!-- LinkedIn Profile Tips -->
+                        <div class="profile-type active" id="linkedin-profile">
+                            <h3><i class="fab fa-linkedin"></i> LinkedIn Profile</h3>
+                            <div class="profile-completion">
+                                <div class="completion-text">Profile Strength</div>
+                                <div class="completion-bar">
+                                    <div class="completion-progress" style="width: 85%;"></div>
+                                </div>
+                                <div class="completion-percentage">85%</div>
+                            </div>
+                            <div class="optimization-tips">
+                                <div class="tip-item">
+                                    <h4>Professional Photo</h4>
+                                    <p>Use a high-quality headshot with good lighting and a neutral background. Dress professionally and smile!</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Headline</h4>
+                                    <p>Go beyond your job title. Include your specialization, skills, and value proposition (e.g., "Computer Science Student | Full-Stack Developer | Creating User-Centric Web Applications")</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>About Summary</h4>
+                                    <p>Tell your professional story in 3-5 short paragraphs. Include your passions, key skills, achievements, and what you're looking for.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Experience Section</h4>
+                                    <p>Focus on achievements rather than responsibilities. Use action verbs and quantify results when possible.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Skills & Endorsements</h4>
+                                    <p>Add at least 10 relevant skills and organize them by importance. Request endorsements from colleagues and classmates for your top skills.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Education Details</h4>
+                                    <p>Include all relevant coursework, projects, and academic achievements. Add honors, awards, and extracurricular activities that demonstrate leadership.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Custom URL</h4>
+                                    <p>Create a personalized LinkedIn URL (e.g., linkedin.com/in/yourname) that's professional and easy to share on resumes and business cards.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Recommendations</h4>
+                                    <p>Request and provide recommendations to build credibility. Aim for at least 2-3 recommendations from supervisors, professors, or colleagues.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- GitHub Profile Tips -->
+                        <div class="profile-type" id="github-profile">
+                            <h3><i class="fab fa-github"></i> GitHub Profile</h3>
+                            <div class="profile-completion">
+                                <div class="completion-text">Profile Strength</div>
+                                <div class="completion-bar">
+                                    <div class="completion-progress" style="width: 65%;"></div>
+                                </div>
+                                <div class="completion-percentage">65%</div>
+                            </div>
+                            <div class="optimization-tips">
+                                <div class="tip-item">
+                                    <h4>Profile README</h4>
+                                    <p>Create a custom README.md file to showcase your skills, current projects, and learning journey.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Project Repositories</h4>
+                                    <p>Pin your best 6 repositories. Each should have a detailed README, clear documentation, and organized code.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Consistent Contributions</h4>
+                                    <p>Make regular commits to show your coding activity and dedication.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Profile Information</h4>
+                                    <p>Add your full name, professional photo, bio, location, and links to your portfolio, LinkedIn, and Twitter accounts.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Repository Descriptions</h4>
+                                    <p>Write clear, concise descriptions for all repositories and add relevant topics/tags to improve discoverability.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Project Documentation</h4>
+                                    <p>Include installation instructions, usage examples, screenshots/demos, and contribution guidelines in your READMEs.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Open Source Contributions</h4>
+                                    <p>Contribute to popular open source projects by fixing bugs, adding features, or improving documentation.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>GitHub Pages</h4>
+                                    <p>Set up GitHub Pages for your portfolio and project demos to showcase your work with live previews.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Personal Portfolio Tips -->
+                        <div class="profile-type" id="portfolio-profile">
+                            <h3><i class="fas fa-globe"></i> Personal Portfolio</h3>
+                            <div class="profile-completion">
+                                <div class="completion-text">Profile Strength</div>
+                                <div class="completion-bar">
+                                    <div class="completion-progress" style="width: 45%;"></div>
+                                </div>
+                                <div class="completion-percentage">45%</div>
+                            </div>
+                            <div class="optimization-tips">
+                                <div class="tip-item">
+                                    <h4>Clean Design</h4>
+                                    <p>Use a simple, professional layout with easy navigation and responsive design.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Project Showcase</h4>
+                                    <p>Feature 4-6 of your best projects with descriptions, technologies used, and live demos.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>About Me Section</h4>
+                                    <p>Share your background, skills, and career goals in a personable way.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Contact Information</h4>
+                                    <p>Make it easy for recruiters to reach you with a contact form or direct email link.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Professional Domain Name</h4>
+                                    <p>Invest in a custom domain name (e.g., yourname.com) to appear more professional and make your site easier to find.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Skills Visualization</h4>
+                                    <p>Use progress bars, charts, or other visual elements to showcase your technical and soft skills with proficiency levels.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Testimonials Section</h4>
+                                    <p>Include quotes from colleagues, clients, or professors who can vouch for your skills and work ethic.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Resume Download</h4>
+                                    <p>Offer a downloadable PDF version of your resume that's well-formatted and matches your portfolio's branding.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Blog or Case Studies</h4>
+                                    <p>Share your knowledge through blog posts or detailed case studies of your projects to demonstrate your expertise and thought process.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <h4>Performance Optimization</h4>
+                                    <p>Ensure your site loads quickly, images are optimized, and all links work properly. Test on multiple devices and browsers.</p>
+                                    <div class="tip-actions">
+                                        <button class="tip-action-btn"><i class="fas fa-check"></i> Mark as Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile Optimization Progress -->
+                    <div class="profile-progress">
+                        <h3>Overall Profile Optimization Progress</h3>
+                        <div class="progress-container">
+                            <div class="progress-item">
+                                <div class="progress-label">LinkedIn</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill linkedin-progress" style="width: 85%;"></div>
+                                </div>
+                                <div class="progress-percentage">85%</div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-label">GitHub</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill github-progress" style="width: 65%;"></div>
+                                </div>
+                                <div class="progress-percentage">65%</div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-label">Portfolio</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill portfolio-progress" style="width: 45%;"></div>
+                                </div>
+                                <div class="progress-percentage">45%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Message Templates Section -->
+            <section class="content-section animate-on-scroll" id="message-templates">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h2>Message Templates</h2>
+                </div>
+                <div class="section-content challenge-content">
+                    <!-- Template Search and Filter -->
+                    <div class="template-search">
+                        <input type="text" id="template-search-input" placeholder="Search templates...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <!-- Template Categories -->
+                    <div class="template-categories">
+                        <button class="category-btn active" data-category="all">
+                            <i class="fas fa-th-large"></i> All Templates
+                        </button>
+                        <button class="category-btn" data-category="networking">
+                            <i class="fas fa-network-wired"></i> Networking
+                        </button>
+                        <button class="category-btn" data-category="job-search">
+                            <i class="fas fa-briefcase"></i> Job Search
+                        </button>
+                        <button class="category-btn" data-category="follow-up">
+                            <i class="fas fa-reply"></i> Follow-Up
+                        </button>
+                    </div>
+                    
+                    <div class="template-container">
+                        <div class="template-card" data-category="networking">
+                            <h3>Connecting with Alumni</h3>
+                            <div class="template-text">
+                                <p>Hi <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>I'm <span data-variable="your-name" data-tooltip="Your full name">[Your Name]</span>, a <span data-variable="year" data-tooltip="Your year of study">[Year]</span> student at <span data-variable="college" data-tooltip="Your college/university">[Your College]</span> studying <span data-variable="major" data-tooltip="Your field of study">[Your Major]</span>. I came across your profile and was impressed by your work at <span data-variable="company" data-tooltip="Their workplace">[Their Company/Field]</span>.</p>
+                                <p>I'm particularly interested in <span data-variable="interest" data-tooltip="Specific aspect of their work">[specific aspect of their work/career path]</span> and would appreciate the opportunity to learn from your experience. Would you be open to a 15-minute call to discuss your career journey and any advice you might have for someone looking to enter this field?</p>
+                                <p>Thank you for considering,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="alumni"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+                        <div class="template-card" data-category="job-search">
+                            <h3>Reaching Out to Recruiters</h3>
+                            <div class="template-text">
+                                <p>Hello <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>I hope this message finds you well. I'm <span data-variable="your-name" data-tooltip="Your full name">[Your Name]</span>, a <span data-variable="major" data-tooltip="Your field of study">[Your Major]</span> student at <span data-variable="college" data-tooltip="Your college/university">[Your College]</span> graduating in <span data-variable="graduation" data-tooltip="Your graduation date">[Month, Year]</span>.</p>
+                                <p>I noticed you're a recruiter at <span data-variable="company" data-tooltip="Company name">[Company]</span>, which has been on my radar due to <span data-variable="reason" data-tooltip="Why you're interested">[specific reason you're interested in their company]</span>. I'm particularly drawn to the work your team is doing in <span data-variable="department" data-tooltip="Specific team or project">[specific department/project]</span>.</p>
+                                <p>I've recently completed <span data-variable="project" data-tooltip="Your recent project">[relevant project/internship]</span> where I <span data-variable="achievement" data-tooltip="Your accomplishment">[brief accomplishment]</span>. I'd love to learn more about entry-level opportunities at <span data-variable="company2" data-tooltip="Company name">[Company]</span> that might align with my skills in <span data-variable="skills" data-tooltip="Your key skills">[key skills]</span>.</p>
+                                <p>Would you be open to a brief conversation or could you point me in the right direction?</p>
+                                <p>Thank you for your time,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="recruiter"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+                        <div class="template-card" data-category="follow-up">
+                            <h3>Follow-Up After Meeting</h3>
+                            <div class="template-text">
+                                <p>Hi <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>Thank you for taking the time to speak with me at <span data-variable="event" data-tooltip="Event or meeting name">[event/meeting]</span> yesterday. I really appreciated your insights on <span data-variable="topic" data-tooltip="Topic discussed">[specific topic discussed]</span>.</p>
+                                <p>Your suggestion to <span data-variable="advice" data-tooltip="Advice they gave">[advice they gave]</span> is something I'm definitely going to implement. I've already <span data-variable="action" data-tooltip="Action you've taken">[action you've taken based on their advice, if applicable]</span>.</p>
+                                <p>I'd love to stay connected and keep you updated on my progress. Also, if you have any resources on <span data-variable="interest" data-tooltip="Topic of interest">[topic of interest]</span>, I would be grateful for the recommendations.</p>
+                                <p>Thanks again for your time and guidance,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="followup"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+                        <div class="template-card" data-category="networking">
+                            <h3>Requesting Informational Interview</h3>
+                            <div class="template-text">
+                                <p>Hello <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>I'm <span data-variable="your-name" data-tooltip="Your full name">[Your Name]</span>, a <span data-variable="year" data-tooltip="Your year of study">[Year]</span> <span data-variable="major" data-tooltip="Your field of study">[Major]</span> student at <span data-variable="college" data-tooltip="Your college/university">[College]</span>. I discovered your profile while researching careers in <span data-variable="industry" data-tooltip="Industry or field">[industry/field]</span> and was impressed by your experience at <span data-variable="company" data-tooltip="Their workplace">[Company/Companies]</span>.</p>
+                                <p>I'm currently exploring career paths in <span data-variable="area" data-tooltip="Specific career area">[specific area]</span> and would value the opportunity to learn from someone with your background. Would you be willing to share your insights during a 20-minute informational interview?</p>
+                                <p>I'm particularly interested in hearing about:</p>
+                                <p>- Your journey into this field<br>- Skills that have been most valuable in your role<br>- Advice for someone looking to enter this industry</p>
+                                <p>I understand you're busy, so I'd be happy to work around your schedule or send questions via email if that's more convenient.</p>
+                                <p>Thank you for considering my request,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="interview"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+                        <div class="template-card" data-category="job-search">
+                            <h3>Thank You After Interview</h3>
+                            <div class="template-text">
+                                <p>Dear <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>Thank you for taking the time to interview me today for the <span data-variable="position" data-tooltip="Job position">[Position]</span> role at <span data-variable="company" data-tooltip="Company name">[Company]</span>. I enjoyed our conversation about <span data-variable="topic" data-tooltip="Topic discussed">[specific topic discussed]</span> and learning more about the team's projects.</p>
+                                <p>Our discussion reinforced my enthusiasm for the position and my confidence that my skills in <span data-variable="skills" data-tooltip="Your relevant skills">[relevant skills]</span> would enable me to make valuable contributions to your team.</p>
+                                <p>I'm particularly excited about the opportunity to <span data-variable="opportunity" data-tooltip="Specific aspect of the role">[specific aspect of the role you're excited about]</span> as you mentioned during our conversation.</p>
+                                <p>Please don't hesitate to contact me if you need any additional information. I look forward to hearing from you about the next steps in the process.</p>
+                                <p>Best regards,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span><br><span data-variable="phone" data-tooltip="Your phone number">[Your Phone]</span><br><span data-variable="email" data-tooltip="Your email">[Your Email]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="thank-you"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+                        <div class="template-card" data-category="follow-up">
+                            <h3>Connection Request Follow-Up</h3>
+                            <div class="template-text">
+                                <p>Hi <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>Thank you for accepting my connection request. I'm <span data-variable="your-name" data-tooltip="Your full name">[Your Name]</span>, a <span data-variable="role" data-tooltip="Your current role">[Your Role]</span> with a background in <span data-variable="background" data-tooltip="Your background">[Your Background]</span>.</p>
+                                <p>I noticed from your profile that you have extensive experience in <span data-variable="expertise" data-tooltip="Their expertise">[Their Area of Expertise]</span>. I'm currently working on <span data-variable="project" data-tooltip="Your current project">[Your Current Project/Goal]</span> and believe your insights would be invaluable.</p>
+                                <p>Would you be open to a brief conversation about <span data-variable="topic" data-tooltip="Conversation topic">[Specific Topic]</span> in the coming weeks? I'd be happy to work around your schedule.</p>
+                                <p>Looking forward to learning from you,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="follow-up-connection"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+                        <div class="template-card" data-category="networking">
+                            <h3>LinkedIn Recommendation Request</h3>
+                            <div class="template-text">
+                                <p>Hi <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>I hope this message finds you well. I've really enjoyed <span data-variable="context" data-tooltip="Working/collaborating with them">[working with you/collaborating with you/being your student]</span> at <span data-variable="organization" data-tooltip="Company/university name">[Company/University]</span> over the past <span data-variable="time-period" data-tooltip="Time period">[time period]</span>.</p>
+                                <p>I'm currently updating my LinkedIn profile and would be honored if you would consider writing a brief recommendation highlighting our work together on <span data-variable="project" data-tooltip="Project or responsibility">[specific project/responsibility]</span>. Your perspective on my <span data-variable="skills" data-tooltip="Skills to highlight">[specific skills or qualities]</span> would be particularly valuable.</p>
+                                <p>I'd be happy to reciprocate with a recommendation for you as well, focusing on your exceptional <span data-variable="their-skills" data-tooltip="Their notable skills">[skills/leadership/expertise]</span>.</p>
+                                <p>Thank you for considering this request. No pressure at all if you're too busy at the moment.</p>
+                                <p>Best regards,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="recommendation-request"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+                        <div class="template-card" data-category="follow-up">
+                            <h3>Conference Follow-Up</h3>
+                            <div class="template-text">
+                                <p>Hello <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>It was a pleasure meeting you at the <span data-variable="event" data-tooltip="Conference/event name">[Conference/Event Name]</span> in <span data-variable="location" data-tooltip="Event location">[City]</span> last week. I particularly enjoyed our conversation about <span data-variable="topic" data-tooltip="Conversation topic">[specific topic discussed]</span>.</p>
+                                <p>Your insights on <span data-variable="insights" data-tooltip="Their insights">[specific point they made]</span> really resonated with me, as I've been working on <span data-variable="project" data-tooltip="Your related project">[related project or interest]</span> in my role as a <span data-variable="role" data-tooltip="Your role">[your position]</span> at <span data-variable="company" data-tooltip="Your company">[your company/university]</span>.</p>
+                                <p>I'd love to continue our conversation and explore potential opportunities for collaboration. Would you be available for a brief call in the next couple of weeks?</p>
+                                <p>Also, I thought you might find this <span data-variable="resource" data-tooltip="Relevant resource">[article/resource]</span> on <span data-variable="resource-topic" data-tooltip="Resource topic">[relevant topic]</span> interesting, given your work in <span data-variable="field" data-tooltip="Their field">[their field]</span>: <span data-variable="link" data-tooltip="Resource link">[link]</span></p>
+                                <p>Looking forward to staying in touch,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span><br><span data-variable="contact" data-tooltip="Your contact info">[Your contact information]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="conference-followup"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+                        <div class="template-card" data-category="job-search">
+                            <h3>Job Application Follow-Up</h3>
+                            <div class="template-text">
+                                <p>Dear <span data-variable="name" data-tooltip="Recipient's name">[Hiring Manager's Name/Recruiter's Name]</span>,</p>
+                                <p>I hope this email finds you well. I recently applied for the <span data-variable="position" data-tooltip="Job position">[Position]</span> role at <span data-variable="company" data-tooltip="Company name">[Company]</span> on <span data-variable="date" data-tooltip="Application date">[date]</span> and wanted to follow up on my application.</p>
+                                <p>I'm particularly excited about this opportunity because my experience in <span data-variable="experience" data-tooltip="Your relevant experience">[relevant experience]</span> aligns well with the requirements outlined in the job description. My recent project at <span data-variable="previous-company" data-tooltip="Previous company">[Previous Company/University]</span>, where I <span data-variable="achievement" data-tooltip="Your achievement">[brief description of relevant achievement]</span>, has prepared me well for the challenges of this role.</p>
+                                <p>I'm very interested in learning more about the position and how my background might be a good fit for your team. If there's any additional information I can provide to support my application, please let me know.</p>
+                                <p>Thank you for your time and consideration. I look forward to the opportunity to discuss how I can contribute to <span data-variable="company2" data-tooltip="Company name">[Company]</span>.</p>
+                                <p>Best regards,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span><br><span data-variable="phone" data-tooltip="Your phone number">[Your Phone]</span><br><span data-variable="email" data-tooltip="Your email">[Your Email]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="job-application-followup"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+
+                        
+                        <div class="template-card" data-category="networking">
+                            <h3>Event Invitation</h3>
+                            <div class="template-text">
+                                <p>Dear <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>I hope this message finds you well. On behalf of <span data-variable="organization" data-tooltip="Your organization">[Your Organization/Club/Department]</span>, I'm delighted to invite you to our upcoming <span data-variable="event-type" data-tooltip="Type of event">[workshop/seminar/networking event/panel discussion]</span> on <span data-variable="topic" data-tooltip="Event topic">[Event Topic]</span>.</p>
+                                <p><strong>Event Details:</strong><br>
+                                📅 Date: <span data-variable="date" data-tooltip="Event date">[Date]</span><br>
+                                🕒 Time: <span data-variable="time" data-tooltip="Event time">[Time]</span><br>
+                                📍 Location: <span data-variable="location" data-tooltip="Event location">[Physical Location or Virtual Platform]</span><br>
+                                🎯 Theme: <span data-variable="theme" data-tooltip="Event theme">[Specific Theme or Focus]</span></p>
+                                <p>This event will feature <span data-variable="speakers" data-tooltip="Event speakers/highlights">[notable speakers/activities/networking opportunities]</span> and will be an excellent opportunity to <span data-variable="benefit" data-tooltip="Attendee benefit">[learn about/connect with/explore]</span> <span data-variable="benefit-detail" data-tooltip="Benefit details">[specific benefit details]</span>.</p>
+                                <p>Given your expertise in <span data-variable="expertise" data-tooltip="Their expertise">[their field/area of expertise]</span>, we believe your participation would greatly enrich the experience for all attendees.</p>
+                                <p>To RSVP, please <span data-variable="rsvp-method" data-tooltip="RSVP method">[click the link below/reply to this email/complete the attached form]</span> by <span data-variable="deadline" data-tooltip="RSVP deadline">[deadline date]</span>.</p>
+                                <p>We look forward to your participation. Please don't hesitate to reach out if you have any questions.</p>
+                                <p>Best regards,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span><br><span data-variable="role" data-tooltip="Your role">[Your Role]</span><br><span data-variable="contact" data-tooltip="Your contact info">[Your Contact Information]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="event-invitation"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+                        <div class="template-card" data-category="networking">
+                            <h3>Mentor Request</h3>
+                            <div class="template-text">
+                                <p>Dear <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>I hope this message finds you well. My name is <span data-variable="your-name" data-tooltip="Your full name">[Your Name]</span>, and I'm a <span data-variable="your-role" data-tooltip="Your role">[your role/year]</span> at <span data-variable="institution" data-tooltip="Your institution">[your university/company]</span> studying/working in <span data-variable="field" data-tooltip="Your field">[your field]</span>.</p>
+                                <p>I've been following your career with great interest, particularly your work on <span data-variable="their-work" data-tooltip="Their notable work">[specific project/research/achievement]</span>. Your approach to <span data-variable="approach" data-tooltip="Their approach">[specific aspect of their work]</span> has been especially inspiring to me as I navigate my own path in this field.</p>
+                                <p>I'm reaching out to inquire if you might be open to serving as a mentor as I <span data-variable="goal" data-tooltip="Your goal">[develop my skills in/transition into/advance my career in]</span> <span data-variable="area" data-tooltip="Specific area">[specific area]</span>. I'm particularly interested in learning more about <span data-variable="learning-interest" data-tooltip="What you want to learn">[specific aspects you want to learn]</span>.</p>
+                                <p>I understand that your time is valuable, and I would be respectful of any boundaries you set. Even a 30-minute conversation once a month would be incredibly beneficial for my professional development.</p>
+                                <p>If mentorship isn't possible at this time, I'd still appreciate any advice or resources you might recommend for someone looking to <span data-variable="objective" data-tooltip="Your objective">[your specific objective]</span>.</p>
+                                <p>Thank you for considering my request. I look forward to the possibility of learning from your experience.</p>
+                                <p>Sincerely,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span><br><span data-variable="contact" data-tooltip="Your contact info">[Your Contact Information]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="mentor-request"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                        
+                        <div class="template-card" data-category="job-search">
+                            <h3>Internship Inquiry</h3>
+                            <div class="template-text">
+                                <p>Dear <span data-variable="name" data-tooltip="Recipient's name">[Name]</span>,</p>
+                                <p>I hope this message finds you well. My name is <span data-variable="your-name" data-tooltip="Your full name">[Your Name]</span>, and I'm a <span data-variable="year" data-tooltip="Your year">[year]</span> <span data-variable="major" data-tooltip="Your major">[major]</span> student at <span data-variable="university" data-tooltip="Your university">[University]</span> with a strong interest in <span data-variable="interest" data-tooltip="Your interest area">[specific field/industry]</span>.</p>
+                                <p>I've been following <span data-variable="company" data-tooltip="Company name">[Company Name]</span> for some time and have been particularly impressed with your <span data-variable="company-achievement" data-tooltip="Company achievement">[recent project/innovation/company culture/commitment to sustainability/etc.]</span>. I'm especially drawn to your company's approach to <span data-variable="company-approach" data-tooltip="Company approach">[specific aspect of their business]</span>.</p>
+                                <p>I'm writing to inquire about potential internship opportunities in your <span data-variable="department" data-tooltip="Department name">[department/team]</span> for the <span data-variable="season" data-tooltip="Internship season">[Summer/Fall/Spring]</span> <span data-variable="year" data-tooltip="Internship year">[Year]</span> period. Through my coursework and <span data-variable="experience" data-tooltip="Your experience">[previous experience/projects/research]</span>, I've developed skills in <span data-variable="skills" data-tooltip="Your skills">[relevant skills]</span> that I believe would allow me to contribute meaningfully to your team.</p>
+                                <p>Some of my relevant experiences include:</p>
+                                <p>• <span data-variable="experience1" data-tooltip="First experience">[First relevant experience/project with measurable outcome]</span><br>
+                                • <span data-variable="experience2" data-tooltip="Second experience">[Second relevant experience/project with measurable outcome]</span><br>
+                                • <span data-variable="experience3" data-tooltip="Third experience">[Third relevant experience/project with measurable outcome]</span></p>
+                                <p>I've attached my resume for your review, which provides more detail about my background and qualifications. I would welcome the opportunity to discuss how my skills and enthusiasm could benefit <span data-variable="company2" data-tooltip="Company name">[Company Name]</span>.</p>
+                                <p>Thank you for considering my inquiry. I look forward to the possibility of contributing to your team.</p>
+                                <p>Sincerely,<br><span data-variable="signature" data-tooltip="Your name">[Your Name]</span><br><span data-variable="contact" data-tooltip="Your contact info">[Your Contact Information]</span></p>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-action-btn" data-action="edit"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="template-action-btn" data-action="save"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <button class="copy-btn" data-template="internship-inquiry"><i class="fas fa-copy"></i> Copy Template</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Networking Challenge Section -->
+            <section class="content-section animate-section" id="networking-challenge">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h2>Networking Challenge</h2>
+                </div>
+                <div class="section-content challenge-content">
+                    <p class="challenge-intro">Complete these weekly networking tasks to build your professional connections systematically. Track your progress below!</p>
+                    
+                    <div class="challenge-tracker" id="challenge-tracker">
+                        <div class="challenge-week">
+                            <h3>Week 1: Foundation</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task1" class="task-checkbox">
+                                    <label for="task1">Optimize your LinkedIn profile</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task2" class="task-checkbox">
+                                    <label for="task2">Connect with 5 classmates</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task3" class="task-checkbox">
+                                    <label for="task3">Follow 3 companies you're interested in</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task4" class="task-checkbox">
+                                    <label for="task4">Join 2 LinkedIn groups related to your field</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 2: Engagement</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task5" class="task-checkbox">
+                                    <label for="task5">Comment on 3 LinkedIn posts</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task6" class="task-checkbox">
+                                    <label for="task6">Share an industry article with your thoughts</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task7" class="task-checkbox">
+                                    <label for="task7">Connect with 3 professors or teaching assistants</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task8" class="task-checkbox">
+                                    <label for="task8">Ask a question in a LinkedIn group</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 3: Reaching Out</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task9" class="task-checkbox">
+                                    <label for="task9">Connect with 3 alumni from your college</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task10" class="task-checkbox">
+                                    <label for="task10">Send a personalized message to a senior in your field</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task11" class="task-checkbox">
+                                    <label for="task11">Attend a virtual networking event</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task12" class="task-checkbox">
+                                    <label for="task12">Follow up with someone you met at an event</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 4: Deepening Connections</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task13" class="task-checkbox">
+                                    <label for="task13">Request an informational interview</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task14" class="task-checkbox">
+                                    <label for="task14">Share a project you're working on</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task15" class="task-checkbox">
+                                    <label for="task15">Congratulate 3 connections on their achievements</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task16" class="task-checkbox">
+                                    <label for="task16">Offer help or resources to someone in your network</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 5: Industry Insights</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task17" class="task-checkbox">
+                                    <label for="task17">Follow 5 industry leaders on LinkedIn</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task18" class="task-checkbox">
+                                    <label for="task18">Join an industry-specific online community</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task19" class="task-checkbox">
+                                    <label for="task19">Read and comment on 3 industry articles</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task20" class="task-checkbox">
+                                    <label for="task20">Subscribe to an industry newsletter</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 6: Digital Presence</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task21" class="task-checkbox">
+                                    <label for="task21">Update your profile photo and banner</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task22" class="task-checkbox">
+                                    <label for="task22">Create or improve your personal website</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task23" class="task-checkbox">
+                                    <label for="task23">Write a LinkedIn article about your field</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task24" class="task-checkbox">
+                                    <label for="task24">Add portfolio items to your profiles</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 7: Mentorship Focus</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task25" class="task-checkbox">
+                                    <label for="task25">Identify 3 potential mentors in your field</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task26" class="task-checkbox">
+                                    <label for="task26">Reach out to a potential mentor</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task27" class="task-checkbox">
+                                    <label for="task27">Offer to mentor someone more junior</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task28" class="task-checkbox">
+                                    <label for="task28">Join a mentorship program</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 8: Professional Development</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task29" class="task-checkbox">
+                                    <label for="task29">Register for a webinar or workshop</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task30" class="task-checkbox">
+                                    <label for="task30">Add a new skill certification to your profile</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task31" class="task-checkbox">
+                                    <label for="task31">Share what you learned from a recent course</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task32" class="task-checkbox">
+                                    <label for="task32">Connect with 3 people from a learning platform</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 9: Expanding Reach</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task33" class="task-checkbox">
+                                    <label for="task33">Connect with 5 people outside your immediate field</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task34" class="task-checkbox">
+                                    <label for="task34">Join a cross-disciplinary discussion group</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task35" class="task-checkbox">
+                                    <label for="task35">Attend a networking event in a related industry</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task36" class="task-checkbox">
+                                    <label for="task36">Follow companies in adjacent industries</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 10: Content Creation</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task37" class="task-checkbox">
+                                    <label for="task37">Create and share an infographic</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task38" class="task-checkbox">
+                                    <label for="task38">Record a short video about a professional topic</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task39" class="task-checkbox">
+                                    <label for="task39">Write a case study about a project you worked on</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task40" class="task-checkbox">
+                                    <label for="task40">Create a resource list to share with your network</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 11: Global Networking</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task41" class="task-checkbox">
+                                    <label for="task41">Connect with 3 professionals from other countries</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task42" class="task-checkbox">
+                                    <label for="task42">Join an international professional group</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task43" class="task-checkbox">
+                                    <label for="task43">Participate in a global virtual event</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task44" class="task-checkbox">
+                                    <label for="task44">Learn about business etiquette in another culture</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week">
+                            <h3>Week 12: Networking Review</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task45" class="task-checkbox">
+                                    <label for="task45">Audit your connections and organize them</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task46" class="task-checkbox">
+                                    <label for="task46">Follow up with 5 valuable connections</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task47" class="task-checkbox">
+                                    <label for="task47">Create a networking strategy for the next quarter</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task48" class="task-checkbox">
+                                    <label for="task48">Reflect on your networking journey and achievements</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-week hidden">
+                            <h3>Week 13: Career Advancement</h3>
+                            <div class="challenge-tasks">
+                                <div class="task-item">
+                                    <input type="checkbox" id="task49" class="task-checkbox">
+                                    <label for="task49">Request 3 recommendations from your network</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task50" class="task-checkbox">
+                                    <label for="task50">Share a career milestone or achievement</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task51" class="task-checkbox">
+                                    <label for="task51">Connect with 2 hiring managers in target companies</label>
+                                </div>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task52" class="task-checkbox">
+                                    <label for="task52">Create a networking-focused resume version</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="challenge-progress">
+                        <h3>Your Progress</h3>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="challenge-progress-bar"></div>
+                            <div class="progress-text" id="challenge-progress-text">0%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="challenge-controls">
+                        <span class="challenge-count"><span id="visible-challenge-count">6</span> of <span id="total-challenge-count">13</span> weeks shown</span>
+                        <div class="challenge-buttons">
+                            <button id="view-more-challenges" class="challenge-control-btn"><i class="fas fa-plus-circle"></i> View More</button>
+                            <button id="view-less-challenges" class="challenge-control-btn" style="display: none;"><i class="fas fa-minus-circle"></i> View Less</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Enhanced Video Resources Section -->
+            <section class="content-section" id="video-resources">
+                <!-- Floating particles for background effect -->
+                <div class="video-particle particle-1"></div>
+                <div class="video-particle particle-2"></div>
+                <div class="video-particle particle-3"></div>
+                
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h2>Video Resources</h2>
+                </div>
+                <div class="section-content challenge-content">
+                    <div class="video-grid" id="video-resources-grid">
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/i3Z8gJYbuTs/hqdefault.jpg" alt="LinkedIn Networking for Students">
+                                <a href="https://www.youtube.com/watch?v=i3Z8gJYbuTs" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">9:38</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>LinkedIn Networking for Students</h3>
+                                <p>Learn how to leverage LinkedIn to build your professional network as a student</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">LinkedIn</span>
+                                    <span class="video-tag">Students</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 24.5K views
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/NA1Zc4fv08c/hqdefault.jpg" alt="Networking for Introverts">
+                                <a href="https://www.youtube.com/watch?v=NA1Zc4fv08c" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">10:42</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Networking Tips for Introverts</h3>
+                                <p>Practical strategies for building connections when networking doesn't come naturally</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Introverts</span>
+                                    <span class="video-tag">Strategies</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 32.1K views
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/Te94djOrxAc/hqdefault.jpg" alt="Virtual Networking Mastery">
+                                <a href="https://www.youtube.com/watch?v=Te94djOrxAc" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">6:33</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Virtual Networking Mastery</h3>
+                                <p>How to build meaningful professional relationships in a digital world</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Virtual</span>
+                                    <span class="video-tag">Digital</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 18.7K views
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/CpBYwDfwTNg/hqdefault.jpg" alt="GitHub for Networking">
+                                <a href="https://www.youtube.com/watch?v=CpBYwDfwTNg" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">19:35</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Git and GitHub for Networking</h3>
+                                <p>How to use GitHub to connect with other developers and showcase your skills</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">GitHub</span>
+                                    <span class="video-tag">Developers</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 15.3K views
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/64_dCPMwF68/hqdefault.jpg" alt="Networking Elevator Pitch">
+                                <a href="https://www.youtube.com/watch?v=64_dCPMwF68" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">3:12</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Networking: Elevator Pitch</h3>
+                                <p>Learn how to create a compelling elevator pitch for networking events and career fairs</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Pitch</span>
+                                    <span class="video-tag">Career</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 42.8K views
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/We36nfJvmkA/hqdefault.jpg" alt="How to Network at Events">
+                                <a href="https://www.youtube.com/watch?v=We36nfJvmkA" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">7:51</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>How to Network at Events</h3>
+                                <p>Networking etiquette tips for professionals to make meaningful connections at events</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Events</span>
+                                    <span class="video-tag">Etiquette</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 28.3K views
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/mKkzG4_Zigc/hqdefault.jpg" alt="Networking for Career Growth">
+                                <a href="https://www.youtube.com/watch?v=mKkzG4_Zigc" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">59:27</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Networking for Career Growth</h3>
+                                <p>Expert insights about the importance of networking and tips for career advancement</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Career</span>
+                                    <span class="video-tag">Growth</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 12.9K views
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/jh_dlIye2Ug/hqdefault.jpg" alt="Networking Etiquette Tips">
+                                <a href="https://www.youtube.com/watch?v=jh_dlIye2Ug" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">5:59</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Networking Etiquette Tips</h3>
+                                <p>Essential networking etiquette tips that all emerging leaders need to master</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Etiquette</span>
+                                    <span class="video-tag">Leadership</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 19.6K views
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional videos that will be hidden by default and shown with View More -->
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/OVf5c7NthSw/hqdefault.jpg" alt="Best Networking Tips">
+                                <a href="https://www.youtube.com/watch?v=OVf5c7NthSw" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">2:45</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Best Networking Tips for Job Seekers</h3>
+                                <p>Learn how to make meaningful connections that can help you land your dream job</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Job Search</span>
+                                    <span class="video-tag">Indeed</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 56.2K views
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/3ic4nx2ITkw/hqdefault.jpg" alt="Networking Through Social Media">
+                                <a href="https://www.youtube.com/watch?v=3ic4nx2ITkw" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">4:18</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Networking Through Social Media</h3>
+                                <p>Discover passive networking strategies through social platforms to expand your professional reach</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Social Media</span>
+                                    <span class="video-tag">Digital</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 22.3K views
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/IS_6aDq1FsI/hqdefault.jpg" alt="Mastering Career Transitions">
+                                <a href="https://www.youtube.com/watch?v=IS_6aDq1FsI" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">13:27</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Mastering Career Transitions</h3>
+                                <p>Unlock the secrets to successful career transitions through effective networking strategies</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Career Change</span>
+                                    <span class="video-tag">Transitions</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 18.9K views
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/gbYK6BjDSVU/hqdefault.jpg" alt="Cross-Cultural Communications">
+                                <a href="https://www.youtube.com/watch?v=gbYK6BjDSVU" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">48:22</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Cross-Cultural Communications</h3>
+                                <p>Expert tips on handling foreign contracts, embracing cultural diversity, and mastering international markets</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">International</span>
+                                    <span class="video-tag">Cultural</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 15.7K views
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/rueMzzRP_tY/hqdefault.jpg" alt="Mastering Cross Cultural Communication">
+                                <a href="https://www.youtube.com/watch?v=rueMzzRP_tY" target="_blank" class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <div class="video-duration">7:21</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Mastering Cross Cultural Communication</h3>
+                                <p>7 essential tips for effective cross-cultural communication in today's global workplace</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Global</span>
+                                    <span class="video-tag">Workplace</span>
+                                </div>
+                                <div class="video-views">
+                                    <i class="fas fa-eye"></i> 31.4K views
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Downloadable Guide Section -->
+            <section class="content-section" id="downloadable-guide">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h2>Downloadable PDF Guide</h2>
+                </div>
+                <div class="section-content challenge-content">
+                    <div class="guide-download-card">
+                        <div class="guide-header">
+                            <h3>Complete Networking Guide for Students</h3>
+                            <p>Download our comprehensive guide with all the tips, templates, and strategies to build your professional network effectively.</p>
+                        </div>
+                        <div class="guide-content">
+                            <div class="guide-info">
+                                <ul class="guide-features">
+                                    <li><i class="fas fa-check"></i> Networking checklist</li>
+                                    <li><i class="fas fa-check"></i> Do's and don'ts cheat sheet</li>
+                                    <li><i class="fas fa-check"></i> Message templates for different scenarios</li>
+                                    <li><i class="fas fa-check"></i> Platform-specific optimization tips</li>
+                                    <li><i class="fas fa-check"></i> Follow-up email templates</li>
+                                    <li><i class="fas fa-check"></i> Industry-specific networking strategies</li>
+                                </ul>
+                                
+                                <div class="guide-format">
+                                    <i class="fas fa-file-pdf"></i> PDF format (4.2 MB)
+                                </div>
+                                
+                                <div class="guide-actions">
+                                    <button id="download-guide-btn" class="download-btn">
+                                        <i class="fas fa-download"></i> Download Guide
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="guide-preview">
+                                <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Networking Guide Preview" class="guide-preview-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 NeuraNex. Developed by Aryan and team. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="networking-tips.js"></script>
+    <script src="video-resources-interactive.js"></script>
+    <script src="video-resources-viewmore.js"></script>
+    <script src="message-templates-viewmore.js"></script>
+    <script>
+        // Animation for stats counting up
+        document.addEventListener('DOMContentLoaded', () => {
+            const statValues = document.querySelectorAll('.hero-stat-value');
+            
+            // Animate stats when they come into view
+            setTimeout(() => {
+                statValues.forEach(value => {
+                    animateValue(value);
+                });
+            }, 500);
+            
+            function animateValue(element) {
+                const value = element.innerText;
+                const hasPlus = value.includes('+');
+                const hasPercent = value.includes('%');
+                let finalValue = parseInt(value.replace(/[^0-9]/g, ''));
+                
+                let startValue = 0;
+                let duration = 1500;
+                let start = null;
+                
+                function step(timestamp) {
+                    if (!start) start = timestamp;
+                    const progress = Math.min((timestamp - start) / duration, 1);
+                    const currentValue = Math.floor(progress * (finalValue - startValue) + startValue);
+                    
+                    let displayValue = currentValue;
+                    if (hasPlus) displayValue += '+';
+                    if (hasPercent) displayValue += '%';
+                    
+                    element.innerText = displayValue;
+                    
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                }
+                
+                window.requestAnimationFrame(step);
+            }
+            
+            // Smooth scrolling for section navigation
+            window.scrollToSection = function(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            };
+            
+            // Reading progress bar
+            const progressBar = document.getElementById('reading-progress');
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                progressBar.style.width = `${progress}%`;
+            });
+            
+            // Profile Optimization Tabs
+            const profileTabs = document.querySelectorAll('.profile-tab-btn');
+            const profileTypes = document.querySelectorAll('.profile-type');
+            
+            profileTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    profileTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Hide all profile types
+                    profileTypes.forEach(type => type.classList.remove('active'));
+                    
+                    // Show the selected profile type
+                    const profileId = tab.getAttribute('data-profile');
+                    document.getElementById(`${profileId}-profile`).classList.add('active');
+                    
+                    // Animate the progress bars
+                    animateProgressBars();
+                });
+            });
+            
+            // Mark as Done functionality
+            const tipActionBtns = document.querySelectorAll('.tip-action-btn');
+            tipActionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tipItem = this.closest('.tip-item');
+                    
+                    if (tipItem.classList.contains('completed')) {
+                        // If already completed, mark as incomplete
+                        tipItem.classList.remove('completed');
+                        this.innerHTML = '<i class="fas fa-check"></i> Mark as Done';
+                    } else {
+                        // Mark as completed
+                        tipItem.classList.add('completed');
+                        this.innerHTML = '<i class="fas fa-undo"></i> Undo';
+                        
+                        // Add completion animation
+                        const confetti = document.createElement('div');
+                        confetti.classList.add('tip-confetti');
+                        tipItem.appendChild(confetti);
+                        
+                        // Remove confetti after animation completes
+                        setTimeout(() => {
+                            confetti.remove();
+                        }, 1500);
+                    }
+                    
+                    // Update progress bars
+                    updateProfileProgress();
+                });
+            });
+            
+            // Function to update profile progress
+            function updateProfileProgress() {
+                const profiles = ['linkedin', 'github', 'portfolio'];
+                
+                profiles.forEach(profile => {
+                    const profileSection = document.getElementById(`${profile}-profile`);
+                    const totalTips = profileSection.querySelectorAll('.tip-item').length;
+                    const completedTips = profileSection.querySelectorAll('.tip-item.completed').length;
+                    
+                    const progressPercentage = totalTips > 0 ? Math.round((completedTips / totalTips) * 100) : 0;
+                    
+                    // Update the profile completion bar
+                    const progressBar = profileSection.querySelector('.completion-progress');
+                    const percentageDisplay = profileSection.querySelector('.completion-percentage');
+                    
+                    // Animate the progress bar
+                    progressBar.style.width = `${progressPercentage}%`;
+                    percentageDisplay.textContent = `${progressPercentage}%`;
+                    
+                    // Update the overall progress section
+                    const overallProgressBar = document.querySelector(`.${profile}-progress`);
+                    const overallPercentage = overallProgressBar.closest('.progress-item').querySelector('.progress-percentage');
+                    
+                    overallProgressBar.style.width = `${progressPercentage}%`;
+                    overallPercentage.textContent = `${progressPercentage}%`;
+                });
+            }
+            
+            // Function to animate progress bars on load
+            function animateProgressBars() {
+                const progressBars = document.querySelectorAll('.completion-progress, .progress-fill');
+                
+                progressBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    
+                    setTimeout(() => {
+                        bar.style.transition = 'width 1s ease-in-out';
+                        bar.style.width = width;
+                    }, 100);
+                });
+            }
+            
+            // Animate sections when they come into view
+            const animateSections = document.querySelectorAll('.animate-on-scroll');
+            
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        sectionObserver.unobserve(entry.target);
+                        
+                        // If it's the profile optimization section, animate progress bars
+                        if (entry.target.id === 'profile-optimization') {
+                            setTimeout(animateProgressBars, 500);
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateSections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+            
+            // Initialize progress bars
+            animateProgressBars();
+            
+            // Message Templates Functionality
+            initMessageTemplates();
+        });
+        
+        // Message Templates Functionality
+        function initMessageTemplates() {
+            // Category Filtering
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const templateCards = document.querySelectorAll('.template-card');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    const category = btn.getAttribute('data-category');
+                    
+                    // Filter templates
+                    templateCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                            // Add staggered animation
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100 * Array.from(templateCards).indexOf(card));
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(15px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Template Search
+            const searchInput = document.getElementById('template-search-input');
+            
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                templateCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const content = card.querySelector('.template-text').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(15px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+            
+            // Copy Template Functionality
+            const copyBtns = document.querySelectorAll('.copy-btn');
+            
+            copyBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const templateText = this.closest('.template-card').querySelector('.template-text').innerText;
+                    
+                    // Create temporary textarea to copy text
+                    const textarea = document.createElement('textarea');
+                    textarea.value = templateText;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    
+                    // Show copied state
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    this.classList.add('copied');
+                    
+                    // Add confetti effect
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('tip-confetti');
+                    this.appendChild(confetti);
+                    
+                    // Reset button after animation
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('copied');
+                        if (confetti) confetti.remove();
+                    }, 2000);
+                });
+            });
+            
+            // Template Variables Highlighting
+            const templateVariables = document.querySelectorAll('[data-variable]');
+            
+            templateVariables.forEach(variable => {
+                variable.addEventListener('click', function() {
+                    // Create selection range
+                    const range = document.createRange();
+                    range.selectNodeContents(this);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                });
+            });
+            
+            // Template Action Buttons
+            const actionBtns = document.querySelectorAll('.template-action-btn');
+            
+            actionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const action = this.getAttribute('data-action');
+                    const templateCard = this.closest('.template-card');
+                    
+                    if (action === 'edit') {
+                        // In a real implementation, this would open an editor
+                        alert('Edit functionality would open a template editor in a real implementation.');
+                    } else if (action === 'save') {
+                        // Toggle saved state
+                        if (this.classList.contains('saved')) {
+                            this.innerHTML = '<i class="fas fa-heart"></i> Save';
+                            this.classList.remove('saved');
+                        } else {
+                            this.innerHTML = '<i class="fas fa-heart"></i> Saved';
+                            this.classList.add('saved');
+                            
+                            // Add save animation
+                            const heart = document.createElement('div');
+                            heart.innerHTML = '<i class="fas fa-heart"></i>';
+                            heart.classList.add('floating-heart');
+                            templateCard.appendChild(heart);
+                            
+                            setTimeout(() => {
+                                heart.remove();
+                            }, 1000);
+                        }
+                    }
+                });
+            });
+            
+            // Animate template cards on scroll
+            const templateSection = document.getElementById('message-templates');
+            const templateObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    templateCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100 * index);
+                    });
+                    templateObserver.unobserve(templateSection);
+                }
+            }, { threshold: 0.1 });
+            
+            templateObserver.observe(templateSection);
+        }
+        
+        // Progress Bar Script
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            if (document.getElementById("readingProgressBar")) {
+                document.getElementById("readingProgressBar").style.width = scrolled + "%";
+            }
+        });
+        
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // The lower the slower
+        
+        // Intersection Observer to start counter when in view
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const updateCount = () => {
+                        const increment = target / speed;
+                        if (count < target) {
+                            count += increment;
+                            counter.innerText = Math.ceil(count);
+                            setTimeout(updateCount, 15);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter); // Only animate once
+                }
+            });
+        }, observerOptions);
+        
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+        
+        // Add ripple effect to buttons
+        document.querySelectorAll('.btn, .tip-action-btn, .profile-tab-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const x = e.clientX - e.target.getBoundingClientRect().left;
+                const y = e.clientY - e.target.getBoundingClientRect().top;
+                
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple-effect');
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+    <!-- Include the enhanced networking challenge interactive script -->
+    <script src="networking-challenge-interactive.js"></script>
+    <script src="downloadable-guide-interactive.js"></script>
+    <script src="direct-challenge-fix.js"></script>
+    
+    <!-- Platform Breakdown Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate platform cards on scroll
+            const platformSection = document.getElementById('platform-breakdown');
+            const platformCards = document.querySelectorAll('.platform-card');
+            
+            // Intersection Observer for platform cards
+            const platformObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    platformCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animated');
+                        }, 150 * index);
+                    });
+                    platformObserver.unobserve(platformSection);
+                }
+            }, { threshold: 0.2 });
+            
+            platformObserver.observe(platformSection);
+            
+            // 3D Tilt effect for platform cards
+            platformCards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const xPercent = x / rect.width - 0.5;
+                    const yPercent = y / rect.height - 0.5;
+                    
+                    const rotateX = yPercent * 10; // Max 10 degrees rotation
+                    const rotateY = xPercent * -10; // Max 10 degrees rotation
+                    
+                    this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    setTimeout(() => {
+                        this.classList.add('animated');
+                    }, 300);
+                });
+            });
+            
+            // Pulse animation for platform icons
+            const platformIcons = document.querySelectorAll('.platform-icon');
+            platformIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.animation = 'pulse 1.5s infinite';
+                });
+                
+                icon.addEventListener('mouseleave', function() {
+                    this.style.animation = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+

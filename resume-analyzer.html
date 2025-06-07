@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analyzer | NeuroNex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resume-builder.css">
+    <link rel="stylesheet" href="resume-template-styles.css">
+    <link rel="stylesheet" href="resume-analyzer-animations.css">
+    <link rel="stylesheet" href="analysis-sections-enhanced.css">
+    <link rel="stylesheet" href="progress-tracker-image-match.css">
+    <link rel="stylesheet" href="section-heading-fix.css">
+    <link rel="stylesheet" href="enhanced-buttons.css">
+    <link rel="stylesheet" href="score-circle-fix.css">
+    <link rel="stylesheet" href="resume-preview-enhanced.css">
+    <link rel="stylesheet" href="logo-fix.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-graduation-cap"></i> NeuraNex – Powered by Saarthi</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="brainbox.html" class="nav-link"><i class="fas fa-brain"></i> BrainBox</a>
+            <a href="skillsync.html" class="nav-link"><i class="fas fa-users"></i> SkillSync</a>
+            <a href="techverse.html" class="nav-link"><i class="fas fa-laptop-code"></i> TechVerse</a>
+            <a href="launchpad.html" class="nav-link active"><i class="fas fa-rocket"></i> LaunchPad</a>
+        </nav>
+        <div>
+            <span id="loggedInUserName" class="user-name-display"></span>
+            <button id="settings-button" class="circle-btn settings-btn" aria-label="Settings"><i class="fas fa-cog"></i></button>
+        </div>
+    </header>
+
+    <main class="resume-builder-container">
+        <div class="resume-header">
+            <div class="particles-container"></div>
+            <h1><span class="highlight-text">AI-Powered</span> Resume Analyzer</h1>
+            <p>Analyze and improve your existing resume to make it more effective, ATS-friendly, and tailored to your target roles</p>
+            <!-- Buttons removed as requested -->
+            <div class="floating-elements">
+                <div class="floating-element" style="left: 10%; top: 20%;"><i class="fas fa-file-alt"></i></div>
+                <div class="floating-element" style="right: 15%; top: 30%;"><i class="fas fa-chart-line"></i></div>
+                <div class="floating-element" style="left: 20%; bottom: 25%;"><i class="fas fa-check-circle"></i></div>
+                <div class="floating-element" style="right: 20%; bottom: 15%;"><i class="fas fa-star"></i></div>
+            </div>
+            <!-- Hidden file input for resume upload -->
+            <input type="file" id="resume-file" class="hidden" accept=".pdf,.doc,.docx,.txt,.rtf" style="display: none;">
+        </div>
+
+        <div class="progress-tracker">
+            <div class="progress-steps step-1">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-indicator">1</div>
+                    <div class="step-label">Upload Resume</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-indicator">2</div>
+                    <div class="step-label">ATS Analysis</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-indicator">3</div>
+                    <div class="step-label">Content Review</div>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-indicator">4</div>
+                    <div class="step-label">Improvement Suggestions</div>
+                </div>
+                <div class="progress-step" data-step="5">
+                    <div class="step-indicator">5</div>
+                    <div class="step-label">Download Enhanced Resume</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="resume-content resume-analyzer-content">
+            <div class="resume-sidebar">
+                <div class="template-selector">
+                    <h3>Analysis Focus</h3>
+                    <div class="template-options">
+                        <div class="template-option active" data-template="ats">
+                            <div class="template-preview professional">
+                                <div class="template-preview-content"></div>
+                            </div>
+                            <span>ATS Compatibility</span>
+                            <div class="template-badge">Most Important</div>
+                        </div>
+                        <div class="template-option" data-template="content">
+                            <div class="template-preview modern">
+                                <div class="template-preview-content"></div>
+                            </div>
+                            <span>Content Quality</span>
+                            <div class="template-badge">Recommended</div>
+                        </div>
+                        <div class="template-option" data-template="keywords">
+                            <div class="template-preview creative">
+                                <div class="template-preview-content"></div>
+                            </div>
+                            <span>Keyword Optimization</span>
+                            <div class="template-badge">Job-Specific</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sections-navigator">
+                    <h3>ANALYSIS SECTIONS</h3>
+                    <ul>
+                        <li class="active completed" data-section="upload"><i class="fas fa-upload"></i> Upload Resume</li>
+                        <li data-section="ats-score"><i class="fas fa-robot"></i> ATS Score</li>
+                        <li data-section="content-analysis"><i class="fas fa-file-alt"></i> Content Analysis</li>
+                        <li data-section="keyword-analysis"><i class="fas fa-key"></i> Keyword Analysis</li>
+                        <li data-section="format-analysis"><i class="fas fa-paint-brush"></i> Format Analysis</li>
+                        <li data-section="suggestions"><i class="fas fa-lightbulb"></i> Improvement Suggestions</li>
+                    </ul>
+                    <div class="analysis-progress">
+                        <div class="analysis-progress-bar" style="width: 16%;"></div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="upload-resume-sidebar-btn" class="juno-button primary"><i class="fas fa-upload"></i> Upload Resume</button>
+                    <button id="job-description-btn" class="juno-button secondary"><i class="fas fa-briefcase"></i> Add Job Description</button>
+                    <button id="ai-suggestions-btn" class="juno-button secondary"><i class="fas fa-robot"></i> AI Suggestions</button>
+                </div>
+            </div>
+
+            <div class="resume-editor">
+                <!-- Upload Section -->
+                <div class="section-container" id="upload-section">
+                    <h2><i class="fas fa-file-upload"></i> Upload Your Resume</h2>
+                    <div class="form-card enhanced-upload-card">
+                        <div class="upload-area enhanced-upload-area">
+                            <div class="upload-icon-container">
+                                <i class="fas fa-cloud-upload-alt pulse-animation"></i>
+                            </div>
+                            <h3 class="upload-title">Drag & drop your resume file here</h3>
+                            <div class="upload-actions">
+                                <label for="resume-file" class="juno-button primary upload-button">
+                                    <i class="fas fa-file-import"></i> Select File
+                                </label>
+                                <input type="file" id="resume-file" accept=".pdf,.doc,.docx,.txt" style="display:none;">
+                            </div>
+                            <div class="upload-info">
+                                <div class="supported-formats">
+                                    <span class="format-label">Supported formats:</span>
+                                    <span class="format-badge">PDF</span>
+                                    <span class="format-badge">DOC</span>
+                                    <span class="format-badge">DOCX</span>
+                                    <span class="format-badge">TXT</span>
+                                </div>
+                                <div id="upload-status" class="upload-status"></div>
+                            </div>
+                        </div>
+                        <div class="or-divider enhanced-divider">
+                            <div class="divider-line"></div>
+                            <span>OR</span>
+                            <div class="divider-line"></div>
+                        </div>
+                        <div class="paste-resume enhanced-paste-area">
+                            <h3 class="paste-title"><i class="fas fa-paste"></i> Paste Resume Text</h3>
+                            <div class="paste-container">
+                                <textarea id="resume-text" rows="10" placeholder="Copy and paste your resume text here..."></textarea>
+                                <button id="clear-text-btn" class="clear-text-btn" title="Clear text">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="resume-tips">
+                                <h4><i class="fas fa-lightbulb"></i> Resume Tips</h4>
+                                <ul class="tips-list">
+                                    <li><i class="fas fa-check-circle"></i> Include relevant keywords from the job description</li>
+                                    <li><i class="fas fa-check-circle"></i> Use action verbs to describe your accomplishments</li>
+                                    <li><i class="fas fa-check-circle"></i> Quantify your achievements with numbers when possible</li>
+                                </ul>
+                            </div>
+                            <button id="analyze-text-btn" class="juno-button primary full-width-btn">
+                                <i class="fas fa-search"></i> Analyze Pasted Text
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ATS Score Section (Initially Hidden) -->
+                <div class="section-container hidden" id="ats-score-section">
+                    <h2><i class="fas fa-robot"></i> ATS Compatibility Score</h2>
+                    <div class="analysis-overview">
+                        <div class="score-card">
+                            <div class="score-circle">
+                                <svg viewBox="0 0 36 36">
+                                    <defs>
+                                        <linearGradient id="score-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#6c2fff" />
+                                            <stop offset="100%" stop-color="#8a4fff" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="score-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="score-fill" stroke-dasharray="65, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <text x="18" y="20.35" class="score-text">65%</text>
+                                </svg>
+                            </div>
+                            <h3>ATS Score</h3>
+                            <p>Your resume needs improvement to pass ATS systems</p>
+                        </div>
+                        <div class="analysis-metrics">
+                            <div class="metric">
+                                <h4>Format Compatibility</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 80%"></div>
+                                </div>
+                                <span class="metric-value">80%</span>
+                            </div>
+                            <div class="metric">
+                                <h4>Keyword Relevance</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 60%"></div>
+                                </div>
+                                <span class="metric-value">60%</span>
+                            </div>
+                            <div class="metric">
+                                <h4>Section Organization</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 70%"></div>
+                                </div>
+                                <span class="metric-value">70%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ats-issues">
+                        <h3>Critical ATS Issues</h3>
+                        <ul class="issues-list">
+                            <li class="issue-item">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <div class="issue-content">
+                                    <h4>Missing Keywords</h4>
+                                    <p>Your resume is missing key terms that ATS systems look for in your industry.</p>
+                                </div>
+                            </li>
+                            <li class="issue-item">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <div class="issue-content">
+                                    <h4>Complex Formatting</h4>
+                                    <p>Some formatting elements may not be properly parsed by ATS systems.</p>
+                                </div>
+                            </li>
+                            <li class="issue-item">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <div class="issue-content">
+                                    <h4>Inconsistent Section Headers</h4>
+                                    <p>Standard section headers like "Experience" and "Education" should be clearly defined.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Content Analysis Section (Initially Hidden) -->
+                <div class="section-container hidden" id="content-analysis-section">
+                    <h2><i class="fas fa-file-alt"></i> Content Analysis</h2>
+                    <div class="content-analysis">
+                        <div class="analysis-card">
+                            <h3>Professional Summary</h3>
+                            <div class="content-score">
+                                <div class="score-badge medium">Medium</div>
+                                <p>Your professional summary is generic and could be more targeted to specific roles.</p>
+                            </div>
+                            <div class="content-recommendations">
+                                <h4>Recommendations:</h4>
+                                <ul>
+                                    <li>Include specific achievements and skills relevant to your target role</li>
+                                    <li>Keep it concise (3-5 sentences) but impactful</li>
+                                    <li>Highlight your unique value proposition</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="analysis-card">
+                            <h3>Work Experience</h3>
+                            <div class="content-score">
+                                <div class="score-badge low">Needs Improvement</div>
+                                <p>Your experience descriptions lack quantifiable achievements and specific results.</p>
+                            </div>
+                            <div class="content-recommendations">
+                                <h4>Recommendations:</h4>
+                                <ul>
+                                    <li>Add metrics and numbers to demonstrate impact (e.g., "increased sales by 20%")</li>
+                                    <li>Focus on achievements rather than responsibilities</li>
+                                    <li>Use strong action verbs to begin each bullet point</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="analysis-card">
+                            <h3>Education</h3>
+                            <div class="content-score">
+                                <div class="score-badge high">Good</div>
+                                <p>Your education section is well-structured and contains all necessary information.</p>
+                            </div>
+                            <div class="content-recommendations">
+                                <h4>Recommendations:</h4>
+                                <ul>
+                                    <li>Consider adding relevant coursework if you're a recent graduate</li>
+                                    <li>Include academic achievements if applicable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keyword Analysis Section (Initially Hidden) -->
+                <div class="section-container hidden" id="keyword-analysis-section">
+                    <h2><i class="fas fa-key"></i> Keyword Analysis</h2>
+                    <div class="keyword-analysis-content">
+                        <p class="keyword-intro">We've analyzed your resume against common industry keywords. Adding these keywords can help your resume pass ATS systems and catch recruiters' attention.</p>
+                        
+                        <div class="job-match-section">
+                            <h3>Job Match Score</h3>
+                            <p>Upload a job description to get a personalized keyword match score.</p>
+                            <button id="add-job-desc-btn" class="juno-button secondary"><i class="fas fa-plus-circle"></i> Add Job Description</button>
+                        </div>
+                        
+                        <div class="keyword-categories">
+                            <div class="keyword-category">
+                                <h3>Technical Skills</h3>
+                                <div class="keyword-tags">
+                                    <span class="keyword-tag missing">Python</span>
+                                    <span class="keyword-tag present">JavaScript</span>
+                                    <span class="keyword-tag missing">React</span>
+                                    <span class="keyword-tag present">HTML/CSS</span>
+                                    <span class="keyword-tag missing">SQL</span>
+                                    <span class="keyword-tag missing">AWS</span>
+                                </div>
+                            </div>
+                            
+                            <div class="keyword-category">
+                                <h3>Soft Skills</h3>
+                                <div class="keyword-tags">
+                                    <span class="keyword-tag present">Communication</span>
+                                    <span class="keyword-tag present">Teamwork</span>
+                                    <span class="keyword-tag missing">Leadership</span>
+                                    <span class="keyword-tag missing">Problem-solving</span>
+                                    <span class="keyword-tag present">Time management</span>
+                                </div>
+                            </div>
+                            
+                            <div class="keyword-category">
+                                <h3>Industry-Specific</h3>
+                                <div class="keyword-tags">
+                                    <span class="keyword-tag missing">Agile methodology</span>
+                                    <span class="keyword-tag missing">Project management</span>
+                                    <span class="keyword-tag present">Data analysis</span>
+                                    <span class="keyword-tag missing">UX/UI design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Format Analysis Section (Initially Hidden) -->
+                <div class="section-container hidden" id="format-analysis-section">
+                    <h2><i class="fas fa-paint-brush"></i> Format Analysis</h2>
+                    <div class="format-analysis-content">
+                        <div class="format-overview">
+                            <h3>Format Overview</h3>
+                            <p>Your resume format is generally good, but there are some areas for improvement to enhance readability and ATS compatibility.</p>
+                        </div>
+                        
+                        <div class="format-issues">
+                            <div class="format-issue">
+                                <div class="issue-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="issue-details">
+                                    <h4>Complex Tables</h4>
+                                    <p>Tables can confuse ATS systems. Consider using a simpler format with clear section headings.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="format-issue">
+                                <div class="issue-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="issue-details">
+                                    <h4>Inconsistent Spacing</h4>
+                                    <p>Maintain consistent spacing between sections for better readability.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="format-issue">
+                                <div class="issue-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="issue-details">
+                                    <h4>Good Font Choice</h4>
+                                    <p>Your font selection is professional and easy to read.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="format-issue">
+                                <div class="issue-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="issue-details">
+                                    <h4>Headers in Graphics</h4>
+                                    <p>Text in graphics cannot be read by ATS systems. Use plain text for all important information.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggestions Section (Initially Hidden) -->
+                <div class="section-container hidden" id="suggestions-section">
+                    <h2><i class="fas fa-lightbulb"></i> Improvement Suggestions</h2>
+                    <div class="suggestions-list">
+                        <div class="suggestion-item">
+                            <div class="suggestion-header">
+                                <h3><i class="fas fa-exclamation-circle"></i> Add more quantifiable achievements</h3>
+                                <span class="priority high">High Priority</span>
+                            </div>
+                            <p>Your experience section would be stronger with more measurable results. Try to include metrics, percentages, or specific outcomes.</p>
+                            <div class="suggestion-examples">
+                                <h4>Examples:</h4>
+                                <ul>
+                                    <li>"Increased team productivity by 25% through implementation of new workflow processes"</li>
+                                    <li>"Reduced customer complaint rate from 8% to 3% within six months"</li>
+                                </ul>
+                            </div>
+                            <button class="apply-suggestion">Apply This Suggestion</button>
+                        </div>
+                        
+                        <div class="suggestion-item">
+                            <div class="suggestion-header">
+                                <h3><i class="fas fa-exclamation-triangle"></i> Improve professional summary</h3>
+                                <span class="priority medium">Medium Priority</span>
+                            </div>
+                            <p>Your professional summary is too generic. Tailor it to highlight your most relevant skills and experiences for the target role.</p>
+                            <div class="suggestion-examples">
+                                <h4>Example:</h4>
+                                <p>"Results-driven software developer with 3+ years of experience building responsive web applications. Proficient in JavaScript, React, and Node.js with a track record of delivering projects on time and exceeding client expectations."</p>
+                            </div>
+                            <button class="apply-suggestion">Apply This Suggestion</button>
+                        </div>
+                        
+                        <div class="suggestion-item">
+                            <div class="suggestion-header">
+                                <h3><i class="fas fa-info-circle"></i> Add relevant keywords</h3>
+                                <span class="priority high">High Priority</span>
+                            </div>
+                            <p>Your resume is missing key terms that ATS systems and recruiters look for. Add these keywords in relevant sections.</p>
+                            <div class="suggestion-examples">
+                                <h4>Keywords to add:</h4>
+                                <div class="keyword-tags">
+                                    <span class="keyword-tag">Python</span>
+                                    <span class="keyword-tag">React</span>
+                                    <span class="keyword-tag">SQL</span>
+                                    <span class="keyword-tag">AWS</span>
+                                    <span class="keyword-tag">Leadership</span>
+                                </div>
+                            </div>
+                            <button class="apply-suggestion">Apply This Suggestion</button>
+                        </div>
+                        
+                        <div class="suggestion-item">
+                            <div class="suggestion-header">
+                                <h3><i class="fas fa-exclamation-triangle"></i> Simplify resume format</h3>
+                                <span class="priority medium">Medium Priority</span>
+                            </div>
+                            <p>Complex formatting can confuse ATS systems. Simplify your resume layout for better compatibility.</p>
+                            <div class="suggestion-examples">
+                                <h4>Recommendations:</h4>
+                                <ul>
+                                    <li>Replace tables with simple bullet points</li>
+                                    <li>Use standard section headings (Experience, Education, Skills)</li>
+                                    <li>Avoid text in headers, footers, or graphics</li>
+                                </ul>
+                            </div>
+                            <button class="apply-suggestion">Apply This Suggestion</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-preview enhanced-preview">
+                <div class="preview-header enhanced-preview-header">
+                    <h3><i class="fas fa-eye"></i> Resume Preview</h3>
+                    <div class="preview-controls enhanced-preview-controls">
+                        <button id="enhanced-status-btn" class="preview-btn enhanced-status active">
+                            <i class="fas fa-circle"></i> ENHANCED
+                        </button>
+                        <button id="original-btn" class="preview-btn">
+                            <i class="fas fa-file-alt"></i> Original
+                        </button>
+                        <button id="enhanced-btn" class="preview-btn">
+                            <i class="fas fa-star"></i> Enhanced
+                        </button>
+                        <button id="fullscreen-preview-btn" class="preview-btn" title="Toggle fullscreen">
+                            <i class="fas fa-expand-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="preview-tabs">
+                    <div class="preview-tab active" data-tab="document">Document</div>
+                    <div class="preview-tab" data-tab="comparison">Before & After</div>
+                    <div class="preview-tab" data-tab="changes">Changes</div>
+                </div>
+                
+                <div class="resume-document enhanced-document">
+                    <!-- Preview content will be inserted here -->
+                    <div class="preview-mode-indicator">Original View</div>
+                    
+                    <!-- Empty state (shown when no resume is uploaded) -->
+                    <div class="empty-preview">
+                        <i class="fas fa-file-upload"></i>
+                        <p>Upload or paste your resume to see a preview here</p>
+                    </div>
+                    
+                    <!-- Loading state (shown when processing) -->
+                    <div class="preview-loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Preparing your resume preview...</p>
+                    </div>
+                </div>
+                
+                <!-- Zoom controls -->
+                <div class="zoom-controls">
+                    <button class="zoom-btn" id="zoom-out-btn"><i class="fas fa-search-minus"></i></button>
+                    <span class="zoom-level">100%</span>
+                    <button class="zoom-btn" id="zoom-in-btn"><i class="fas fa-search-plus"></i></button>
+                </div>
+                
+                <!-- Enhanced watermark -->
+                <div class="enhanced-watermark" style="display: none;">Enhanced with AI</div>
+            </div>
+            
+            <!-- Separate container for preview actions -->
+            <div class="preview-buttons-container">
+                <button id="download-preview-btn" class="action-button download-button" onclick="downloadEnhancedResume()">
+                    <i class="fas fa-download"></i> Download
+                </button>
+                <button id="share-preview-btn" class="action-button share-button" onclick="showShareModal()">
+                    <i class="fas fa-share-alt"></i> Share
+                </button>
+            </div>
+            </div>
+        </div>
+        
+        <div class="resume-actions">
+            <div class="resume-action-buttons">
+                <button id="prev-step-btn" class="juno-button secondary"><i class="fas fa-arrow-left"></i> Previous Step</button>
+                <button id="next-step-btn" class="juno-button primary">Next Step <i class="fas fa-arrow-right"></i></button>
+                <button id="download-btn" class="juno-button primary hidden"><i class="fas fa-download"></i> Download Enhanced Resume</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 NeuraNex. Developed by Aryan and team. All rights reserved.</p>
+    </footer>
+
+    <style>
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Loading indicator styles */
+        .loading-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s linear infinite;
+            margin-bottom: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Success message styles */
+        .success-message {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(39, 174, 96, 0.1);
+            border-radius: 8px;
+            color: #27ae60;
+        }
+        
+        .success-message i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        /* Preview indicator styles */
+        .preview-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .preview-indicator.original {
+            background-color: rgba(47, 128, 237, 0.1);
+            color: #2f80ed;
+        }
+        
+        .preview-indicator.enhanced {
+            background-color: rgba(39, 174, 96, 0.1);
+            color: #27ae60;
+        }
+        
+        /* Drag over styles */
+        .upload-area.drag-over {
+            background-color: rgba(108, 47, 255, 0.05);
+            border-color: var(--primary-color);
+        }
+        
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            max-width: 400px;
+            animation: slideIn 0.3s ease-out forwards;
+        }
+        
+        .notification-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .notification-content i {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        
+        .notification-close {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 15px;
+        }
+        
+        .notification.fade-out {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
+    <script src="resume-ai-analyzer.js"></script>
+    <script src="resume-analyzer.js"></script>
+    <script src="resume-analyzer-animations.js"></script>
+    <script src="button-fix.js"></script>
+    <script src="progress-tracker-enhanced.js"></script>
+</body>
+</html>
+
+

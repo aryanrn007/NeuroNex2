@@ -1,0 +1,527 @@
+/* Sint Theme - Inspired by sint.gg */
+:root.sint-theme {
+    /* Sint Theme Variables */
+    --primary-color: #6e00ff;
+    --secondary-color: #00c2ff;
+    --accent-color: #ff00e5;
+    --text-color: #ffffff;
+    --text-secondary: #a0a0ff;
+    --bg-color: #050510;
+    --card-bg: #0a0a20;
+    --card-shadow: 0 8px 32px rgba(110, 0, 255, 0.3);
+    --card-hover-shadow: 0 12px 48px rgba(110, 0, 255, 0.5);
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+    --input-border-color: #2a2a4a;
+    --label-color: #8a8aff;
+    --success-color: #00ff9d;
+    --warning-color: #ffcc00;
+    --danger-color: #ff3366;
+    --info-color: #00c2ff;
+
+    /* Chatbot specific for Sint Theme */
+    --bot-message-bg: #1a1a30;
+    --user-message-bg: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    --bot-message-text: #e0e0ff;
+    --user-message-text: #fff;
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(10, 10, 32, 0.7);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-blur: 10px;
+    
+    /* Neon effects */
+    --neon-glow: 0 0 10px rgba(110, 0, 255, 0.5), 0 0 20px rgba(0, 194, 255, 0.3);
+    --neon-text-shadow: 0 0 5px rgba(110, 0, 255, 0.7), 0 0 10px rgba(0, 194, 255, 0.5);
+}
+
+/* Base styles for Sint theme */
+:root.sint-theme body {
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(110, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(0, 194, 255, 0.1) 0%, transparent 50%);
+    color: var(--text-color);
+}
+
+/* Header styles for Sint theme */
+:root.sint-theme header {
+    background: linear-gradient(90deg, rgba(10, 10, 32, 0.9), rgba(20, 20, 50, 0.9));
+    border-bottom: 1px solid rgba(110, 0, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+:root.sint-theme header h1 {
+    color: var(--text-color);
+    text-shadow: var(--neon-text-shadow);
+}
+
+:root.sint-theme .nav-link {
+    background: transparent;
+    color: var(--text-secondary) !important;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+:root.sint-theme .nav-link:hover,
+:root.sint-theme .nav-link.active {
+    background: rgba(110, 0, 255, 0.2);
+    border: 1px solid rgba(110, 0, 255, 0.5);
+    color: var(--text-color) !important;
+    box-shadow: var(--neon-glow);
+    transform: translateY(-2px);
+}
+
+:root.sint-theme .nav-link::after {
+    background: var(--accent-color);
+}
+
+/* Card styles for Sint theme */
+:root.sint-theme .glassmorphic,
+:root.sint-theme .student-card,
+:root.sint-theme .ai-chatbot-section,
+:root.sint-theme .profile-card,
+:root.sint-theme .modal-content {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--card-shadow);
+}
+
+:root.sint-theme .student-card:hover,
+:root.sint-theme .profile-card:hover {
+    box-shadow: var(--card-hover-shadow);
+    transform: translateY(-5px);
+}
+
+/* Button styles for Sint theme */
+:root.sint-theme .juno-button,
+:root.sint-theme .theme-option {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Make button text black in Sint mode for SkillSync tab */
+:root.sint-theme .skillsync-main-container .juno-button,
+:root.sint-theme .skillsync-section .juno-button,
+:root.sint-theme #apply-filters-btn,
+:root.sint-theme #post-requirement-form .juno-button,
+:root.sint-theme .modal-contact-actions .juno-button {
+    color: black;
+    font-weight: 600;
+}
+
+:root.sint-theme .juno-button::before,
+:root.sint-theme .theme-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+:root.sint-theme .juno-button:hover::before,
+:root.sint-theme .theme-option:hover::before {
+    left: 0;
+}
+
+:root.sint-theme .juno-button:hover,
+:root.sint-theme .theme-option:hover {
+    box-shadow: var(--neon-glow);
+    transform: translateY(-3px);
+}
+
+/* Input styles for Sint theme */
+:root.sint-theme input,
+:root.sint-theme select,
+:root.sint-theme textarea {
+    background: rgba(10, 10, 32, 0.5);
+    border: 1px solid var(--input-border-color);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+}
+
+:root.sint-theme input:focus,
+:root.sint-theme select:focus,
+:root.sint-theme textarea:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(0, 194, 255, 0.2);
+}
+
+/* Settings panel for Sint theme */
+:root.sint-theme .settings-panel {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+:root.sint-theme .settings-content {
+    background: var(--card-bg);
+    border: 1px solid rgba(110, 0, 255, 0.2);
+}
+
+:root.sint-theme .settings-header {
+    border-bottom: 1px solid rgba(110, 0, 255, 0.2);
+}
+
+/* Chatbot styles for Sint theme */
+:root.sint-theme .chatbot-topbar {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+:root.sint-theme .chat-window {
+    background: rgba(10, 10, 32, 0.3);
+}
+
+:root.sint-theme .bot-message {
+    background: var(--bot-message-bg);
+    color: var(--bot-message-text);
+    border: 1px solid rgba(110, 0, 255, 0.2);
+}
+
+:root.sint-theme .user-message {
+    background: var(--user-message-bg);
+    color: var(--user-message-text);
+}
+
+:root.sint-theme .chat-input-area {
+    background: rgba(10, 10, 32, 0.5);
+    border-top: 1px solid rgba(110, 0, 255, 0.2);
+}
+
+:root.sint-theme #chat-input {
+    background: rgba(20, 20, 40, 0.7);
+    border: 1px solid rgba(110, 0, 255, 0.3);
+    color: var(--text-color);
+}
+
+:root.sint-theme .glow-btn {
+    background: var(--accent-color);
+    box-shadow: 0 0 10px rgba(255, 0, 229, 0.5);
+}
+
+:root.sint-theme .glow-btn:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 229, 0.8);
+}
+
+/* SkillSync specific styles for Sint theme */
+:root.sint-theme .skillsync-hero {
+    background: linear-gradient(135deg, rgba(10, 10, 32, 0.9), rgba(20, 20, 50, 0.9));
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--card-shadow);
+}
+
+:root.sint-theme .skillsync-section {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+:root.sint-theme .tag {
+    background: rgba(110, 0, 255, 0.2);
+    border: 1px solid rgba(110, 0, 255, 0.4);
+    color: var(--text-color);
+}
+
+/* TechVerse specific styles for Sint theme */
+:root.sint-theme .tech-events-banner {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--card-shadow);
+}
+
+/* Promotional Panels in Sint Theme */
+:root.sint-theme .promo-panels {
+    gap: 2.5rem;
+}
+
+:root.sint-theme .promo-panel {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+:root.sint-theme .promo-panel:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+:root.sint-theme .promo-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    z-index: 3;
+}
+
+:root.sint-theme .promo-panel h2 {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+:root.sint-theme .promo-panel p {
+    color: var(--text-secondary);
+}
+
+:root.sint-theme .promo-panel .highlight {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: var(--neon-text-shadow);
+}
+
+:root.sint-theme .connect-now-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: black;
+    font-weight: 600;
+    box-shadow: var(--neon-glow);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+:root.sint-theme .connect-now-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+:root.sint-theme .connect-now-btn:hover::before {
+    left: 0;
+}
+
+:root.sint-theme .connect-now-btn:hover {
+    box-shadow: var(--neon-glow);
+    transform: translateY(-3px);
+}
+
+:root.sint-theme .tech-events-banner-content h2 {
+    color: var(--text-color);
+    text-shadow: var(--neon-text-shadow);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+:root.sint-theme .tech-events-banner-content p {
+    color: var(--text-secondary);
+}
+
+:root.sint-theme .explore-events-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: black;
+    font-weight: 600;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: var(--neon-glow);
+}
+
+:root.sint-theme .explore-events-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+:root.sint-theme .explore-events-btn:hover::before {
+    left: 0;
+}
+
+:root.sint-theme .explore-events-btn:hover {
+    box-shadow: var(--neon-glow);
+    transform: translateY(-3px);
+}
+
+:root.sint-theme .tech-events-banner::before {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    height: 3px;
+}
+
+:root.sint-theme .tech-events-banner::after {
+    background: radial-gradient(circle, rgba(110, 0, 255, 0.2), transparent 70%);
+}
+
+/* Event Cards in Sint Theme */
+:root.sint-theme .event-card {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--card-shadow);
+}
+
+:root.sint-theme .event-card::before {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    opacity: 0.5;
+}
+
+:root.sint-theme .event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+:root.sint-theme .event-card:hover::before {
+    opacity: 1;
+}
+
+:root.sint-theme .event-card-header h3 {
+    color: var(--text-color);
+}
+
+:root.sint-theme .event-card:hover .event-card-header h3 {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: var(--neon-text-shadow);
+}
+
+:root.sint-theme .event-meta-item {
+    color: var(--text-secondary);
+}
+
+:root.sint-theme .event-meta-item i {
+    color: var(--secondary-color);
+}
+
+:root.sint-theme .event-card-content p {
+    color: var(--text-secondary);
+}
+
+:root.sint-theme .event-meta::after {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+}
+
+:root.sint-theme .view-details-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: black;
+    font-weight: 600;
+    box-shadow: var(--neon-glow);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+:root.sint-theme .view-details-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    transform: none;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+:root.sint-theme .view-details-btn:hover::before {
+    left: 0;
+    transform: none;
+}
+
+:root.sint-theme .view-details-btn:hover {
+    box-shadow: var(--neon-glow);
+    transform: translateY(-3px);
+}
+
+:root.sint-theme .view-details-btn i {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+:root.sint-theme .bookmark-btn {
+    color: var(--text-secondary);
+}
+
+:root.sint-theme .bookmark-btn:hover, 
+:root.sint-theme .bookmark-btn.active {
+    color: var(--accent-color);
+}
+
+/* Event type badges in Sint theme */
+:root.sint-theme .event-type {
+    background-color: rgba(10, 10, 32, 0.7) !important;
+    border: 1px solid rgba(110, 0, 255, 0.3);
+    color: var(--text-color) !important;
+    box-shadow: var(--neon-glow);
+}
+
+/* Robot container removed */
+
+/* For larger screens */
+@media (min-width: 768px) {
+    .robot-container {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+:root.sint-theme .floating-element {
+    animation: float 3s ease-in-out infinite;
+}
+
+:root.sint-theme .pulsing-element {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Hide scrollbar for Sint theme while allowing scrolling */
+:root.sint-theme {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+:root.sint-theme ::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+    width: 0;
+    height: 0;
+}

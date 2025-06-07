@@ -1,0 +1,95 @@
+/* Styling for the search bar and upload button in BrainBox */
+
+/* Search container styling */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+/* Search bar styling */
+#search-bar {
+    padding: 12px 15px 12px 40px; /* Left padding for the background image icon */
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    width: 100%;
+    background-color: #f5f5f8;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Using the existing background image from brainbox.css */
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    background-size: 20px;
+}
+
+#search-bar:focus {
+    outline: none;
+    border-color: #6a11cb;
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+    transform: translateY(-2px);
+}
+
+#search-bar::placeholder {
+    color: #999;
+    opacity: 0.7;
+}
+
+/* Dark mode styling */
+.dark-mode #search-bar {
+    background-color: #2a2a40;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+.dark-mode #search-bar::placeholder {
+    color: #aaa;
+}
+
+/* No longer needed as we're using the background image icon */
+
+/* Sint theme styling - make text and icon black */
+:root.sint-theme #search-bar {
+    background-color: #f5f5f8;
+    color: #000;
+    border-color: rgba(110, 0, 255, 0.3);
+    box-shadow: 0 2px 5px rgba(110, 0, 255, 0.1);
+}
+
+:root.sint-theme #search-bar::placeholder {
+    color: #000;
+    opacity: 0.6;
+}
+
+/* Sint theme styling for search icon - modifying background image */
+:root.sint-theme #search-bar {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23000000' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E") !important;
+}
+
+:root.sint-theme #search-bar:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 0 3px rgba(110, 0, 255, 0.2);
+}
+
+/* Upload button styling */
+:root.sint-theme #upload-btn-sim {
+    background: #f5f5f8;
+    color: #000;
+    border: 1px solid rgba(110, 0, 255, 0.3);
+    box-shadow: 0 2px 5px rgba(110, 0, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+:root.sint-theme #upload-btn-sim i {
+    color: #000;
+    margin-right: 5px;
+}
+
+:root.sint-theme #upload-btn-sim:hover {
+    background: #e8e8f0;
+    box-shadow: 0 4px 8px rgba(110, 0, 255, 0.2);
+    transform: translateY(-2px);
+}

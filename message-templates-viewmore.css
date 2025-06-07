@@ -1,0 +1,99 @@
+/* Message Templates View More/Less Button Styling */
+.template-container .view-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.template-container .view-more-btn {
+  background: linear-gradient(135deg, #6c63ff, #8a84ff);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.template-container .view-more-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+}
+
+.template-container .view-more-btn:active {
+  transform: translateY(0);
+}
+
+.template-container .view-more-btn i {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.template-container .view-more-btn:hover i.view-more-icon {
+  transform: translateY(3px);
+}
+
+.template-container .view-more-btn:hover i.view-less-icon {
+  transform: translateY(-3px);
+}
+
+/* Hidden template cards */
+.template-card.hidden {
+  display: none !important;
+}
+
+/* Animation for showing/hiding cards */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.template-card.showing {
+  animation: fadeInScale 0.5s forwards;
+}
+
+/* Ripple effect for button */
+.ripple {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Dark mode support */
+.dark-mode .template-container .view-more-btn {
+  background: linear-gradient(135deg, #4a43c9, #6c63ff);
+  box-shadow: 0 4px 15px rgba(74, 67, 201, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .template-container .view-more-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

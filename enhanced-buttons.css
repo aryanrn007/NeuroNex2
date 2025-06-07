@@ -1,0 +1,310 @@
+/* Enhanced Buttons UI/UX for Resume Analyzer */
+
+/* Common button styles */
+.juno-button,
+.action-button,
+.preview-btn {
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effect */
+.juno-button:hover,
+.action-button:hover,
+.preview-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Button active effect */
+.juno-button:active,
+.action-button:active,
+.preview-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary button styles */
+.juno-button.primary {
+    background: linear-gradient(135deg, var(--primary-color), #8a4fff);
+    color: white;
+}
+
+.juno-button.primary:hover {
+    background: linear-gradient(135deg, #8a4fff, var(--primary-color));
+}
+
+/* Secondary button styles */
+.juno-button.secondary {
+    background: white;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.juno-button.secondary:hover {
+    background: rgba(108, 47, 255, 0.05);
+}
+
+/* Action buttons container */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.action-buttons .juno-button {
+    width: 100%;
+}
+
+/* Icon styles in buttons */
+.juno-button i,
+.action-button i,
+.preview-btn i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.juno-button:hover i,
+.action-button:hover i,
+.preview-btn:hover i {
+    transform: scale(1.2);
+}
+
+/* Preview buttons container */
+.preview-buttons-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+/* Download button */
+.action-button.download-button {
+    background: #27ae60;
+    color: white;
+}
+
+.action-button.download-button:hover {
+    background: #219653;
+}
+
+/* Share button */
+.action-button.share-button {
+    background: #2f80ed;
+    color: white;
+}
+
+.action-button.share-button:hover {
+    background: #2d9cdb;
+}
+
+/* Navigation buttons container */
+.resume-action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Previous step button */
+#prev-step-btn {
+    background: #6c2fff;
+    color: white;
+    border: 1px solid #6c2fff;
+}
+
+#prev-step-btn:hover {
+    background: #5a20e0;
+    border-color: #5a20e0;
+}
+
+/* Next step button */
+#next-step-btn {
+    background: linear-gradient(135deg, var(--primary-color), #8a4fff);
+    color: white;
+    flex-grow: 1;
+    max-width: 200px;
+}
+
+/* Download enhanced resume button */
+#download-btn {
+    background: linear-gradient(135deg, #27ae60, #219653);
+    color: white;
+    flex-grow: 1;
+    max-width: 250px;
+}
+
+#download-btn:hover {
+    background: linear-gradient(135deg, #219653, #27ae60);
+}
+
+/* Preview toggle buttons */
+.preview-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.preview-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 8px;
+}
+
+.preview-btn.active {
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+}
+
+#fullscreen-preview-btn {
+    padding: 8px 10px;
+}
+
+/* Button ripple effect */
+.juno-button::after,
+.action-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.juno-button:focus:not(:active)::after,
+.action-button:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .juno-button,
+    .action-button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    
+    .preview-buttons-container {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .action-button {
+        width: 100%;
+    }
+    
+    .resume-action-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    #next-step-btn,
+    #download-btn {
+        max-width: 100%;
+    }
+}
+
+/* Button with focus styles for accessibility */
+.juno-button:focus,
+.action-button:focus,
+.preview-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 47, 255, 0.3);
+}
+
+/* Upload button special styling */
+#upload-resume-sidebar-btn {
+    background: linear-gradient(135deg, #6c2fff, #8a4fff);
+    box-shadow: 0 4px 15px rgba(108, 47, 255, 0.25);
+}
+
+/* Job description button special styling */
+#job-description-btn {
+    background: #2f80ed;
+    color: white;
+    border: 1px solid #2f80ed;
+}
+
+#job-description-btn:hover {
+    background: #1a73e8;
+    border-color: #1a73e8;
+}
+
+/* AI suggestions button special styling */
+#ai-suggestions-btn {
+    background: #9b51e0;
+    color: white;
+    border: 1px solid #9b51e0;
+}
+
+#ai-suggestions-btn:hover {
+    background: #8a3dd1;
+    border-color: #8a3dd1;
+}
+
+/* Button loading state */
+.juno-button.loading,
+.action-button.loading {
+    pointer-events: none;
+    position: relative;
+}
+
+.juno-button.loading::before,
+.action-button.loading::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s linear infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}

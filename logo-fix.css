@@ -1,0 +1,79 @@
+/* Logo Icon Fix - Make cloud icon white */
+
+/* Target all cloud icons */
+.fa-cloud,
+.fa-cloud-upload,
+.fa-cloud-download,
+.fa-cloud-upload-alt,
+.fa-cloud-download-alt,
+.fas[class*="cloud"],
+.far[class*="cloud"],
+.fab[class*="cloud"],
+i[class*="cloud"],
+svg[class*="cloud"],
+.cloud-icon {
+    color: white !important;
+    fill: white !important;
+}
+
+/* Target any cloud icon in a circular container */
+.circle-icon .fa-cloud,
+.circle-btn .fa-cloud,
+.round-icon .fa-cloud,
+div[class*="circle"] .fa-cloud,
+div[class*="round"] .fa-cloud,
+div[class*="circle"] i[class*="cloud"],
+div[class*="round"] i[class*="cloud"] {
+    color: white !important;
+}
+
+/* Target any SVG cloud icons */
+svg path[d*="M0 0h24v24H0z"],
+svg path[d*="M0,0h24v24H0V0z"],
+path[d*="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"] {
+    fill: white !important;
+}
+
+/* Target specific cloud logo in blue circle */
+.cloud-logo,
+.logo-cloud,
+.logo-icon,
+.app-logo,
+.juno-logo,
+.circle-logo,
+.round-logo,
+.blue-logo,
+.purple-logo,
+.gradient-logo,
+div[class*="logo"],
+div[class*="icon"][style*="background"] {
+    color: white !important;
+}
+
+/* Target all icons inside blue/purple gradient circles */
+div[style*="background: linear-gradient"] i,
+div[style*="background:linear-gradient"] i,
+div[style*="background-image: linear-gradient"] i,
+div[style*="background-color: #"] i,
+div[class*="circle"] i,
+div[class*="round"] i,
+.circle i,
+.round i {
+    color: white !important;
+}
+
+/* Target image-based logos */
+img[src*="cloud"],
+img[class*="logo"],
+img[class*="icon"],
+img[alt*="logo"],
+img[alt*="icon"] {
+    filter: brightness(0) invert(1);
+}
+
+/* Target specific elements shown in the image */
+.floating-element i,
+.floating-elements i,
+.floating-icon i {
+    color: white !important;
+}

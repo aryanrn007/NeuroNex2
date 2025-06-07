@@ -1,0 +1,580 @@
+/* Profile Optimization Enhanced Styles */
+
+/* Profile Optimization Container with Animation */
+.profile-optimization-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Profile Tabs Navigation */
+.profile-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.profile-tab-btn {
+    background-color: #f8f9fc;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-tab-btn i {
+    font-size: 1rem;
+}
+
+.profile-tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #6c2fff 0%, #8a64ff 100%);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.profile-tab-btn:hover {
+    background-color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    color: #6c2fff;
+}
+
+.profile-tab-btn.active {
+    background-color: #fff;
+    color: #6c2fff;
+    border-color: rgba(108, 47, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile-tab-btn.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Profile Type Visibility */
+.profile-type {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+
+.profile-type.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Profile Type Cards with Hover Effects */
+.profile-type {
+    background-color: #f8f9fc;
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-type::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, #6c2fff 0%, #8a64ff 100%);
+    transition: height 0.4s ease;
+}
+
+.profile-type:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    border-color: rgba(108, 47, 255, 0.2);
+}
+
+.profile-type:hover::before {
+    height: 100%;
+}
+
+/* Profile Type Headers with Gradient */
+.profile-type h3 {
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 12px;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.profile-type:hover h3 {
+    background: linear-gradient(90deg, #6c2fff 0%, #8a64ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateX(10px);
+}
+
+/* Optimization Tips Grid Layout */
+.optimization-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Profile Completion Indicator */
+.profile-completion {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.completion-text {
+    font-size: 0.9rem;
+    color: #555;
+    margin-right: 10px;
+    min-width: 110px;
+}
+
+.completion-bar {
+    flex: 1;
+    height: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.completion-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #6c2fff 0%, #8a64ff 100%);
+    width: 0%;
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+}
+
+.completion-percentage {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6c2fff;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Tip Items with Hover Effects */
+.tip-item {
+    background-color: white;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Completed Tip Item Styling */
+.tip-item.completed {
+    border-color: rgba(108, 47, 255, 0.3);
+    background-color: rgba(108, 47, 255, 0.03);
+}
+
+.tip-item.completed h4 {
+    color: #6c2fff;
+}
+
+.tip-item.completed h4::before {
+    content: '\f058'; /* Check circle icon */
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Tip Action Buttons */
+.tip-actions {
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tip-action-btn {
+    background-color: #f8f9fc;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-action-btn i {
+    font-size: 0.85rem;
+    color: #6c2fff;
+}
+
+.tip-action-btn:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    color: #6c2fff;
+}
+
+.tip-item.completed .tip-action-btn {
+    background-color: rgba(108, 47, 255, 0.1);
+    color: #6c2fff;
+}
+
+/* Confetti Animation for Completion */
+.tip-confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    background-image: 
+        radial-gradient(circle, #6c2fff 2px, transparent 2px),
+        radial-gradient(circle, #8a64ff 2px, transparent 2px),
+        radial-gradient(circle, #ff64a5 2px, transparent 2px),
+        radial-gradient(circle, #6c2fff 2px, transparent 2px),
+        radial-gradient(circle, #8a64ff 2px, transparent 2px),
+        radial-gradient(circle, #ff64a5 2px, transparent 2px),
+        radial-gradient(circle, #6c2fff 2px, transparent 2px),
+        radial-gradient(circle, #8a64ff 2px, transparent 2px),
+        radial-gradient(circle, #ff64a5 2px, transparent 2px),
+        radial-gradient(circle, #6c2fff 2px, transparent 2px),
+        radial-gradient(circle, #8a64ff 2px, transparent 2px),
+        radial-gradient(circle, #ff64a5 2px, transparent 2px);
+    background-size: 10% 10%;
+    animation: confettiAnimation 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes confettiAnimation {
+    0% {
+        background-position: 
+            0% 0%, 20% 10%, 40% 5%, 60% 15%, 80% 5%, 100% 10%,
+            10% 20%, 30% 25%, 50% 30%, 70% 35%, 90% 40%, 110% 45%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        background-position: 
+            0% 100%, 20% 90%, 40% 95%, 60% 85%, 80% 95%, 100% 90%,
+            10% 80%, 30% 75%, 50% 70%, 70% 65%, 90% 60%, 110% 55%;
+        opacity: 0;
+    }
+}
+
+.tip-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 20px 20px;
+    border-color: transparent transparent rgba(108, 47, 255, 0.1) transparent;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.tip-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    border-color: rgba(108, 47, 255, 0.2);
+}
+
+.tip-item:hover::after {
+    opacity: 1;
+    border-width: 0 0 40px 40px;
+}
+
+/* Tip Item Headers with Icon */
+.tip-item h4 {
+    font-size: 1.05rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #444;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.tip-item h4::before {
+    content: '\f0a4';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 8px;
+    color: #6c2fff;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.tip-item:hover h4 {
+    color: #6c2fff;
+    transform: translateX(5px);
+}
+
+.tip-item:hover h4::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Tip Item Paragraphs */
+.tip-item p {
+    font-size: 0.95rem;
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+.tip-item:hover p {
+    color: #333;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered Animation for Tip Items */
+.tip-item {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.tip-item:nth-child(1) { animation-delay: 0.1s; }
+.tip-item:nth-child(2) { animation-delay: 0.2s; }
+.tip-item:nth-child(3) { animation-delay: 0.3s; }
+.tip-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse Animation for Icons */
+.section-icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(108, 47, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(108, 47, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(108, 47, 255, 0);
+    }
+}
+
+/* Overall Profile Progress Section */
+.profile-progress {
+    margin-top: 40px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease 0.5s forwards;
+}
+
+.profile-progress h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.progress-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-label {
+    font-size: 0.95rem;
+    color: #555;
+    min-width: 80px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 12px;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 6px;
+    transition: width 1s ease-in-out;
+}
+
+.linkedin-progress {
+    background: linear-gradient(90deg, #0077B5 0%, #00A0DC 100%);
+}
+
+.github-progress {
+    background: linear-gradient(90deg, #333 0%, #666 100%);
+}
+
+.portfolio-progress {
+    background: linear-gradient(90deg, #6c2fff 0%, #8a64ff 100%);
+}
+
+.progress-percentage {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Animate on Scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ripple Effect for Buttons */
+.profile-tab-btn, .tip-action-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    animation: ripple 0.6s linear;
+    transform: scale(0);
+    opacity: 1;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .optimization-tips {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-type:hover h3 {
+        transform: translateX(5px);
+    }
+    
+    .profile-tabs {
+        justify-content: center;
+    }
+    
+    .profile-tab-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .profile-completion,
+    .progress-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .completion-bar,
+    .progress-bar {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .completion-percentage,
+    .progress-percentage {
+        align-self: flex-end;
+    }
+}

@@ -1,0 +1,111 @@
+/* Custom Wipro card styling to match the reference image */
+.wipro-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    width: 220px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.wipro-card .match-percentage {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.wipro-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.wipro-logo-container img {
+    width: 120px;
+    height: auto;
+    opacity: 0.2;
+}
+
+.wipro-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.wipro-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.wipro-tag {
+    background: rgba(103, 58, 183, 0.1);
+    color: #673AB7;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.wipro-tag.hybrid {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.wipro-location, .wipro-salary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #673AB7;
+    font-size: 0.9rem;
+}
+
+.wipro-location i, .wipro-salary i {
+    color: #673AB7;
+    width: 15px;
+}
+
+.wipro-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wipro-view-btn {
+    background: #03A9F4;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    flex: 1;
+}
+
+.wipro-bookmark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

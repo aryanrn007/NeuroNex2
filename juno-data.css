@@ -1,0 +1,472 @@
+/* Juno Data Styles */
+/* Profile buttons container */
+.profile-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 220px;
+}
+
+/* Juno button styling to match LinkedIn button */
+.juno-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #8e44ad; /* Purple color to match the image */
+    color: white;
+    padding: 0.8rem 1.4rem;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: none;
+    cursor: pointer;
+}
+
+.juno-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #8e44ad, #9b59b6);
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.juno-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(142, 68, 173, 0.4);
+}
+
+.juno-button:hover::before {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.juno-button i {
+    color: white;
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.juno-button:hover i {
+    transform: translateX(3px);
+}
+
+/* Override LinkedIn button styles to ensure consistency */
+.student-card .linkedin-btn {
+    max-width: 100%;
+    align-self: auto;
+    margin-top: 0;
+}
+
+.juno-button i {
+    margin-right: 0.5rem;
+}
+
+/* Modal styling */
+#juno-data-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+#juno-data-modal.show-modal {
+    opacity: 1;
+}
+
+.juno-data-container {
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    transform: translateY(-20px);
+    opacity: 0;
+    background: white;
+    position: relative;
+}
+
+#juno-data-modal.show-modal .juno-data-container {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.loading-spinner i {
+    font-size: 2rem;
+    color: var(--primary-color, #4a6cf7);
+    margin-bottom: 1rem;
+}
+
+.juno-data-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+}
+
+.juno-data-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Student header with photo */
+.juno-student-header {
+    display: flex;
+    padding: 15px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.student-photo-container {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+.student-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.student-info {
+    flex: 1;
+}
+
+.student-info h2 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.student-info p {
+    margin: 2px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.close-juno-data-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-juno-data-btn:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Tabs container */
+.juno-tabs-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Sidebar with tabs */
+.juno-sidebar {
+    width: 200px;
+    background: #f8f8f8;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.juno-tab {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #e0e0e0;
+    transition: all 0.2s ease;
+    font-size: 13px;
+    color: #333;
+}
+
+.juno-tab i {
+    margin-right: 10px;
+    width: 16px;
+    text-align: center;
+}
+
+.juno-tab:hover {
+    background: #e9e9e9;
+}
+
+.juno-tab.active {
+    background: #0066b3;
+    color: white;
+}
+
+/* Tab content area */
+.juno-tab-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.tab-pane h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Dashboard stats */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.stat-card h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #444;
+}
+
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 1rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary-color, #4a6cf7);
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+}
+
+.attendance-status {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.status-good {
+    color: #28a745;
+}
+
+.status-warning {
+    color: #ffc107;
+}
+
+.status-danger {
+    color: #dc3545;
+}
+
+.status-unknown {
+    color: #6c757d;
+}
+
+.juno-timetable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0;
+}
+
+.juno-timetable th, 
+.juno-timetable td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.juno-timetable th {
+    font-weight: 600;
+    color: #555;
+}
+
+.juno-timetable tr:last-child td {
+    border-bottom: none;
+}
+
+.syllabus-progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.syllabus-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.syllabus-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.juno-data-footer {
+    padding: 0.8rem 1rem;
+    background: #f8f9fa;
+    font-size: 0.8rem;
+    color: #6c757d;
+    text-align: right;
+}
+
+.juno-data-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.juno-data-error i {
+    font-size: 2rem;
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.juno-data-error button {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.juno-data-error button:hover {
+    background: #5a6268;
+}
+
+/* Dark mode support */
+body.dark-mode .juno-data-card {
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .juno-data-section {
+    border-color: #444;
+}
+
+body.dark-mode .juno-data-section h4 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .progress-bar {
+    background: #444;
+}
+
+body.dark-mode .juno-timetable th, 
+body.dark-mode .juno-timetable td {
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+body.dark-mode .juno-data-footer {
+    background: #333;
+    color: #aaa;
+}
+
+body.dark-mode .juno-data-error {
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .juno-data-header h3 {
+        font-size: 1rem;
+    }
+    
+    .juno-data-section h4 {
+        font-size: 1rem;
+    }
+    
+    .juno-timetable th, 
+    .juno-timetable td {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+}

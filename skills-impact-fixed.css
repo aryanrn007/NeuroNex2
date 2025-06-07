@@ -1,0 +1,235 @@
+/* Fixed Skills Impact Analysis Styles */
+
+/* Main Section Styling */
+.skill-impact-section {
+    margin: 2.5rem 0;
+    position: relative;
+    overflow: visible;
+}
+
+.skill-impact-section h2 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+.skill-impact-section h2 i {
+    margin-right: 12px;
+    color: #27ae60;
+}
+
+/* Fix for the overlapping text */
+.skill-impact-section p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 90%;
+    clear: both;
+}
+
+/* Chart Labels Fix */
+.industry-chart-container text,
+.skill-impact-section text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    fill: #64748b;
+}
+
+.industry-chart-container .chart-label {
+    font-size: 12px;
+    color: #64748b;
+    position: absolute;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* Axis Labels */
+.x-axis-label, 
+.y-axis-label {
+    position: absolute;
+    font-size: 12px;
+    color: #64748b;
+    pointer-events: none;
+}
+
+.x-axis-label {
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.y-axis-label {
+    transform: rotate(-90deg);
+    left: -25px;
+    top: 50%;
+    transform-origin: left center;
+}
+
+/* Tooltip Styling */
+.chart-tooltip {
+    position: absolute;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 100;
+    font-size: 12px;
+    max-width: 200px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.chart-tooltip.visible {
+    opacity: 1;
+}
+
+/* Skills Impact Cards Container */
+.skill-impact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Individual Skill Card */
+.skill-impact-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(39, 174, 96, 0.1);
+}
+
+.skill-impact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(39, 174, 96, 0.1);
+}
+
+/* Card Header */
+.skill-impact-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.skill-impact-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(41, 128, 185, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: #27ae60;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.skill-impact-card:hover .skill-impact-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: #2980b9;
+}
+
+.skill-impact-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.skill-impact-card:hover .skill-impact-title {
+    color: #27ae60;
+}
+
+/* Impact Value */
+.skill-impact-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #27ae60, #2980b9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0.8rem 0;
+    transition: all 0.3s ease;
+}
+
+.skill-impact-card:hover .skill-impact-value {
+    transform: scale(1.05);
+}
+
+/* Progress Bar */
+.skill-impact-bar {
+    height: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0.8rem 0;
+}
+
+.skill-impact-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #27ae60, #2980b9);
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Note Text */
+.skill-impact-note {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 0.8rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .skill-impact-section h2 {
+        font-size: 1.4rem;
+    }
+    
+    .skill-impact-section p {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+    
+    .skill-impact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation for Progress Bars */
+.animate-progress {
+    animation: progressAnimation 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes progressAnimation {
+    from {
+        width: 0;
+    }
+}
+
+/* Fix for Chart Labels */
+.chart-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+/* Fix for overlapping text in chart */
+.chart-axis-label {
+    position: absolute;
+    font-size: 12px;
+    color: #64748b;
+    white-space: nowrap;
+}

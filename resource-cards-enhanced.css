@@ -1,0 +1,568 @@
+/* Enhanced Resource Cards Styling */
+:root {
+  /* Common variables */
+  --card-border-radius: 12px;
+  --card-transition: all 0.3s ease;
+  --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  --card-text: #333;
+  --card-text-light: #666;
+  
+  /* Resume Builder Card */
+  --resume-primary: #6c2fff;
+  --resume-secondary: #8b5cf6;
+  --resume-gradient: linear-gradient(135deg, var(--resume-primary), var(--resume-secondary));
+  --resume-shadow: 0 8px 20px rgba(108, 47, 255, 0.2);
+  --resume-hover-shadow: 0 12px 28px rgba(108, 47, 255, 0.3);
+  
+  /* Interview Prep Card */
+  --interview-primary: #2f80ed;
+  --interview-secondary: #56ccf2;
+  --interview-gradient: linear-gradient(135deg, var(--interview-primary), var(--interview-secondary));
+  --interview-shadow: 0 8px 20px rgba(47, 128, 237, 0.2);
+  --interview-hover-shadow: 0 12px 28px rgba(47, 128, 237, 0.3);
+  
+  /* Salary Insights Card */
+  --salary-primary: #27ae60;
+  --salary-secondary: #6fcf97;
+  --salary-gradient: linear-gradient(135deg, var(--salary-primary), var(--salary-secondary));
+  --salary-shadow: 0 8px 20px rgba(39, 174, 96, 0.2);
+  --salary-hover-shadow: 0 12px 28px rgba(39, 174, 96, 0.3);
+  
+  /* Networking Card */
+  --networking-primary: #f2994a;
+  --networking-secondary: #f8b500;
+  --networking-gradient: linear-gradient(135deg, var(--networking-primary), var(--networking-secondary));
+  --networking-shadow: 0 8px 20px rgba(242, 153, 74, 0.2);
+  --networking-hover-shadow: 0 12px 28px rgba(242, 153, 74, 0.3);
+}
+
+/* Base Resource Card Styling */
+.resource-card {
+  background: #fff;
+  border: none;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  position: relative;
+  transition: var(--card-transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Card Header with Gradient Background */
+.card-header {
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating background circle */
+.card-header::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  top: 10px;
+  right: 20px;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatCircle 6s ease-in-out infinite;
+}
+
+@keyframes floatCircle {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-10px, 10px);
+  }
+}
+
+/* Card Icon with Floating Animation */
+.resource-card .resource-icon {
+  background: #fff;
+  margin: 0 auto 12px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+  animation: float 3s ease-in-out infinite;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Card Title */
+.resource-card .card-title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Content */
+.card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Description Text */
+.resource-card .card-description {
+  font-size: 13px;
+  color: var(--card-text-light);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+
+/* Feature List */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--card-text);
+  margin-bottom: 8px;
+}
+
+.feature-list li i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+/* Card Footer with Action Buttons */
+.card-footer {
+  padding: 0 16px 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Primary Button */
+.resource-card .primary-btn {
+  flex: 1;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--card-transition);
+  text-align: center;
+}
+
+.resource-card .primary-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Secondary Button */
+.resource-card .secondary-btn {
+  flex: 1;
+  background: transparent;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--card-transition);
+  text-align: center;
+}
+
+.resource-card .secondary-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Progress Bar */
+.progress-container {
+  height: 4px;
+  background: #f0f0f0;
+  border-radius: 2px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 2px;
+}
+
+/* Animated Background Pattern */
+.background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.background-pattern i {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  animation: floatCircle 6s ease-in-out infinite;
+}
+
+/* Resume Builder Card Specific Styles */
+.resume-card .card-header {
+  background: var(--resume-gradient);
+}
+
+.resume-card .resource-icon {
+  color: var(--resume-primary);
+}
+
+.resume-card .feature-list li i {
+  color: var(--resume-primary);
+}
+
+.resume-card .primary-btn {
+  background: var(--resume-gradient);
+  box-shadow: 0 4px 8px rgba(108, 47, 255, 0.2);
+}
+
+.resume-card .primary-btn:hover {
+  box-shadow: 0 6px 12px rgba(108, 47, 255, 0.3);
+}
+
+.resume-card .secondary-btn {
+  color: var(--resume-primary);
+  border: 1px solid var(--resume-primary);
+}
+
+.resume-card .progress-bar {
+  background: var(--resume-gradient);
+}
+
+.resume-card .background-pattern {
+  background-image: 
+    radial-gradient(circle, #fff 1px, transparent 1px);
+  background-size: 15px 15px;
+  animation: moveDots 20s linear infinite;
+}
+
+@keyframes moveDots {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 30px 30px;
+  }
+}
+
+/* Interview Prep Card Specific Styles */
+.interview-card .card-header {
+  background: var(--interview-gradient);
+}
+
+.interview-card .resource-icon {
+  color: var(--interview-primary);
+}
+
+.interview-card .feature-list li i {
+  color: var(--interview-primary);
+}
+
+.interview-card .primary-btn {
+  background: var(--interview-gradient);
+  box-shadow: 0 4px 8px rgba(47, 128, 237, 0.2);
+}
+
+.interview-card .primary-btn:hover {
+  box-shadow: 0 6px 12px rgba(47, 128, 237, 0.3);
+}
+
+.interview-card .secondary-btn {
+  color: var(--interview-primary);
+  border: 1px solid var(--interview-primary);
+}
+
+.interview-card .progress-bar {
+  background: var(--interview-gradient);
+}
+
+.interview-card .background-pattern {
+  background-image: 
+    linear-gradient(45deg, #fff 1px, transparent 1px),
+    linear-gradient(-45deg, #fff 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: moveGrid 20s linear infinite;
+}
+
+@keyframes moveGrid {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 20px 20px, 20px 20px;
+  }
+}
+
+/* Salary Insights Card Specific Styles */
+.salary-card .card-header {
+  background: var(--salary-gradient);
+}
+
+.salary-card .resource-icon {
+  color: var(--salary-primary);
+}
+
+.salary-card .feature-list li i {
+  color: var(--salary-primary);
+}
+
+.salary-card .primary-btn {
+  background: var(--salary-gradient);
+  box-shadow: 0 4px 8px rgba(39, 174, 96, 0.2);
+}
+
+.salary-card .primary-btn:hover {
+  box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3);
+}
+
+.salary-card .secondary-btn {
+  color: var(--salary-primary);
+  border: 1px solid var(--salary-primary);
+}
+
+.salary-card .progress-bar {
+  background: var(--salary-gradient);
+}
+
+.salary-card .background-pattern {
+  background-image: 
+    linear-gradient(to right, #fff 1px, transparent 1px);
+  background-size: 10px 10px;
+  animation: moveLines 20s linear infinite;
+}
+
+@keyframes moveLines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 0;
+  }
+}
+
+/* Networking Card Specific Styles */
+.networking-card .card-header {
+  background: var(--networking-gradient);
+}
+
+.networking-card .resource-icon {
+  color: var(--networking-primary);
+}
+
+.networking-card .feature-list li i {
+  color: var(--networking-primary);
+}
+
+.networking-card .primary-btn {
+  background: var(--networking-gradient);
+  box-shadow: 0 4px 8px rgba(242, 153, 74, 0.2);
+}
+
+.networking-card .primary-btn:hover {
+  box-shadow: 0 6px 12px rgba(242, 153, 74, 0.3);
+}
+
+.networking-card .secondary-btn {
+  color: var(--networking-primary);
+  border: 1px solid var(--networking-primary);
+}
+
+.networking-card .progress-bar {
+  background: var(--networking-gradient);
+}
+
+.networking-card .background-pattern {
+  background-image: 
+    linear-gradient(to right, #fff 1px, transparent 1px),
+    linear-gradient(to bottom, #fff 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: moveNetworkLines 20s linear infinite;
+}
+
+@keyframes moveNetworkLines {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 40px 40px, 40px 40px;
+  }
+}
+
+/* Coming Soon Card Specific Styles */
+.coming-soon-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fc 0%, #f0f2f8 100%);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 16px rgba(156, 39, 176, 0.15);
+  transition: all 0.3s ease;
+}
+
+.coming-soon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(156, 39, 176, 0.25);
+}
+
+.coming-soon-card .resource-icon {
+  background-color: #9c27b0;
+  color: white;
+}
+
+/* Glossy shine effect - colorful rainbow reflection */
+.coming-soon-card::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(156, 39, 176, 0.1) 20%,
+      rgba(63, 81, 181, 0.1) 30%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(76, 175, 80, 0.1) 70%,
+      rgba(255, 193, 7, 0.1) 80%,
+      rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: glossyShine 4s infinite linear;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes glossyShine {
+  0% {
+    transform: rotate(30deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(30deg) translateX(100%);
+  }
+}
+
+/* Counter styles */
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: var(--card-text-light);
+}
+
+.counter .count {
+  font-weight: 600;
+  margin: 0 4px;
+}
+
+.resume-card .counter .count {
+  color: var(--resume-primary);
+}
+
+.interview-card .counter .count {
+  color: var(--interview-primary);
+}
+
+.salary-card .counter .count {
+  color: var(--salary-primary);
+}
+
+.networking-card .counter .count {
+  color: var(--networking-primary);
+}
+
+/* Animation for counter */
+.counter .count.highlight {
+  animation: pulse 1.5s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .card-footer {
+    flex-direction: column;
+  }
+  
+  .resource-card .primary-btn,
+  .resource-card .secondary-btn {
+    width: 100%;
+  }
+}
+
+/* Dark Mode Support */
+.dark-mode .resource-card {
+  background: #2a2a2a;
+}
+
+.dark-mode .resource-card .card-description,
+.dark-mode .feature-list li {
+  color: #e0e0e0;
+}
+
+.dark-mode .counter {
+  color: #b0b0b0;
+}
+
+.dark-mode .progress-container {
+  background: #3a3a3a;
+}
+
+.dark-mode .coming-soon-card {
+  background: linear-gradient(135deg, #2a2a2a 0%, #222 100%);
+}
+
+.dark-mode .resource-card .secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}

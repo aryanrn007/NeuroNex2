@@ -1,0 +1,635 @@
+/* Tech Events Panel - Enhanced UI/UX with Advanced Animations */
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes floatUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+}
+
+@keyframes ripple {
+    0% { box-shadow: 0 0 0 0 rgba(106, 17, 203, 0.3); }
+    70% { box-shadow: 0 0 0 15px rgba(106, 17, 203, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(106, 17, 203, 0); }
+}
+.tech-events-panel {
+    background-color: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    margin: 2rem 0;
+    animation: panelEntrance 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes panelEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tech-events-panel:hover {
+    box-shadow: 0 15px 35px rgba(106, 17, 203, 0.15);
+    transform: translateY(-5px);
+}
+
+.tech-events-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(106, 17, 203, 0.05) 0%, rgba(37, 117, 252, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tech-events-panel:hover::after {
+    opacity: 1;
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.1) 50%, 
+        rgba(255,255,255,0) 100%);
+    background-size: 200% 100%;
+}
+
+.tech-events-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--secondary-color), var(--primary-color));
+    background-size: 300% 100%;
+    animation: gradientFlow 15s ease infinite;
+    padding: 1.8rem 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tech-events-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.tech-events-header h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tech-events-header h2 i {
+    font-size: 1.8rem;
+    animation: pulse-glow 2s infinite alternate, floatUpDown 3s ease-in-out infinite;
+    position: relative;
+    display: inline-block;
+}
+
+.tech-events-header h2 i::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    left: 0;
+    top: 0;
+    z-index: -1;
+    animation: ripple 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        transform: scale(1);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4);
+        transform: scale(1.1);
+    }
+}
+
+.tech-events-content {
+    padding: 2rem;
+}
+
+.tech-events-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+.explore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-size: 200% 100%;
+    animation: gradientFlow 5s ease infinite;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.explore-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+.explore-btn:hover::after {
+    opacity: 1;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.explore-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.explore-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(106, 17, 203, 0.4);
+}
+
+.explore-btn:hover::before {
+    opacity: 1;
+}
+
+.explore-btn i {
+    transition: transform 0.3s ease;
+}
+
+.explore-btn:hover i {
+    transform: translateX(5px);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.event-card {
+    background-color: var(--bg-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(106, 17, 203, 0.15);
+}
+
+.event-img {
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+}
+
+.event-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-img img {
+    transform: scale(1.1);
+}
+
+.event-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.event-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--text-color);
+}
+
+.event-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.event-info i {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.event-description {
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    flex-grow: 1;
+}
+
+.event-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.event-org {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.event-org img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.event-org span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.event-action {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(106, 17, 203, 0) 0%, 
+        rgba(106, 17, 203, 0.1) 50%, 
+        rgba(106, 17, 203, 0) 100%);
+    transition: all 0.5s ease;
+}
+
+.event-action:hover::before {
+    left: 100%;
+    transition: all 0.5s ease;
+}
+
+.event-action:hover {
+    background-color: rgba(106, 17, 203, 0.1);
+    transform: translateX(3px);
+}
+
+.event-action i {
+    transition: transform 0.3s ease;
+}
+
+.event-action:hover i {
+    transform: translateX(3px);
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.event-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(106, 17, 203, 0.1), rgba(37, 117, 252, 0.1));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+    border-radius: 16px;
+    transform: scale(0.9);
+}
+
+.event-card:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+.event-card:nth-child(1) { animation-delay: 0.1s; }
+.event-card:nth-child(2) { animation-delay: 0.2s; }
+.event-card:nth-child(3) { animation-delay: 0.3s; }
+.event-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Staggered entrance for event card elements */
+.event-card .event-img,
+.event-card .event-title,
+.event-card .event-info,
+.event-card .event-description,
+.event-card .event-footer {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.event-card .event-img { animation-delay: 0.1s; }
+.event-card .event-title { animation-delay: 0.2s; }
+.event-card .event-info:nth-of-type(1) { animation-delay: 0.3s; }
+.event-card .event-info:nth-of-type(2) { animation-delay: 0.4s; }
+.event-card .event-description { animation-delay: 0.5s; }
+.event-card .event-footer { animation-delay: 0.6s; }
+
+/* Filter and search section */
+.events-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(106, 17, 203, 0.05);
+    border-radius: 16px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.filter-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.filter-select, .filter-input {
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    border: 1px solid var(--input-border-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    min-width: 160px;
+}
+
+.filter-select:focus, .filter-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+    outline: none;
+    animation: focusPulse 1.5s infinite;
+}
+
+@keyframes focusPulse {
+    0% { box-shadow: 0 0 0 0 rgba(106, 17, 203, 0.2); }
+    70% { box-shadow: 0 0 0 6px rgba(106, 17, 203, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(106, 17, 203, 0); }
+}
+
+.search-box {
+    position: relative;
+    flex-grow: 1;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.8rem 1.2rem 0.8rem 3rem;
+    border-radius: 10px;
+    border: 1px solid var(--input-border-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+    outline: none;
+}
+
+.search-box i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* 3D Tilt Effect */
+.event-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.event-card:hover .event-img img {
+    transform: scale(1.1) translateZ(20px);
+}
+
+.event-card:hover .event-title {
+    transform: translateZ(15px);
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-badge {
+    transform: translateZ(25px) scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Particle effect for the header */
+.tech-events-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.3) 1px, transparent 1px),
+        radial-gradient(circle at 30% 65%, rgba(255,255,255,0.3) 1px, transparent 1px),
+        radial-gradient(circle at 60% 10%, rgba(255,255,255,0.3) 1px, transparent 1px),
+        radial-gradient(circle at 80% 40%, rgba(255,255,255,0.3) 1px, transparent 1px),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,0.3) 1px, transparent 1px),
+        radial-gradient(circle at 40% 90%, rgba(255,255,255,0.3) 1px, transparent 1px);
+    background-size: 100% 100%;
+    animation: particleFloat 10s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes particleFloat {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 10% 10%; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .tech-events-header {
+        padding: 1.5rem;
+    }
+    
+    .tech-events-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .tech-events-content {
+        padding: 1.5rem;
+    }
+    
+    .events-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-select, .filter-input, .search-box input {
+        width: 100%;
+    }
+}
+
+/* Dark mode adjustments */
+.dark-mode .event-card {
+    background-color: var(--card-bg);
+}
+
+.dark-mode .events-filter {
+    background-color: rgba(127, 0, 255, 0.1);
+}

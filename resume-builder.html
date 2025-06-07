@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder | NeuraNex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resume-builder.css">
+    <link rel="stylesheet" href="resume-template-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-graduation-cap"></i> NeuraNex – Powered by Saarthi</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="brainbox.html" class="nav-link"><i class="fas fa-brain"></i> BrainBox</a>
+            <a href="skillsync.html" class="nav-link"><i class="fas fa-users"></i> SkillSync</a>
+            <a href="techverse.html" class="nav-link"><i class="fas fa-laptop-code"></i> TechVerse</a>
+            <a href="launchpad.html" class="nav-link active"><i class="fas fa-rocket"></i> LaunchPad</a>
+        </nav>
+        <div>
+            <span id="loggedInUserName" class="user-name-display"></span>
+            <button id="settings-button" class="circle-btn settings-btn" aria-label="Settings"><i class="fas fa-cog"></i></button>
+        </div>
+    </header>
+
+    <main class="resume-builder-container">
+        <div class="resume-header">
+            <h1>AI-Powered Resume Builder</h1>
+            <p>Create a professional, ATS-friendly resume in minutes with our smart builder that leverages your NeuraNex profile data</p>
+            <div class="resume-header-actions">
+                <button id="auto-fill-btn" class="neuranex-button primary"><i class="fas fa-magic"></i> Auto-fill from NeuraNex</button>
+                <button id="linkedin-import-btn" class="neuranex-button secondary"><i class="fab fa-linkedin"></i> Import from LinkedIn</button>
+            </div>
+        </div>
+
+        <div class="progress-tracker">
+            <div class="progress-steps">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-indicator">1</div>
+                    <div class="step-label">Basic Info</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-indicator">2</div>
+                    <div class="step-label">Education</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-indicator">3</div>
+                    <div class="step-label">Experience</div>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-indicator">4</div>
+                    <div class="step-label">Skills</div>
+                </div>
+                <div class="progress-step" data-step="5">
+                    <div class="step-indicator">5</div>
+                    <div class="step-label">Finalize</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="resume-content">
+            <div class="resume-sidebar">
+                <div class="template-selector">
+                    <h3>Choose Template</h3>
+                    <div class="template-options">
+                        <div class="template-option active" data-template="professional">
+                            <div class="template-preview professional">
+                                <div class="template-preview-content"></div>
+                            </div>
+                            <span>Professional</span>
+                            <div class="template-badge">Most Popular</div>
+                        </div>
+                        <div class="template-option" data-template="modern">
+                            <div class="template-preview modern">
+                                <div class="template-preview-content"></div>
+                            </div>
+                            <span>Modern</span>
+                            <div class="template-badge">ATS Friendly</div>
+                        </div>
+                        <div class="template-option" data-template="creative">
+                            <div class="template-preview creative">
+                                <div class="template-preview-content"></div>
+                            </div>
+                            <span>Creative</span>
+                            <div class="template-badge">New</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sections-navigator">
+                    <h3>Sections</h3>
+                    <ul>
+                        <li class="active" data-section="personal"><i class="fas fa-user"></i> Personal Info</li>
+                        <li data-section="objective"><i class="fas fa-bullseye"></i> Objective</li>
+                        <li data-section="education"><i class="fas fa-graduation-cap"></i> Education</li>
+                        <li data-section="experience"><i class="fas fa-briefcase"></i> Experience</li>
+                        <li data-section="skills"><i class="fas fa-code"></i> Skills</li>
+                        <li data-section="projects"><i class="fas fa-project-diagram"></i> Projects</li>
+                        <li data-section="certifications"><i class="fas fa-certificate"></i> Certifications</li>
+                        <li data-section="achievements"><i class="fas fa-trophy"></i> Achievements</li>
+                    </ul>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="auto-fill-btn" class="neuranex-button primary"><i class="fas fa-magic"></i> Auto-fill from NeuraNex</button>
+                    <button id="linkedin-import-btn" class="neuranex-button secondary"><i class="fab fa-linkedin"></i> Import from LinkedIn</button>
+                    <button id="ai-suggestions-btn" class="neuranex-button secondary"><i class="fas fa-robot"></i> AI Suggestions</button>
+                </div>
+            </div>
+
+            <div class="resume-editor">
+                <div class="section-container" id="personal-section">
+                    <h2><i class="fas fa-user-circle"></i> Personal Information</h2>
+                    <div class="form-card">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <div class="input-with-icon">
+                                <input type="text" id="fullName" placeholder="">
+                                <span class="input-icon"><i class="fas fa-user"></i></span>
+                            </div>
+                            <div class="validation-message"><i class="fas fa-exclamation-circle"></i> Please enter your full name</div>
+                            <div class="helper-text"><i class="fas fa-info-circle"></i> Use your legal name as it appears on official documents</div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <div class="input-with-icon">
+                                    <input type="email" id="email" placeholder="">
+                                    <span class="input-icon"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <div class="validation-message"><i class="fas fa-exclamation-circle"></i> Please enter a valid email address</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <div class="input-with-icon">
+                                    <input type="tel" id="phone" placeholder="">
+                                    <span class="input-icon"><i class="fas fa-phone-alt"></i></span>
+                                </div>
+                                <div class="helper-text"><i class="fas fa-info-circle"></i> Include country code for international numbers</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <div class="input-with-icon">
+                                    <input type="text" id="location" placeholder="">
+                                    <span class="input-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                                <div class="tooltip">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span class="tooltip-text">Consider including your willingness to relocate if applicable</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="portfolio">Portfolio/Website</label>
+                                <div class="input-with-icon">
+                                    <input type="url" id="portfolio" placeholder="">
+                                    <span class="input-icon"><i class="fas fa-globe"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="linkedin">LinkedIn</label>
+                                <div class="input-with-icon">
+                                    <input type="url" id="linkedin" placeholder="">
+                                    <span class="input-icon"><i class="fab fa-linkedin-in"></i></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="github">GitHub</label>
+                                <div class="input-with-icon">
+                                    <input type="url" id="github" placeholder="">
+                                    <span class="input-icon"><i class="fab fa-github"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-container hidden" id="objective-section">
+                    <h2>Career Objective</h2>
+                    <div class="form-group">
+                        <label for="objective">Professional Summary</label>
+                        <textarea id="objective" rows="4" placeholder=""></textarea>
+                        <div class="helper-text"><i class="fas fa-info-circle"></i> Keep it concise (3-5 sentences) and tailored to the job you're seeking</div>
+                    </div>
+                    <div class="ai-suggestions">
+                        <h4><i class="fas fa-lightbulb"></i> AI Suggestions</h4>
+                        <div class="suggestion-chips">
+                            <span class="suggestion-chip">Highlight your technical expertise</span>
+                            <span class="suggestion-chip">Mention your experience with team projects</span>
+                            <span class="suggestion-chip">Include relevant coursework</span>
+                            <span class="suggestion-chip">Showcase problem-solving skills</span>
+                            <span class="suggestion-chip">Emphasize leadership experience</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-container hidden" id="education-section">
+                    <h2>Education</h2>
+                    <div class="education-entry">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="institution">Institution</label>
+                                <input type="text" id="institution" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="degree">Degree</label>
+                                <input type="text" id="degree" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="eduStartDate">Start Date</label>
+                                <input type="month" id="eduStartDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="eduEndDate">End Date</label>
+                                <input type="month" id="eduEndDate">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gpa">GPA/Percentage</label>
+                            <input type="text" id="gpa" placeholder="">
+                            <div class="tooltip">
+                                <i class="fas fa-question-circle"></i>
+                                <span class="tooltip-text">Include your GPA only if it's above 3.0 or equivalent</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="coursework">Relevant Coursework</label>
+                            <textarea id="coursework" rows="2" placeholder=""></textarea>
+                            <div class="helper-text"><i class="fas fa-info-circle"></i> Separate courses with commas</div>
+                        </div>
+                    </div>
+                    <button class="add-entry-btn"><i class="fas fa-plus"></i> Add Another Education</button>
+                    <div class="ai-suggestions">
+                        <h4><i class="fas fa-lightbulb"></i> AI Suggestions</h4>
+                        <div class="suggestion-chips">
+                            <span class="suggestion-chip">Add honors and awards</span>
+                            <span class="suggestion-chip">Include study abroad experience</span>
+                            <span class="suggestion-chip">Mention academic projects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-container hidden" id="experience-section">
+                    <h2>Experience</h2>
+                    <div class="experience-entry">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="company">Company/Organization</label>
+                                <input type="text" id="company" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="position">Position</label>
+                                <input type="text" id="position" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expStartDate">Start Date</label>
+                                <input type="month" id="expStartDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="expEndDate">End Date</label>
+                                <input type="month" id="expEndDate">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="currentJob">
+                                    <label for="currentJob">Current Position</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="responsibilities">Responsibilities & Achievements</label>
+                            <textarea id="responsibilities" rows="4" placeholder=""></textarea>
+                        </div>
+                    </div>
+                    <button class="add-entry-btn"><i class="fas fa-plus"></i> Add Another Experience</button>
+                </div>
+
+                <div class="section-container hidden" id="skills-section">
+                    <h2>Skills</h2>
+                    <div class="form-group">
+                        <label for="technicalSkills">Technical Skills</label>
+                        <input type="text" id="technicalSkills" placeholder="">
+                        <small>Separate skills with commas</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="softSkills">Soft Skills</label>
+                        <input type="text" id="softSkills" placeholder="">
+                        <small>Separate skills with commas</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="tools">Tools & Technologies</label>
+                        <input type="text" id="tools" placeholder="">
+                        <small>Separate tools with commas</small>
+                    </div>
+                    <div class="skill-suggestions">
+                        <h4>Suggested from your NeuraNex profile:</h4>
+                        <div class="skill-chips">
+                            <span class="skill-chip" data-skill="JavaScript">JavaScript</span>
+                            <span class="skill-chip" data-skill="React.js">React.js</span>
+                            <span class="skill-chip" data-skill="Node.js">Node.js</span>
+                            <span class="skill-chip" data-skill="MongoDB">MongoDB</span>
+                            <span class="skill-chip" data-skill="Express.js">Express.js</span>
+                            <span class="skill-chip" data-skill="HTML/CSS">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-container hidden" id="projects-section">
+                    <h2>Projects</h2>
+                    <div class="project-entry">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectTitle">Project Title</label>
+                                <input type="text" id="projectTitle" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="projectDate">Date</label>
+                                <input type="month" id="projectDate">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDescription">Description</label>
+                            <textarea id="projectDescription" rows="3" placeholder=""></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectTechnologies">Technologies Used</label>
+                                <input type="text" id="projectTechnologies" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="projectLink">Project Link</label>
+                                <input type="url" id="projectLink" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-entry-btn"><i class="fas fa-plus"></i> Add Another Project</button>
+                </div>
+
+                <div class="section-container hidden" id="certifications-section">
+                    <h2>Certifications</h2>
+                    <div class="certification-entry">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="certificationName">Certification Name</label>
+                                <input type="text" id="certificationName" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="issuingOrganization">Issuing Organization</label>
+                                <input type="text" id="issuingOrganization" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="certDate">Date Issued</label>
+                                <input type="month" id="certDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="certExpiry">Expiry Date (Optional)</label>
+                                <input type="month" id="certExpiry">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="certificationId">Credential ID (Optional)</label>
+                            <input type="text" id="certificationId" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="certificationUrl">Credential URL (Optional)</label>
+                            <input type="url" id="certificationUrl" placeholder="">
+                        </div>
+                    </div>
+                    <button class="add-entry-btn"><i class="fas fa-plus"></i> Add Another Certification</button>
+                </div>
+
+                <div class="section-container hidden" id="achievements-section">
+                    <h2>Achievements</h2>
+                    <div class="achievement-entry">
+                        <div class="form-group">
+                            <label for="achievementTitle">Title</label>
+                            <input type="text" id="achievementTitle" placeholder="">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="achievementDate">Date</label>
+                                <input type="month" id="achievementDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="achievementIssuer">Issuer/Organization</label>
+                                <input type="text" id="achievementIssuer" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="achievementDescription">Description (Optional)</label>
+                            <textarea id="achievementDescription" rows="2" placeholder=""></textarea>
+                        </div>
+                    </div>
+                    <button class="add-entry-btn"><i class="fas fa-plus"></i> Add Another Achievement</button>
+                </div>
+            </div>
+
+            <div class="resume-preview">
+                <div class="preview-header">
+                    <h3><i class="fas fa-eye"></i> Live Preview</h3>
+                    <div class="preview-controls">
+                        <button class="preview-control-btn" title="Dark/Light Mode"><i class="fas fa-moon"></i></button>
+                        <button class="preview-control-btn" title="Download PDF"><i class="fas fa-download"></i></button>
+                        <button class="preview-control-btn" title="Print"><i class="fas fa-print"></i></button>
+                        <button class="preview-control-btn" title="Fullscreen"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                
+                <div class="preview-frame">
+                    <div class="preview-loading">
+                        <div class="preview-loading-spinner"></div>
+                        <div class="preview-loading-text">Generating preview...</div>
+                    </div>
+                <div class="preview-container">
+                    <div id="resume-preview-content" class="resume-document professional">
+                        <!-- Preview content will be dynamically generated -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="resume-actions">
+            <div class="resume-action-buttons">
+                <button id="prev-step-btn" class="neuranex-button secondary"><i class="fas fa-arrow-left"></i> Previous Step</button>
+                <button id="save-draft-btn" class="neuranex-button secondary"><i class="fas fa-save"></i> Save Draft</button>
+                <button id="next-step-btn" class="neuranex-button primary">Next Step <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <div id="ai-suggestions-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-robot"></i> AI Suggestions</h2>
+            <div class="ai-analyzing">
+                <div class="spinner"></div>
+                <p>Analyzing your resume content...</p>
+            </div>
+            <div class="ai-results hidden">
+                <div class="suggestion-category">
+                    <h3>Content Improvements</h3>
+                    <ul class="suggestion-list">
+                        <li>
+                            <div class="suggestion-item">
+                                <p><strong>Experience bullet point:</strong> "Managed team projects" is vague. Consider: "Led a team of 4 developers to deliver project milestones 2 weeks ahead of schedule"</p>
+                                <button class="apply-suggestion">Apply</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="suggestion-item">
+                                <p><strong>Skills section:</strong> Add quantifiable metrics to your technical skills, e.g., "Reduced database query time by 40% through optimization"</p>
+                                <button class="apply-suggestion">Apply</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="suggestion-category">
+                    <h3>ATS Optimization</h3>
+                    <ul class="suggestion-list">
+                        <li>
+                            <div class="suggestion-item">
+                                <p><strong>Missing keywords:</strong> Consider adding "data analysis", "agile methodology", and "cloud computing" to better match job descriptions in your field</p>
+                                <button class="apply-suggestion">Apply</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="suggestion-category">
+                    <h3>Format & Structure</h3>
+                    <ul class="suggestion-list">
+                        <li>
+                            <div class="suggestion-item">
+                                <p><strong>Section order:</strong> For your experience level, consider moving Projects section above Experience for more impact</p>
+                                <button class="apply-suggestion">Apply</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="version-history-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-history"></i> Version History</h2>
+            <div class="version-list">
+                <div class="version-item">
+                    <div class="version-info">
+                        <h4>Version 3</h4>
+                        <span class="version-date">May 21, 2025 - 2:45 PM</span>
+                    </div>
+                    <div class="version-actions">
+                        <button class="load-version">Load</button>
+                        <button class="delete-version"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="version-item">
+                    <div class="version-info">
+                        <h4>Version 2</h4>
+                        <span class="version-date">May 20, 2025 - 6:12 PM</span>
+                    </div>
+                    <div class="version-actions">
+                        <button class="load-version">Load</button>
+                        <button class="delete-version"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="version-item">
+                    <div class="version-info">
+                        <h4>Version 1</h4>
+                        <span class="version-date">May 19, 2025 - 11:30 AM</span>
+                    </div>
+                    <div class="version-actions">
+                        <button class="load-version">Load</button>
+                        <button class="delete-version"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 NeuraNex. Developed by Aryan and team. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Form validation
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '' && this.hasAttribute('required')) {
+                    this.closest('.form-group').classList.add('error');
+                } else {
+                    this.closest('.form-group').classList.remove('error');
+                    if (this.value.trim() !== '') {
+                        this.closest('.form-group').classList.add('success');
+                    } else {
+                        this.closest('.form-group').classList.remove('success');
+                    }
+                }
+            });
+        });
+        
+        // Progress tracker functionality
+        const progressSteps = document.querySelectorAll('.progress-step');
+        const nextBtn = document.getElementById('next-step-btn');
+        const prevBtn = document.getElementById('prev-step-btn');
+        let currentStep = 1;
+        
+        // Initially hide the previous button
+        prevBtn.style.display = 'none';
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentStep < progressSteps.length) {
+                progressSteps[currentStep-1].classList.add('completed');
+                progressSteps[currentStep].classList.add('active');
+                currentStep++;
+                
+                // Show previous button when not on first step
+                prevBtn.style.display = 'block';
+                
+                // Change next button text on last step
+                if (currentStep === progressSteps.length) {
+                    nextBtn.innerHTML = 'Finish <i class="fas fa-check"></i>';
+                }
+            }
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                progressSteps[currentStep].classList.remove('active');
+                progressSteps[currentStep-1].classList.remove('completed');
+                
+                // Hide previous button on first step
+                if (currentStep === 1) {
+                    prevBtn.style.display = 'none';
+                }
+                
+                // Reset next button text
+                nextBtn.innerHTML = 'Next Step <i class="fas fa-arrow-right"></i>';
+            }
+        });
+        
+        // Auto-save functionality
+        const autoSave = () => {
+            const formData = {};
+            document.querySelectorAll('input, textarea, select').forEach(input => {
+                formData[input.id] = input.value;
+            });
+            localStorage.setItem('resumeData', JSON.stringify(formData));
+        };
+        
+        // Auto-save every 30 seconds
+        setInterval(autoSave, 30000);
+        
+        // Load saved data
+        const loadSavedData = () => {
+            const savedData = localStorage.getItem('resumeData');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                for (const id in formData) {
+                    const input = document.getElementById(id);
+                    if (input) input.value = formData[id];
+                }
+            }
+        };
+        
+        // Load saved data on page load
+        window.addEventListener('load', loadSavedData);
+        
+        // Save draft button
+        document.getElementById('save-draft-btn').addEventListener('click', () => {
+            autoSave();
+            alert('Your resume has been saved as a draft!');
+        });
+        
+        // AI suggestions functionality
+        document.querySelectorAll('.suggestion-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                const textarea = this.closest('.section-container').querySelector('textarea');
+                if (textarea) {
+                    textarea.value += (textarea.value ? '\n' : '') + this.textContent;
+                    textarea.focus();
+                }
+            });
+        });
+        
+        // Preview panel controls
+        document.querySelector('.preview-control-btn[title="Dark/Light Mode"]').addEventListener('click', function() {
+            document.querySelector('.preview-frame').classList.toggle('dark-mode');
+            this.querySelector('i').classList.toggle('fa-moon');
+            this.querySelector('i').classList.toggle('fa-sun');
+        });
+        
+        // Hide loading indicator after 2 seconds
+        setTimeout(() => {
+            document.querySelector('.preview-loading').style.display = 'none';
+        }, 2000);
+    </script>
+</body>
+</html>
+
+

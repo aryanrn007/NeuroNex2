@@ -1,0 +1,451 @@
+/* Enhanced Downloadable PDF Guide Styles */
+.guide-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.guide-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(108, 47, 255, 0.05), transparent 60%);
+    z-index: 0;
+}
+
+.guide-download-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #ffffff, #f8f9fc);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1;
+    border: 1px solid rgba(108, 47, 255, 0.1);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.guide-download-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(108, 47, 255, 0.1);
+}
+
+.guide-download-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(108, 47, 255, 0.1) 0%, rgba(108, 47, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.guide-header {
+    position: relative;
+    padding: 30px;
+    background: linear-gradient(135deg, #6c2fff, #8a64ff);
+    color: white;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+}
+
+.guide-header::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.guide-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.guide-header h3 {
+    font-size: 1.6rem;
+    margin: 0 0 10px;
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+    color: white;
+}
+
+.guide-header p {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.guide-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    position: relative;
+}
+
+.guide-info {
+    flex: 1;
+    min-width: 280px;
+}
+
+.guide-preview {
+    flex: 0 0 220px;
+    margin-left: 30px;
+    position: relative;
+    perspective: 1000px;
+}
+
+.guide-preview-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: rotateY(10deg);
+    transition: all 0.5s ease;
+}
+
+.guide-download-card:hover .guide-preview-img {
+    transform: rotateY(0);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.guide-features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.guide-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #444;
+    position: relative;
+    padding-left: 28px;
+}
+
+.guide-features li i {
+    position: absolute;
+    left: 0;
+    color: #6c2fff;
+    font-size: 1rem;
+}
+
+.guide-actions {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #6c2fff, #8a64ff);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(108, 47, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+    transition: all 0.6s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(108, 47, 255, 0.3);
+}
+
+.download-btn:hover::before {
+    left: 100%;
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+.download-btn i {
+    font-size: 1.1rem;
+}
+
+.guide-stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.guide-stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.guide-stat i {
+    color: #6c2fff;
+    font-size: 1rem;
+}
+
+.guide-stat span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.guide-format {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.guide-format i {
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+/* Download Animation */
+@keyframes downloadStart {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.downloading {
+    animation: downloadStart 1s ease;
+}
+
+.download-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    width: 0%;
+    transition: width 2s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+
+/* Floating elements */
+.guide-floating-element {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(108, 47, 255, 0.1), rgba(138, 100, 255, 0.05));
+    z-index: 0;
+    animation: float 8s ease-in-out infinite;
+}
+
+.guide-floating-1 {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    right: 10%;
+    animation-delay: 0s;
+}
+
+.guide-floating-2 {
+    width: 60px;
+    height: 60px;
+    bottom: 15%;
+    left: 5%;
+    animation-delay: 2s;
+}
+
+.guide-floating-3 {
+    width: 40px;
+    height: 40px;
+    top: 10%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0); }
+}
+
+/* Success Animation */
+.download-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.download-success.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.success-content {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    max-width: 400px;
+}
+
+.download-success.active .success-content {
+    transform: translateY(0);
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: #27ae60;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.success-icon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(39, 174, 96, 0.2);
+    animation: pulse 2s infinite;
+}
+
+.success-icon i {
+    color: white;
+    font-size: 40px;
+}
+
+.success-content h3 {
+    font-size: 24px;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.success-content p {
+    font-size: 16px;
+    color: #666;
+    margin: 0 0 25px;
+}
+
+.success-btn {
+    background: linear-gradient(135deg, #6c2fff, #8a64ff);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.success-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(108, 47, 255, 0.3);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    70% { transform: scale(1.5); opacity: 0; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .guide-content {
+        flex-direction: column;
+    }
+    
+    .guide-preview {
+        margin: 30px 0 0;
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 250px;
+        align-self: center;
+    }
+    
+    .guide-header h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Dark Mode Support */
+.dark-mode .guide-download-card {
+    background: linear-gradient(135deg, #2a2a2a, #222);
+    border-color: rgba(138, 100, 255, 0.2);
+}
+
+.dark-mode .guide-features li {
+    color: #e0e0e0;
+}
+
+.dark-mode .guide-stat span,
+.dark-mode .guide-format {
+    color: #bbb;
+}
+
+.dark-mode .success-content {
+    background: #2a2a2a;
+}
+
+.dark-mode .success-content h3 {
+    color: #e0e0e0;
+}
+
+.dark-mode .success-content p {
+    color: #bbb;
+}

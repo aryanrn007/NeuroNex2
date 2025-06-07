@@ -1,0 +1,92 @@
+/* Direct fix for overlapping dropdown in the filter section */
+
+/* Proper spacing for filter content */
+.filter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Fix filter groups */
+.filter-group {
+    margin-bottom: 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Fix dropdown styling */
+.filter-select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Fix experience level dropdown specifically */
+#experience-level {
+    margin-bottom: 0;
+}
+
+/* Fix location tabs */
+.location-tabs {
+    margin-bottom: 15px;
+}
+
+/* Fix location options */
+.location-options {
+    margin-bottom: 15px;
+}
+
+/* Fix filter header */
+.filter-header {
+    margin-bottom: 20px;
+}
+
+/* Fix filter buttons */
+.filter-buttons {
+    margin-top: 20px;
+}
+
+/* Fix input fields */
+.input-with-icon input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 10px 10px 35px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Fix input icon positioning */
+.input-with-icon i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+/* Fix labels */
+.filter-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Fix filter applied badge */
+.filters-applied {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #e6f7ef;
+    color: #28a745;
+    font-size: 12px;
+    margin-bottom: 10px;
+}

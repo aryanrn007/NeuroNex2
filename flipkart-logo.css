@@ -1,0 +1,27 @@
+/* Custom Flipkart logo styling */
+.flipkart-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    height: 40px;
+    overflow: hidden;
+}
+
+.flipkart-logo img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    object-fit: contain;
+    object-position: left;
+    transform: scale(1.2);
+}
+
+/* Adjust other trending company cards to maintain consistent spacing */
+.trending-company-card:nth-child(4) .company-tags {
+    margin-top: 0.2rem;
+}
+
+/* Remove the default logo styling for Flipkart card */
+.trending-company-card:nth-child(4) h3::before {
+    display: none;
+}

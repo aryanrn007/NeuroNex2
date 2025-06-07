@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroNex - SkillSync</title>
+    <link rel="stylesheet" href="style.css"> <!-- Re-use main styles -->
+    <link rel="stylesheet" href="skillsync.css"> <!-- Specific styles for SkillSync -->
+    <link rel="stylesheet" href="sint-theme.css"> <!-- Sint theme styles -->
+    <link rel="stylesheet" href="skillsync-user-profiles.css"> <!-- User profile styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+    <script src="scroll-snap.js"></script>
+    <script src="page-scroll-navigation.js"></script>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-graduation-cap"></i> NeuraNex</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="brainbox.html" class="nav-link"><i class="fas fa-brain"></i> BrainBox</a>
+            <a href="skillsync.html" class="nav-link active"><i class="fas fa-users"></i> SkillSync</a>
+            <a href="techverse.html" class="nav-link"><i class="fas fa-laptop-code"></i> TechVerse</a>
+            <a href="launchpad.html" class="nav-link"><i class="fas fa-rocket"></i> LaunchPad</a>
+        </nav>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span id="loggedInUserNameSS" class="user-name-display"></span>
+            <button id="settings-buttonSS" class="circle-btn settings-btn" aria-label="Settings"><i class="fas fa-cog"></i></button>
+            <button id="add-profile-buttonSS" class="circle-btn add-profile-btn" aria-label="Add Profile"><i class="fas fa-user-plus"></i></button>
+        </div>
+    </header>
+
+    <!-- Add Profile Panel -->
+    <div id="add-profile-panel" class="side-panel">
+        <div class="side-panel-content">
+            <div class="side-panel-header">
+                <h2><i class="fas fa-user-plus"></i> Add Your Profile</h2>
+                <button id="close-add-profile" class="close-panel-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="add-profile-form" class="profile-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="profile-name">Full Name</label>
+                        <input type="text" id="profile-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-college">College/University</label>
+                        <input type="text" id="profile-college" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-department">Department</label>
+                        <input type="text" id="profile-department" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-year">Year</label>
+                        <select id="profile-year" required>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="profile-skills">Skills (comma-separated)</label>
+                        <input type="text" id="profile-skills" placeholder="e.g., Python, React, Machine Learning" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="profile-availability">Available For (select multiple)</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="availability" value="Projects"> Projects</label>
+                            <label><input type="checkbox" name="availability" value="Hackathons"> Hackathons</label>
+                            <label><input type="checkbox" name="availability" value="Research"> Research</label>
+                            <label><input type="checkbox" name="availability" value="Events"> Events</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-linkedin">LinkedIn Profile URL</label>
+                        <input type="url" id="profile-linkedin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-email">Academic Email</label>
+                        <input type="email" id="profile-email" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="profile-bio">Bio</label>
+                        <textarea id="profile-bio" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="profile-pic">Profile Picture URL</label>
+                        <input type="url" id="profile-pic" placeholder="Enter URL of your profile picture">
+                    </div>
+                </div>
+                <button type="submit" class="juno-button">Add Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="settings-panelSS" class="settings-panel">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <button id="close-settingsSS" class="close-settings-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="settings-section">
+                <h3>Theme</h3>
+                <div class="theme-options">
+                    <button class="theme-option" data-theme="light">
+                        <i class="fas fa-sun"></i>
+                        <span>Light</span>
+                    </button>
+                    
+                    <button class="theme-option" data-theme="office">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Office</span>
+                    </button>
+                    
+                    <button class="theme-option" data-theme="sint">
+                        <i class="fas fa-robot"></i>
+                        <span>Sint</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Logout button at the bottom of settings panel -->
+            <div style="margin-top: 2.5rem; text-align: center;">
+                <button id="logout-buttonSS" class="juno-button" style="width: 80%;"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="skillsync-main-container">
+        <div class="skillsync-hero">
+            <h2><i class="fas fa-users icon-animated"></i> SkillSync – Team Up. Build. Win.</h2>
+            <p>Connect with peers, find collaborators, and bring your innovative ideas to life!</p>
+        </div>
+
+        <!-- Featured Collaborators -->
+        <section class="skillsync-section featured-collaborators-section">
+            <h3><i class="fas fa-star icon-gradient"></i> Featured Collaborators</h3>
+            <div id="featured-collaborators-grid" class="profile-grid">
+                <!-- Featured profiles populated by JS -->
+            </div>
+        </section>
+
+        <!-- Find Team Members -->
+        <section class="skillsync-section find-members-section">
+            <h3><i class="fas fa-search icon-gradient"></i> Find Team Members</h3>
+            <div class="filters-bar">
+                <input type="text" id="skill-search-input" placeholder="Search by skill, name, college...">
+                <select id="department-filter">
+                    <option value="">All Departments</option>
+                    <!-- Populated by JS -->
+                </select>
+                <select id="availability-filter">
+                    <option value="">Any Availability</option>
+                    <option value="Hackathons">Hackathons</option>
+                    <option value="Projects">Projects</option>
+                    <option value="Events">Events</option>
+                </select>
+                <button id="apply-filters-btn" class="juno-button small-btn"><i class="fas fa-filter icon-gradient"></i> Apply Filters</button>
+            </div>
+            <div id="team-members-grid" class="profile-grid">
+                <!-- Profiles populated by JS -->
+                <p class="no-profiles-message">No profiles match your criteria.</p>
+            </div>
+        </section>
+
+        <!-- Post a Team Requirement -->
+        <section class="skillsync-section post-requirement-section">
+            <h3><i class="fas fa-bullhorn icon-animated"></i> Post a Team Requirement (Simulated)</h3>
+            <form id="post-requirement-form" class="requirement-form">
+                <input type="text" id="req-project-name" placeholder="Project/Event Name" required>
+                <textarea id="req-skill-needs" placeholder="Skills Needed (e.g., React, Python, UI Design)" required></textarea>
+                <input type="text" id="req-contact-info" placeholder="Your Contact Info (Email/LinkedIn)" required>
+                <button type="submit" class="juno-button"><i class="fas fa-paper-plane icon-gradient"></i> Post Requirement</button>
+            </form>
+            <h4><i class="fas fa-tasks icon-shine"></i> Current Team Postings (Simulated):</h4>
+            <ul id="team-postings-list">
+                <!-- Simulated posts will appear here -->
+                <li class="no-postings">No current postings. Be the first!</li>
+            </ul>
+        </section>
+    </main>
+    
+    <!-- Modal for Full Student Profile -->
+    <div id="user-profile-modal" class="modal">
+        <div class="modal-content user-profile-modal-content">
+            <span class="close-modal-btn" id="close-user-profile-modal">×</span>
+            <div id="modal-user-profile-header">
+                 <h2 id="modal-user-name">User Name</h2>
+            </div>
+            <p id="modal-user-college-dept"></p>
+            <p><strong>Skills:</strong> <span id="modal-user-skills" class="tags-container"></span></p>
+            <p><strong>Available for:</strong> <span id="modal-user-availability" class="tags-container"></span></p>
+            <p id="modal-user-bio"></p>
+            <div class="modal-contact-actions">
+                 <a id="modal-user-linkedin" href="#" class="juno-button small-btn" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                 <a id="modal-user-email" href="#" class="juno-button small-btn"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>© 2025 NeuraNex. Developed by Aryan and team. All rights reserved.</p>
+    </footer>
+
+    <script src="skillsync.js"></script>
+    <!-- Real Dynamic Kolhapur LinkedIn Integration -->
+    <script src="real-dynamic-profiles.js"></script>
+    <!-- Sint Theme and 3D Robot Integration -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.94/build/spline-viewer.js"></script>
+    <script src="sint-theme.js"></script>
+</body>
+</html>
+
+

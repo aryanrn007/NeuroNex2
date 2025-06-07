@@ -1,0 +1,184 @@
+/**
+ * Enhanced Statistics Section for Interview Prep
+ * Modern, animated UI for the interview statistics
+ */
+
+/* Main heading style enhancement */
+.interview-welcome h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #673AB7, #3f51b5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.5px;
+    transition: all 0.3s ease;
+}
+
+.interview-welcome h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #673AB7, #3f51b5);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.interview-welcome h2:hover::after {
+    width: 120px;
+}
+
+/* Subtitle enhancement */
+.interview-welcome p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Stats container enhancement */
+.welcome-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+    position: relative;
+    padding: 2rem 0;
+}
+
+/* Decorative background for stats */
+.welcome-stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(240,240,255,0.9) 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(103, 58, 183, 0.1);
+    z-index: -1;
+}
+
+/* Individual stat item enhancement */
+.stat-item {
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    padding: 1.5rem;
+    z-index: 1;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Circular background for stat items */
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: rgba(103, 58, 183, 0.08);
+    border-radius: 50%;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover::before {
+    background: rgba(103, 58, 183, 0.15);
+    width: 130px;
+    height: 130px;
+}
+
+/* Stat value enhancement */
+.stat-value {
+    font-size: 3.2rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #673AB7, #3f51b5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.8rem;
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* Animated counter effect */
+.stat-value.animated {
+    animation: countUp 2s ease-out forwards;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stat label enhancement */
+.stat-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover .stat-label {
+    color: #673AB7;
+}
+
+/* Stat icons */
+.stat-icon {
+    font-size: 1.8rem;
+    color: #673AB7;
+    opacity: 0.7;
+    margin-bottom: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover .stat-icon {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .welcome-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .interview-welcome h2 {
+        font-size: 2.2rem;
+    }
+}

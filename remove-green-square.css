@@ -1,0 +1,48 @@
+/* CSS to remove the green square panel in the top-right corner */
+
+/* Target any fixed position elements in the top-right corner */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background-color: transparent !important;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Hide any elements with green background in the top-right corner */
+[style*="background-color: #4CAF50"],
+[style*="background-color:#4CAF50"],
+[style*="background: #4CAF50"],
+[style*="background:#4CAF50"],
+[style*="background-color: green"],
+[style*="background:green"],
+[class*="theme-indicator"],
+[id*="theme-indicator"],
+[class*="sint-indicator"],
+[id*="sint-indicator"] {
+    display: none !important;
+}
+
+/* Target any elements in the top-right corner with fixed or absolute positioning */
+[style*="position: fixed"][style*="top: 0"][style*="right: 0"],
+[style*="position:fixed"][style*="top:0"][style*="right:0"],
+[style*="position: absolute"][style*="top: 0"][style*="right: 0"],
+[style*="position:absolute"][style*="top:0"][style*="right:0"] {
+    display: none !important;
+}
+
+/* Target any small square elements in the top-right corner */
+[style*="width: 20px"][style*="height: 20px"][style*="position: fixed"],
+[style*="width:20px"][style*="height:20px"][style*="position:fixed"],
+[style*="width: 15px"][style*="height: 15px"][style*="position: fixed"],
+[style*="width:15px"][style*="height:15px"][style*="position:fixed"],
+[style*="width: 10px"][style*="height: 10px"][style*="position: fixed"],
+[style*="width:10px"][style*="height:10px"][style*="position:fixed"] {
+    display: none !important;
+}
+
+/* Scholarship button is now allowed to be displayed */

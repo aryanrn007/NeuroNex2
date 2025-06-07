@@ -1,0 +1,15 @@
+/* suggestions.css */
+body {
+    /* Main styles from style.css are inherited */
+}
+
+.suggestions-main-container {
+    max-width: 1200px; /* Or your preferred max width for this page */
+    margin: 1.5rem auto;
+    padding: 1rem;
+}
+
+.company-opportunities-section.standalone-section {
+    /* If any specific adjustments are needed when it's the main content of the page */
+    /* For example, if you don't want it to have its own card background if the page bg is different */
+}

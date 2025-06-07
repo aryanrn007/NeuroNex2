@@ -1,0 +1,277 @@
+/* Company Cards Redesign - Minimalist Style */
+
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+    animation: fadeIn 0.5s ease-in-out;
+    padding: 1rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.company-card {
+    background: #ffffff;
+    padding: 1.8rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    border: none;
+    max-width: 400px;
+    margin: 0 auto;
+    min-height: 280px;
+}
+
+.dark-mode .company-card { 
+    background: #2a2a3a;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.company-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Company Tag Badge */
+.company-tag-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(106, 17, 203, 0.1);
+    color: #6a11cb;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.dark-mode .company-tag-badge {
+    background: rgba(106, 17, 203, 0.2);
+    color: #a67dff;
+}
+
+.company-card:hover .company-tag-badge {
+    transform: translateY(-2px);
+}
+
+/* Company Title */
+.company-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.3;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dark-mode .company-title {
+    color: #f0f0f0;
+}
+
+.company-card:hover .company-title {
+    color: #6a11cb;
+}
+
+/* Company Info List */
+.company-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #555;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-bottom: 0.8rem;
+}
+
+.info-item i {
+    color: #6a11cb;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+    margin-right: 0.3rem;
+}
+
+.dark-mode .info-item {
+    color: #d0d0d0;
+}
+
+.dark-mode .info-item i {
+    color: #a67dff;
+}
+
+.company-card:hover .info-item i {
+    transform: translateX(2px);
+}
+
+/* Company Description */
+.company-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 3rem;
+}
+
+.dark-mode .company-description {
+    color: #b0b0b0;
+}
+
+/* Action Buttons */
+.company-actions { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    gap: 1rem;
+}
+
+.view-details-btn { 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    background: #00aaff;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 170, 255, 0.3);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: 0;
+    padding: 0 25px;
+    width: auto;
+    border-radius: 30px;
+}
+
+.view-details-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(33, 150, 243, 0.4);
+}
+
+.bookmark-btn {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.bookmark-btn:hover {
+    color: #6a11cb;
+}
+
+.bookmark-btn.active {
+    color: #6a11cb;
+}
+
+.dark-mode .bookmark-btn {
+    color: #777;
+}
+
+.dark-mode .bookmark-btn.active,
+.dark-mode .bookmark-btn:hover {
+    color: #a67dff;
+}
+
+/* Match Score */
+.match-score, .match-percentage {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #6a11cb;
+    display: none; /* Hide this to match the image design */
+}
+
+.dark-mode .match-score {
+    color: #a67dff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .company-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .company-card {
+        padding: 1.5rem;
+    }
+    
+    .match-percentage {
+        width: 50px;
+        height: 50px;
+        font-size: 0.9rem;
+        top: 1.2rem;
+        right: 1.2rem;
+    }
+    
+    .company-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .company-name {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation for high match companies */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 8px 25px rgba(106, 17, 203, 0.1);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(106, 17, 203, 0.3);
+    }
+    100% {
+        box-shadow: 0 8px 25px rgba(106, 17, 203, 0.1);
+    }
+}
+
+.company-card.high-match {
+    animation: pulse 2s infinite;
+}
+
+/* Animation for bookmark button */
+@keyframes bookmark-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.bookmark-btn.animate {
+    animation: bookmark-pop 0.4s ease-out;
+}

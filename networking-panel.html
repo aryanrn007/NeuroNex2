@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking Tips Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="networking-panel-enhanced.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Enhanced Networking Panel -->
+        <div class="networking-panel">
+            <!-- Floating Elements -->
+            <div class="networking-floating-element floating-element-1"></div>
+            <div class="networking-floating-element floating-element-2"></div>
+            <div class="networking-floating-element floating-element-3"></div>
+            
+            <!-- Content Section -->
+            <div class="networking-content">
+                <div class="networking-title">
+                    <h2>Networking <span class="highlight">Tips</span></h2>
+                </div>
+                
+                <p class="networking-description">
+                    Learn how to build and leverage your professional network for career growth
+                </p>
+                
+                <!-- Stats Section -->
+                <div class="networking-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">60+</div>
+                            <div class="stat-label">Connections</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Templates</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">85%</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="networking-actions">
+                    <button class="networking-btn primary-btn" onclick="window.location.href='networking-tips.html'">
+                        Start Learning
+                    </button>
+                    <button class="networking-btn secondary-btn" onclick="startNetworkingChallenge()">
+                        Take Challenge
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Image Section -->
+            <div class="networking-image">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Networking event with professionals">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle the networking challenge
+        function startNetworkingChallenge() {
+            // Check if the resource-cards.js is loaded
+            if (typeof window.startNetworkingChallenge === 'function') {
+                window.startNetworkingChallenge();
+            } else {
+                // Fallback if the function is not available
+                window.location.href = 'networking-tips.html?challenge=true';
+            }
+        }
+
+        // Animation for stats counting up
+        document.addEventListener('DOMContentLoaded', () => {
+            const statValues = document.querySelectorAll('.stat-value');
+            
+            // Animate stats when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateValue(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statValues.forEach(value => {
+                observer.observe(value);
+            });
+            
+            function animateValue(element) {
+                const value = element.innerText;
+                const hasPlus = value.includes('+');
+                const hasPercent = value.includes('%');
+                let finalValue = parseInt(value.replace(/[^0-9]/g, ''));
+                
+                let startValue = 0;
+                let duration = 1500;
+                let start = null;
+                
+                function step(timestamp) {
+                    if (!start) start = timestamp;
+                    const progress = Math.min((timestamp - start) / duration, 1);
+                    const currentValue = Math.floor(progress * (finalValue - startValue) + startValue);
+                    
+                    let displayValue = currentValue;
+                    if (hasPlus) displayValue += '+';
+                    if (hasPercent) displayValue += '%';
+                    
+                    element.innerText = displayValue;
+                    
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                }
+                
+                window.requestAnimationFrame(step);
+            }
+        });
+    </script>
+</body>
+</html>
+
+

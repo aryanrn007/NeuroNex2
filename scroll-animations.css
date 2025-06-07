@@ -1,0 +1,175 @@
+/* Enhanced Animations for Scroll Snapping */
+
+/* Fade in animation for section content */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animation for grid items */
+@keyframes fadeInStagger {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse animation for scroll indicator */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(248, 181, 0, 0.7);
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(248, 181, 0, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(248, 181, 0, 0);
+    }
+}
+
+/* Subtle float animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Apply animations to elements */
+.scroll-section.active .section-title {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.scroll-section.active .hero-content > * {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+.scroll-section.active .hero-title {
+    animation-delay: 0.1s;
+}
+
+.scroll-section.active .hero-subtitle {
+    animation-delay: 0.3s;
+}
+
+.scroll-section.active .hero-buttons {
+    animation-delay: 0.5s;
+}
+
+/* Grid item animations with staggered delay */
+.scroll-section.active .about-card,
+.scroll-section.active .product-card,
+.scroll-section.active .research-card {
+    animation: fadeInStagger 0.8s ease forwards;
+    opacity: 0;
+}
+
+.scroll-section.active .about-card:nth-child(1),
+.scroll-section.active .product-card:nth-child(1),
+.scroll-section.active .research-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.scroll-section.active .about-card:nth-child(2),
+.scroll-section.active .product-card:nth-child(2),
+.scroll-section.active .research-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.scroll-section.active .about-card:nth-child(3),
+.scroll-section.active .product-card:nth-child(3),
+.scroll-section.active .research-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.scroll-section.active .about-card:nth-child(4),
+.scroll-section.active .product-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+/* Contact section animations */
+.scroll-section.active .contact-info,
+.scroll-section.active .contact-form {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+.scroll-section.active .contact-info {
+    animation-delay: 0.2s;
+}
+
+.scroll-section.active .contact-form {
+    animation-delay: 0.4s;
+}
+
+/* Scroll indicator pulse animation */
+.scroll-dot.active {
+    animation: pulse 2s infinite;
+}
+
+/* Floating animation for hero image */
+.hero-image img {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Smooth transition for all elements */
+.scroll-section * {
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+/* Progress bar for scrolling */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--accent-color);
+    z-index: 1001;
+    transition: width 0.2s ease;
+}
+
+/* Enhance navigation link transitions */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 70%;
+}
+
+.nav-link.active::after {
+    width: 70%;
+}

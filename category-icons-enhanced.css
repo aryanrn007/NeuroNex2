@@ -1,0 +1,328 @@
+/* Enhanced Category Icons with Modern UI/UX */
+
+/* Category Section Header */
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-bottom: 8px;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.category-title:hover::after {
+    width: 100%;
+}
+
+/* Category Icons Container */
+.category-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding: 1.5rem 3rem;
+}
+
+/* Category Card */
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100px;
+    position: relative;
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(106, 17, 203, 0.15);
+}
+
+/* Category Icon */
+.category-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.1);
+    border-radius: 50%;
+}
+
+/* Icon Background Effects */
+.category-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.4s ease;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), transparent 70%);
+}
+
+.category-card:hover .category-icon::before {
+    opacity: 1;
+    border-radius: 50%;
+    transform: scale(1.1);
+}
+
+/* Category Text */
+.category-card span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+}
+
+.category-card:hover span {
+    color: var(--primary-color);
+}
+
+.category-card span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.category-card:hover span::after {
+    width: 80%;
+}
+
+/* Icon Specific Styling */
+.category-icon.competitions {
+    color: #7E3FF2;
+    background: rgba(126, 63, 242, 0.15);
+    box-shadow: 0 5px 15px rgba(126, 63, 242, 0.15);
+}
+
+.category-icon.hackathons {
+    color: #9D50BB;
+    background: rgba(157, 80, 187, 0.15);
+    box-shadow: 0 5px 15px rgba(157, 80, 187, 0.15);
+}
+
+.category-icon.quizzes {
+    color: #FF5E62;
+    background: rgba(255, 94, 98, 0.15);
+    box-shadow: 0 5px 15px rgba(255, 94, 98, 0.15);
+}
+
+.category-icon.scholarships {
+    color: #F8B500;
+    background: rgba(248, 181, 0, 0.15);
+    box-shadow: 0 5px 15px rgba(248, 181, 0, 0.15);
+}
+
+.category-icon.workshops {
+    color: #2575FC;
+    background: rgba(37, 117, 252, 0.15);
+    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.15);
+}
+
+/* Icon Animations */
+.category-icon i {
+    transition: all 0.4s ease;
+}
+
+.category-card:hover .category-icon.competitions i {
+    animation: trophyWiggle 1s ease;
+}
+
+.category-card:hover .category-icon.hackathons i {
+    animation: codeType 1s ease;
+}
+
+.category-card:hover .category-icon.quizzes i {
+    animation: questionPulse 1s ease;
+}
+
+.category-card:hover .category-icon.scholarships i {
+    animation: capFloat 1s ease;
+}
+
+.category-card:hover .category-icon.workshops i {
+    animation: teacherWave 1s ease;
+}
+
+@keyframes trophyWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+@keyframes codeType {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+}
+
+/* Sint Theme Styling for Category Icons */
+:root.sint-theme .category-card {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--card-shadow);
+}
+
+:root.sint-theme .category-card:hover {
+    box-shadow: var(--card-hover-shadow);
+    transform: translateY(-8px);
+    border: 1px solid rgba(110, 0, 255, 0.3);
+}
+
+:root.sint-theme .category-icon {
+    background: rgba(10, 10, 32, 0.7);
+    box-shadow: var(--neon-glow);
+    color: var(--text-color);
+}
+
+:root.sint-theme .category-icon.competitions {
+    color: var(--primary-color);
+    background: rgba(110, 0, 255, 0.2);
+    box-shadow: 0 0 15px rgba(110, 0, 255, 0.5);
+}
+
+:root.sint-theme .category-icon.hackathons {
+    color: var(--secondary-color);
+    background: rgba(0, 194, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 194, 255, 0.5);
+}
+
+:root.sint-theme .category-icon.quizzes {
+    color: var(--accent-color);
+    background: rgba(255, 0, 229, 0.2);
+    box-shadow: 0 0 15px rgba(255, 0, 229, 0.5);
+}
+
+:root.sint-theme .category-icon.scholarships {
+    color: var(--success-color);
+    background: rgba(0, 255, 157, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+}
+
+:root.sint-theme .category-icon.workshops {
+    color: var(--info-color);
+    background: rgba(0, 194, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 194, 255, 0.5);
+}
+
+:root.sint-theme .category-card span {
+    color: var(--text-color);
+}
+
+:root.sint-theme .category-card:hover span {
+    color: var(--secondary-color);
+    text-shadow: var(--neon-text-shadow);
+}
+
+:root.sint-theme .category-title {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: var(--neon-text-shadow);
+}
+
+:root.sint-theme .category-title::after {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    box-shadow: var(--neon-glow);
+}
+
+@keyframes questionPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes capFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes teacherWave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(5deg); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .category-icons {
+        gap: 1rem;
+    }
+    
+    .category-card {
+        width: 80px;
+        padding: 1rem 0.5rem;
+    }
+    
+    .category-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .category-card span {
+        font-size: 0.85rem;
+    }
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .category-card {
+    background-color: var(--card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .category-icon {
+    background-color: var(--card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .category-card:hover {
+    box-shadow: 0 12px 25px rgba(106, 17, 203, 0.3);
+}

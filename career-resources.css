@@ -1,0 +1,133 @@
+/* Career Resources Panel Styling */
+.career-resources {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.career-resources h2 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.career-resources h2::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(to bottom, #8a4fff, #6c2fff);
+    margin-right: 12px;
+    border-radius: 2px;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.resource-card {
+    background-color: #f8f9fc;
+    border-radius: 10px;
+    padding: 16px;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    height: 180px;
+    cursor: pointer;
+}
+
+.resource-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.resource-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #6c2fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: white;
+    font-size: 20px;
+}
+
+.resource-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.resource-description {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    flex-grow: 1;
+}
+
+.resource-button {
+    background-color: transparent;
+    color: #6c2fff;
+    border: 1px solid #6c2fff;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.resource-button:hover {
+    background-color: #6c2fff;
+    color: white;
+}
+
+/* Different colors for different resource types */
+.resource-card:nth-child(1) .resource-icon {
+    background-color: #6c2fff;
+}
+
+.resource-card:nth-child(2) .resource-icon {
+    background-color: #2f80ed;
+}
+
+.resource-card:nth-child(3) .resource-icon {
+    background-color: #27ae60;
+}
+
+.resource-card:nth-child(4) .resource-icon {
+    background-color: #f2994a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .resource-card {
+        height: auto;
+        padding: 14px;
+    }
+}

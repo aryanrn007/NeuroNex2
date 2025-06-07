@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechVerse – Tech Events Hub | NeuroNex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="techverse.css">
+    <link rel="stylesheet" href="tech-events-banner.css">
+    <link rel="stylesheet" href="category-icons-enhanced.css">
+    <link rel="stylesheet" href="event-cards-enhanced.css">
+    <link rel="stylesheet" href="event-modal-enhanced.css">
+    <link rel="stylesheet" href="panel-animations.css">
+    <link rel="stylesheet" href="modal-animations.css">
+    <link rel="stylesheet" href="sint-theme.css">
+    <link rel="stylesheet" href="event-modal-sint-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+    <script src="scroll-snap.js"></script>
+    <script src="page-scroll-navigation.js"></script>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-graduation-cap"></i> NeuraNex – Powered by Saarthi</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="brainbox.html" class="nav-link"><i class="fas fa-brain"></i> BrainBox</a>
+            <a href="skillsync.html" class="nav-link"><i class="fas fa-users"></i> SkillSync</a>
+            <a href="techverse.html" class="nav-link active"><i class="fas fa-laptop-code"></i> TechVerse</a>
+            <a href="launchpad.html" class="nav-link"><i class="fas fa-rocket"></i> LaunchPad</a>
+        </nav>
+        <div>
+            <span id="loggedInUserNameTV" class="user-name-display"></span>
+            <button id="settings-button" aria-label="Settings"><i class="fas fa-cog"></i></button>
+        </div>
+    </header>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel" class="settings-panel">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <button id="close-settings" class="close-settings-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="settings-section">
+                <h3>Theme</h3>
+                <div class="theme-options">
+                    <button class="theme-option" data-theme="light">
+                        <i class="fas fa-sun"></i>
+                        <span>Light</span>
+                    </button>
+                    
+                    <button class="theme-option" data-theme="office">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Office</span>
+                    </button>
+                    
+                    <button class="theme-option" data-theme="sint">
+                        <i class="fas fa-robot"></i>
+                        <span>Sint</span>
+                    </button>
+                    
+                </div>
+            </div>
+            <!-- Logout button at the bottom of settings panel -->
+            <div style="margin-top: 2.5rem; text-align: center;">
+                <button id="logout-buttonTV" class="juno-button" style="width: 80%;"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="techverse-container">
+        <!-- Enhanced Hero Section with Animations -->
+        <section class="tech-events-banner panel-animate fade-in">
+            <div class="tech-events-banner-content">
+                <h2>Unlock Your Tech Potential</h2>
+                <p>Discover hackathons, workshops, internships, and tech events from top organizations. Build your skills, expand your network, and showcase your talent.</p>
+                <button class="explore-events-btn">Explore Events <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="tech-events-banner-image">
+                <img src="https://d8it4huxumps7.cloudfront.net/uploads/images/676e555db74f7_compete.png?d=1000x600" alt="Tech events illustration">
+
+
+            </div>
+        </section>
+
+        <!-- Category Icons Section -->
+        <section class="category-section">
+            <h3 class="category-title">Browse by category</h3>
+            <div class="category-icons">
+                <div class="category-card" data-category="competitions">
+                    <div class="category-icon competitions">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <span>Competitions</span>
+                </div>
+                <div class="category-card" data-category="hackathons">
+                    <div class="category-icon hackathons">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span>Hackathons</span>
+                </div>
+                <div class="category-card" data-category="quizzes">
+                    <div class="category-icon quizzes">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <span>Quizzes</span>
+                </div>
+                <div class="category-card" data-category="scholarships">
+                    <div class="category-icon scholarships">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <span>Scholarships</span>
+                </div>
+                <div class="category-card" data-category="workshops">
+                    <div class="category-icon workshops">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <span>Workshops</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Improved Filters Section -->
+        <section class="filters-section">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="event-search" placeholder="Search events, hackathons, workshops..." autocomplete="off">
+            </div>
+            <div class="filter-options">
+                <select id="event-type">
+                    <option value="">Event Type</option>
+                    <option value="hackathon">Hackathon</option>
+                    <option value="techfest">Tech Fest</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="internship">Internship</option>
+                </select>
+                <select id="event-location">
+                    <option value="">Location</option>
+                    <option value="online">Online</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="bangalore">Bangalore</option>
+                    <option value="hyderabad">Hyderabad</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Events Grid Section -->
+        <section class="events-section">
+            <div class="section-header">
+                <h3>Upcoming Events</h3>
+            </div>
+            <div class="events-grid" id="events-container">
+                <!-- Event cards will be dynamically populated here -->
+            </div>
+        </section>
+
+        <!-- Promotional Panels -->
+        <section class="promo-panels">
+            <!-- Host Your Own Opportunity Panel -->
+            <div class="promo-panel host-panel animate-on-load">
+                <div class="promo-content">
+                    <h2>Host Your Own <span class="highlight">Opportunity</span></h2>
+                    <p>Find the right candidate from a diverse talent pool for your role.</p>
+                    <button class="connect-now-btn">Connect Now <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="promo-image">
+                    <img src="https://eventornado-files.ams3.cdn.digitaloceanspaces.com/blogposts/17/gMteARr8YzybAk5OoaiKLhlKVXkEK1zIEtEGhISa.jpeg" alt="Host opportunity illustration">
+                </div>
+            </div>
+
+            <!-- Mentorship Panel -->
+            <div class="promo-panel mentor-panel animate-on-load">
+                <div class="mentor-image">
+                    <img src="https://d8it4huxumps7.cloudfront.net/uploads/images/655df05ad621c_frame_1000012178.png?d=1000x1000" alt="Mentorship illustration">
+                </div>
+                <div class="mentor-content">
+                    <p class="subtitle">Need guidance?</p>
+                    <h2>Get Winning Tips From <span class="highlight">Top Mentors!</span></h2>
+                    <button class="connect-now-btn">Connect Now <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Detail Modal -->
+        <div id="event-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-accent-bar"></div>
+                <span class="close-modal">&times;</span>
+                <div id="event-details">
+                    <!-- Event details will be populated dynamically -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Host Options Modal -->
+        <div id="host-modal" class="modal">
+            <div class="modal-content host-modal-content">
+                <div class="modal-accent-bar"></div>
+                <span class="close-host-modal">&times;</span>
+                <div class="host-options-container">
+                    <h2>What you want to host <span class="highlight-emoji">✋</span></h2>
+                    
+                    <!-- Engaging Section -->
+                    <div class="host-section">
+                        <h3>For <span class="highlight">Engaging</span> your target audience</h3>
+                        <div class="host-options-grid">
+                            <!-- Option 1 -->
+                            <div class="host-option-card">
+                                <div class="option-icon competitions-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>General & Case Competitions</h4>
+                                    <a href="#" class="create-link">Create Competitions <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 2 -->
+                            <div class="host-option-card">
+                                <div class="option-icon challenges-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Innovation Challenges</h4>
+                                    <a href="#" class="create-link">Create Challenges <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 3 -->
+                            <div class="host-option-card">
+                                <div class="option-icon quizzes-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Quizzes</h4>
+                                    <a href="#" class="create-link">Create Quizzes <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 4 -->
+                            <div class="host-option-card">
+                                <div class="option-icon hackathons-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Hackathons & Coding Challenges</h4>
+                                    <a href="#" class="create-link">Create Hackathons <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="host-options-grid">
+                            <!-- Option 5 -->
+                            <div class="host-option-card">
+                                <div class="option-icon workshops-icon">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Webinars & Workshops</h4>
+                                    <a href="#" class="create-link">Create Workshops <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 6 -->
+                            <div class="host-option-card">
+                                <div class="option-icon events-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Cultural Events</h4>
+                                    <a href="#" class="create-link">Create Events <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 7 -->
+                            <div class="host-option-card">
+                                <div class="option-icon conferences-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Conferences</h4>
+                                    <a href="#" class="create-link">Create Conferences <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 8 -->
+                            <div class="host-option-card">
+                                <div class="option-icon scholarships-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Scholarships</h4>
+                                    <a href="#" class="create-link">Create Scholarships <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hiring Section -->
+                    <div class="host-section">
+                        <h3>For <span class="highlight">Hiring</span> the right talent</h3>
+                        <div class="host-options-grid">
+                            <!-- Option 1 -->
+                            <div class="host-option-card">
+                                <div class="option-icon jobs-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Jobs</h4>
+                                    <a href="#" class="create-link">Create Jobs <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 2 -->
+                            <div class="host-option-card">
+                                <div class="option-icon internships-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Internships</h4>
+                                    <a href="#" class="create-link">Create Internships <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 3 -->
+                            <div class="host-option-card">
+                                <div class="option-icon hiring-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Hiring Challenges</h4>
+                                    <a href="#" class="create-link">Create Challenges <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 4 -->
+                            <div class="host-option-card">
+                                <div class="option-icon hackathons-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="option-details">
+                                    <h4>Hackathons & Coding Challenges</h4>
+                                    <a href="#" class="create-link">Create Hackathons <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mentor Panel Modal -->
+    <div id="mentor-panel" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Top Mentors</h2>
+                <p>In search of excellence? Explore the highest-rated mentors as recognized by the learner community.</p>
+                <button id="close-mentor" class="close-modal-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="mentor-grid">
+                    <!-- Mentor Card 1 -->
+                    <div class="mentor-card">
+                        <div class="mentor-status">Available</div>
+                        <div class="mentor-trophy"><i class="fas fa-trophy"></i></div>
+                        <div class="mentor-info">
+                            <h3>Riya Shrivastava <span class="rating">★ 4.8</span></h3>
+                            <p class="mentor-title">Strategy - CXO's Office @SBI Life | MBA @IITSOM, Ex-Bosch, HP Tech Ventures</p>
+                            <button class="view-profile-btn">View Profile</button>
+                        </div>
+                    </div>
+                    <!-- Mentor Card 2 -->
+                    <div class="mentor-card">
+                        <div class="mentor-status">Available</div>
+                        <div class="mentor-trophy"><i class="fas fa-trophy"></i></div>
+                        <div class="mentor-info">
+                            <h3>Palak Gupta <span class="rating">★ 4.9</span></h3>
+                            <p class="mentor-title">Consulting Analyst @Accenture | MBA (Gold Medalist) @IIM Indore, Ex-IBM</p>
+                            <button class="view-profile-btn">View Profile</button>
+                        </div>
+                    </div>
+                    <!-- Mentor Card 3 -->
+                    <div class="mentor-card">
+                        <div class="mentor-status">Available</div>
+                        <div class="mentor-trophy"><i class="fas fa-trophy"></i></div>
+                        <div class="mentor-info">
+                            <h3>Faraz Hussain <span class="rating">★ 4.9</span></h3>
+                            <p class="mentor-title">Mentored 300+ students | Software Engineering | Certification in Java & AWS</p>
+                            <button class="view-profile-btn">View Profile</button>
+                        </div>
+                    </div>
+                    <!-- Mentor Card 4 -->
+                    <div class="mentor-card">
+                        <div class="mentor-status">Available</div>
+                        <div class="mentor-trophy"><i class="fas fa-trophy"></i></div>
+                        <div class="mentor-info">
+                            <h3>Vedansh Dubey <span class="rating">★ 4.9</span></h3>
+                            <p class="mentor-title">Senior Executive HR @Wipro | MBA @XIMB, Ex-TCS, Nestle, HT Media</p>
+                            <button class="view-profile-btn">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mentor-match-btn">
+                    <button class="match-btn">Mentor Match</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p> © 2025 NeuraNex. Developed by Aryan and team. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mentor Panel Functionality
+            const mentorshipPanel = document.querySelector('.mentor-panel');
+            const mentorConnectButton = mentorshipPanel ? mentorshipPanel.querySelector('.connect-now-btn') : null;
+            const mentorPanel = document.getElementById('mentor-panel');
+            const closeButton = document.getElementById('close-mentor');
+            
+            // Host Panel Functionality
+            const hostPanel = document.querySelector('.host-panel');
+            const hostConnectButton = hostPanel ? hostPanel.querySelector('.connect-now-btn') : null;
+            
+            // Add event listener for Host Connect button
+            const hostModal = document.getElementById('host-modal');
+            const closeHostModal = document.querySelector('.close-host-modal');
+            
+            if (hostConnectButton && hostModal) {
+                hostConnectButton.addEventListener('click', () => {
+                    hostModal.style.display = 'block';
+                    setTimeout(() => {
+                        hostModal.classList.add('show');
+                    }, 10);
+                });
+            }
+            
+            // Close host modal when clicking the close button
+            if (closeHostModal && hostModal) {
+                closeHostModal.addEventListener('click', () => {
+                    hostModal.classList.remove('show');
+                    setTimeout(() => {
+                        hostModal.style.display = 'none';
+                    }, 300);
+                });
+            }
+            
+            // Close host modal when clicking outside
+            if (hostModal) {
+                hostModal.addEventListener('click', (e) => {
+                    if (e.target === hostModal) {
+                        closeHostModal.click();
+                    }
+                });
+            }
+            
+            // Add event listeners for all create buttons in the host modal
+            const createLinks = document.querySelectorAll('.create-link');
+            createLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const featureName = link.textContent.trim().replace('Create ', '').replace(' ', '');
+                    showStylishNotification(`${featureName} creation feature will be available soon!`, 'coming-soon', '#6c5ce7');
+                });
+            });
+            
+            // Trigger animations for panels on page load
+            const animatedElements = document.querySelectorAll('.animate-on-load');
+            setTimeout(() => {
+                animatedElements.forEach(element => {
+                    element.classList.add('show');
+                });
+            }, 300);
+
+            if (mentorConnectButton) {
+                mentorConnectButton.addEventListener('click', () => {
+                    if (mentorPanel) {
+                        mentorPanel.style.display = 'block';
+                        setTimeout(() => {
+                            mentorPanel.classList.add('show');
+                        }, 10);
+                    }
+                });
+            }
+
+            if (closeButton) {
+                closeButton.addEventListener('click', () => {
+                    if (mentorPanel) {
+                        mentorPanel.classList.remove('show');
+                        setTimeout(() => {
+                            mentorPanel.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+
+            // Close mentor panel when clicking outside
+            if (mentorPanel) {
+                mentorPanel.addEventListener('click', (e) => {
+                    if (e.target === mentorPanel) {
+                        closeButton.click();
+                    }
+                });
+            }
+
+            // Schedule Meeting Button Functionality
+            const scheduleButtons = document.querySelectorAll('.schedule-btn');
+            scheduleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const mentorName = button.closest('.mentor-info').querySelector('h3').textContent;
+                    alert(`Scheduling meeting with ${mentorName}. This feature will be available soon!`);
+                });
+            });
+            
+            // View Profile Button Functionality
+            const viewProfileButtons = document.querySelectorAll('.view-profile-btn');
+            viewProfileButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const mentorName = button.closest('.mentor-info').querySelector('h3').textContent.split(' ★')[0].trim();
+                    showStylishNotification(`Mentor profile for ${mentorName} will be available soon!`);
+                });
+            });
+            
+            // Mentor Match Button Functionality
+            const mentorMatchButton = document.querySelector('.match-btn');
+            if (mentorMatchButton) {
+                mentorMatchButton.addEventListener('click', () => {
+                    showStylishNotification('Mentor matching feature will be available in the next update!', 'coming-soon', '#6c5ce7');
+                });
+            }
+            
+            // Function to show stylish notification
+            function showStylishNotification(message, type = 'coming-soon', bgColor = '#6c5ce7') {
+                // Remove any existing notification
+                const existingNotification = document.querySelector('.coming-soon-notification');
+                if (existingNotification) {
+                    existingNotification.remove();
+                }
+                
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = 'coming-soon-notification';
+                
+                // Determine icon based on type
+                let icon = 'fa-clock';
+                let title = 'Coming Soon!';
+                
+                if (type === 'info') {
+                    icon = 'fa-info-circle';
+                    title = 'Information';
+                } else if (type === 'success') {
+                    icon = 'fa-check-circle';
+                    title = 'Success';
+                } else if (type === 'warning') {
+                    icon = 'fa-exclamation-triangle';
+                    title = 'Warning';
+                } else if (type === 'error') {
+                    icon = 'fa-exclamation-circle';
+                    title = 'Error';
+                }
+                
+                // Add content
+                notification.innerHTML = `
+                    <div class="notification-content" style="background: linear-gradient(135deg, ${bgColor}, ${adjustColor(bgColor, 40)});">
+                        <div class="notification-icon">
+                            <i class="fas ${icon}"></i>
+                        </div>
+                        <div class="notification-text">
+                            <h3>${title}</h3>
+                            <p>${message}</p>
+                        </div>
+                        <button class="notification-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                
+                // Helper function to lighten/darken color
+                function adjustColor(color, amount) {
+                    // Convert hex to RGB
+                    let r = parseInt(color.substring(1,3), 16);
+                    let g = parseInt(color.substring(3,5), 16);
+                    let b = parseInt(color.substring(5,7), 16);
+                    
+                    // Lighten
+                    r = Math.min(255, r + amount);
+                    g = Math.min(255, g + amount);
+                    b = Math.min(255, b + amount);
+                    
+                    // Convert back to hex
+                    return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+                }
+                
+                // Add to body
+                document.body.appendChild(notification);
+                
+                // Add animation class after a small delay (for transition effect)
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 10);
+                
+                // Add close button functionality
+                const closeButton = notification.querySelector('.notification-close');
+                closeButton.addEventListener('click', () => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                });
+                
+                // Auto close after 5 seconds
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        notification.classList.remove('show');
+                        setTimeout(() => {
+                            notification.remove();
+                        }, 300);
+                    }
+                }, 5000);
+            }
+        });
+    </script>
+    <script type="module" src="techverse.js"></script>
+    <script src="simple-modal.js"></script>
+    <script src="dynamic-tech-events.js"></script>
+    <script src="hardcoded-events.js"></script>
+    <script src="sint-theme.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,635 @@
+/* Layout fixes for Salary Insights sections */
+
+/* Common card styling */
+.card-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Layout structure */
+.salary-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Search and Filter Panel */
+.salary-sidebar {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 2rem;
+}
+
+.filter-section {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-header {
+    margin-bottom: 1.5rem;
+}
+
+.filter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.filter-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.filters-applied {
+    display: inline-block;
+    background-color: #e6f7ef;
+    color: #28a745;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.filters-applied i {
+    margin-right: 6px;
+}
+
+.filter-section h3 {
+    color: #2c3e50;
+    font-size: 1.25rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.filter-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #28a745, #17a2b8);
+    border-radius: 3px;
+}
+
+.filter-section h3 i {
+    color: #28a745;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-row .filter-group {
+    flex: 1;
+}
+
+.filter-group label {
+    display: block;
+    color: #2c3e50;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon .search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    z-index: 1;
+}
+
+.input-with-icon input {
+    padding-left: 35px;
+}
+
+.filter-input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    background-color: #f8f9fa;
+}
+
+.filter-input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+    outline: none;
+    background-color: #fff;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: all 0.2s;
+}
+
+.filter-select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+    outline: none;
+    background-color: #fff;
+}
+
+.location-tabs {
+    display: flex;
+    background: #f1f5f9;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.location-tab {
+    border: none;
+    background: #f5f7fa;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+    text-align: center;
+}
+
+.location-tab:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.location-tab:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.location-tab.active {
+    background: #28a745;
+    color: white;
+    font-weight: 500;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    justify-content: flex-end;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    min-width: 100px;
+    justify-content: center;
+}
+
+.filter-btn.apply {
+    background: #7b68ee;
+    color: white;
+}
+
+.filter-btn.apply:hover {
+    background: #6a56e3;
+}
+
+.filter-btn.reset {
+    background: #f0f2f5;
+    color: #5a6a85;
+}
+
+.filter-btn.reset:hover {
+    background: #e1e5eb;
+}
+
+.filter-btn i {
+    margin-right: 6px;
+}
+
+/* Main content layout adjustments */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* 5-Year Salary Trends */
+.salary-trend-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2.5rem auto 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    position: relative;
+    z-index: 1;
+}
+
+.trend-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.trend-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.trend-icon i {
+    font-size: 14px;
+}
+
+.salary-trend-container h3 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.trend-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.trend-legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.trend-legend-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.salary-trend-container canvas {
+    min-height: 300px;
+    width: 100%;
+}
+
+.sample-data-container {
+    margin-top: 1.5rem;
+    overflow-x: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.sample-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.sample-data-table th,
+.sample-data-table td {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.sample-data-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.sample-data-table td {
+    color: #64748b;
+}
+
+.sample-data-table tr:hover td {
+    background-color: #f1f5f9;
+}
+
+/* Salary Trends Dashboard */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #ffffff;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin: 1.5rem auto 0;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: none;
+    width: 100%;
+    max-width: 1400px;
+    position: relative;
+    z-index: 1;
+}
+
+.dashboard-header h2 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-header h2 i {
+    color: #27ae60;
+    margin-right: 8px;
+}
+
+.view-toggle {
+    display: flex;
+    background: #f1f5f9;
+    border-radius: 30px;
+    padding: 3px;
+}
+
+.view-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 30px;
+    color: #64748b;
+}
+
+.view-btn.active {
+    background: #27ae60;
+    color: white;
+}
+
+.salary-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 0 0 12px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: none;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.overview-card {
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.overview-card h3 {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.overview-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #27ae60;
+    margin-bottom: 0.3rem;
+}
+
+.overview-range {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.visualization-container {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1rem auto 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Smart Recommendations */
+.smart-recommendations {
+    margin: 2rem auto 0;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.smart-recommendations h2 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.smart-recommendations h2 i {
+    color: #f39c12;
+    margin-right: 8px;
+}
+
+.recommendation-card {
+    background: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.recommendation-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #f8fafc;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.recommendation-header i {
+    color: #27ae60;
+    margin-right: 12px;
+    font-size: 1.1rem;
+}
+
+.recommendation-header h3 {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 600;
+}
+
+.recommendation-content {
+    padding: 1.5rem;
+}
+
+.recommendation-content p {
+    color: #64748b;
+    margin-bottom: 1rem;
+}
+
+.salary-recommendation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.recommendation-role {
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.recommendation-role h4 {
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.salary-range {
+    font-size: 0.9rem;
+    color: #27ae60;
+    font-weight: 600;
+}
+
+.highlight {
+    color: #27ae60;
+    font-weight: 600;
+}
+
+/* Profile-based recommendations */
+.profile-based {
+    padding: 1rem;
+    background: #f0fdf4;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.profile-based h4 {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.profile-based h4 i {
+    color: #27ae60;
+    margin-right: 8px;
+}
+
+.profile-info {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.skill-name {
+    font-size: 0.9rem;
+    color: #2c3e50;
+}
+
+.skill-impact {
+    font-size: 0.9rem;
+    color: #27ae60;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .salary-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    .salary-recommendation {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Fix for the salary chart */
+.chart-container {
+    height: 300px;
+    position: relative;
+}

@@ -1,0 +1,417 @@
+/* Enhanced Networking Challenge Styles */
+.challenge-intro {
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 25px;
+    color: #444;
+    line-height: 1.5;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.challenge-intro::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, #6c2fff, #8a64ff);
+    border-radius: 4px;
+}
+
+/* Improved Challenge Tracker Layout */
+.challenge-tracker {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 35px;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Enhanced Week Cards */
+.challenge-week {
+    background-color: #f8f9fc;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.challenge-week::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #6c2fff, #8a64ff);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.challenge-week:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(108, 47, 255, 0.1);
+}
+
+.challenge-week:hover::before {
+    transform: scaleX(1);
+}
+
+.challenge-week h3 {
+    font-size: 1.15rem;
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #333;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.challenge-week h3::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #6c2fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 0 3px rgba(108, 47, 255, 0.2);
+}
+
+/* Improved Task Items */
+.challenge-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.task-item:hover {
+    background-color: rgba(108, 47, 255, 0.05);
+}
+
+/* Custom Checkbox Styling */
+.task-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #6c2fff;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+.task-checkbox:checked {
+    background-color: #6c2fff;
+    border-color: #6c2fff;
+}
+
+.task-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.task-item label {
+    font-size: 0.95rem;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.task-checkbox:checked + label {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Task Completion Animation */
+@keyframes taskComplete {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.task-checkbox:checked {
+    animation: taskComplete 0.4s ease;
+}
+
+/* Challenge Controls */
+.challenge-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 10px 15px;
+    background-color: rgba(108, 47, 255, 0.05);
+    border-radius: 10px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.challenge-count {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.challenge-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.challenge-control-btn {
+    background: linear-gradient(135deg, #6c2fff, #8a64ff);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(108, 47, 255, 0.2);
+}
+
+.challenge-control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 47, 255, 0.3);
+}
+
+.challenge-control-btn i {
+    font-size: 0.85rem;
+}
+
+.challenge-control-btn:focus {
+    outline: none;
+}
+
+/* Challenge Week Transition */
+.challenge-week {
+    transition: all 0.5s ease-out;
+}
+
+.challenge-week.hidden {
+    display: none;
+}
+
+.challenge-week.visible {
+    animation: fadeInScale 0.5s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Enhanced Progress Section */
+.challenge-progress {
+    background: linear-gradient(135deg, #f8f9fc, #f0f2f8);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.challenge-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(108, 47, 255, 0.1) 0%, rgba(108, 47, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.challenge-progress h3 {
+    font-size: 1.15rem;
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.challenge-progress h3::before {
+    content: '\f0ae';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 10px;
+    color: #6c2fff;
+    font-size: 1.1rem;
+}
+
+.progress-bar-container {
+    height: 22px;
+    background-color: rgba(224, 224, 224, 0.5);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #6c2fff 0%, #8a64ff 100%);
+    width: 0%;
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* Confetti Animation for Task Completion */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #6c2fff;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .challenge-tracker {
+        grid-template-columns: 1fr;
+    }
+    
+    .challenge-week {
+        padding: 18px;
+    }
+}
+
+/* Dark Mode Support */
+.dark-mode .challenge-week,
+.dark-mode .challenge-progress {
+    background-color: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .challenge-intro {
+    color: #e0e0e0;
+}
+
+.dark-mode .challenge-week h3,
+.dark-mode .challenge-progress h3 {
+    color: #e0e0e0;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .task-item label {
+    color: #d0d0d0;
+}
+
+.dark-mode .task-checkbox {
+    border-color: #8a64ff;
+    background-color: #333;
+}
+
+.dark-mode .task-item:hover {
+    background-color: rgba(138, 100, 255, 0.1);
+}
+
+.dark-mode .progress-bar-container {
+    background-color: rgba(60, 60, 60, 0.5);
+}
+
+.dark-mode .task-checkbox:checked + label {
+    color: #888;
+}

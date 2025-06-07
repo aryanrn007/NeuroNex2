@@ -1,0 +1,368 @@
+/* Enhanced Networking Guide Section Styling */
+:root {
+  --guide-primary: #6c63ff;
+  --guide-secondary: #8a84ff;
+  --guide-accent: #f2994a;
+  --guide-gradient: linear-gradient(135deg, var(--guide-primary), var(--guide-secondary));
+  --guide-text-dark: #333;
+  --guide-text-light: #666;
+  --guide-border-radius: 16px;
+  --guide-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  --guide-hover-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  --guide-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Enhanced Content Section */
+.content-section {
+  background: #fff;
+  border-radius: var(--guide-border-radius);
+  box-shadow: var(--guide-shadow);
+  margin-bottom: 30px;
+  overflow: hidden;
+  transition: var(--guide-transition);
+  position: relative;
+}
+
+.content-section:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--guide-hover-shadow);
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 25px;
+  background: #f8f9fc;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icon styling */
+.section-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--guide-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 4px 10px rgba(108, 99, 255, 0.2);
+  position: relative;
+  z-index: 1;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(108, 99, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0);
+  }
+}
+
+/* Section title */
+.section-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--guide-text-dark);
+  position: relative;
+}
+
+/* Animated underline on hover */
+.section-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--guide-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.content-section:hover .section-header h2::after {
+  transform: scaleX(1);
+}
+
+/* Section content */
+.section-content {
+  padding: 25px;
+  position: relative;
+}
+
+/* Heading styles */
+.section-content h3 {
+  font-size: 20px;
+  color: var(--guide-text-dark);
+  margin: 0 0 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-content h3::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--guide-accent);
+  transition: width 0.3s ease;
+}
+
+.section-content h3:hover::after {
+  width: 100%;
+}
+
+/* Paragraph styles */
+.section-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--guide-text-light);
+  margin-bottom: 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* List styles */
+.section-content ul {
+  padding-left: 0;
+  list-style-type: none;
+  margin-bottom: 25px;
+}
+
+.section-content li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--guide-text-light);
+  transition: transform 0.3s ease;
+}
+
+.section-content li:hover {
+  transform: translateX(5px);
+}
+
+/* Custom bullet points with animation */
+.section-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--guide-primary);
+  transition: all 0.3s ease;
+}
+
+.section-content li:hover::before {
+  transform: scale(1.5);
+  background: var(--guide-accent);
+}
+
+/* Highlight text after dash */
+.section-content li strong {
+  color: var(--guide-text-dark);
+  font-weight: 600;
+}
+
+/* Quote styling */
+.quote-block {
+  background: #f8f9fc;
+  border-left: 4px solid var(--guide-accent);
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.quote-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.quote-block::before {
+  content: "\201C";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 60px;
+  color: rgba(108, 99, 255, 0.1);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.quote-text {
+  font-style: italic;
+  color: var(--guide-text-dark);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation for section entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-section {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+/* Animated highlight for important terms */
+.highlight-term {
+  position: relative;
+  color: var(--guide-primary);
+  font-weight: 600;
+  cursor: help;
+  transition: all 0.3s ease;
+}
+
+.highlight-term:hover {
+  color: var(--guide-accent);
+}
+
+.highlight-term::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--guide-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.highlight-term:hover::after {
+  transform: scaleX(1);
+}
+
+/* Tooltip for highlighted terms */
+.highlight-term .tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--guide-text-dark);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: normal;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.highlight-term:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  bottom: calc(100% + 10px);
+}
+
+.highlight-term .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--guide-text-dark) transparent transparent transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-header {
+    padding: 15px 20px;
+  }
+  
+  .section-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .section-header h2 {
+    font-size: 20px;
+  }
+  
+  .section-content {
+    padding: 20px;
+  }
+  
+  .section-content h3 {
+    font-size: 18px;
+  }
+  
+  .section-content p,
+  .section-content li {
+    font-size: 15px;
+  }
+}
+
+/* Dark mode support */
+.dark-mode .content-section {
+  background: #222;
+}
+
+.dark-mode .section-header {
+  background: #2a2a2a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .section-header h2 {
+  color: #fff;
+}
+
+.dark-mode .section-content h3 {
+  color: #fff;
+}
+
+.dark-mode .section-content p,
+.dark-mode .section-content li {
+  color: #bbb;
+}
+
+.dark-mode .section-content li strong {
+  color: #ddd;
+}
+
+.dark-mode .quote-block {
+  background: #2a2a2a;
+}
+
+.dark-mode .quote-text {
+  color: #ddd;
+}

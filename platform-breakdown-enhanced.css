@@ -1,0 +1,441 @@
+/* Enhanced Platform Breakdown Component Styling */
+:root {
+  --platform-primary: #6c63ff;
+  --platform-secondary: #8a84ff;
+  --platform-accent: #f2994a;
+  --platform-gradient: linear-gradient(135deg, var(--platform-primary), var(--platform-secondary));
+  --platform-shadow: 0 10px 30px rgba(108, 99, 255, 0.1);
+  --platform-hover-shadow: 0 15px 40px rgba(108, 99, 255, 0.2);
+  --platform-border-radius: 16px;
+  --platform-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Platform-specific colors */
+  --linkedin-color: #0077b5;
+  --github-color: #333;
+  --twitter-color: #1da1f2;
+  --discord-color: #7289da;
+}
+
+/* Platform Breakdown Section */
+#platform-breakdown {
+  position: relative;
+  overflow: hidden;
+}
+
+#platform-breakdown::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 10% 20%, rgba(108, 99, 255, 0.03) 0%, transparent 80%);
+  z-index: 0;
+}
+
+/* Platform Cards Container */
+.platform-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Platform Card */
+.platform-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(108, 99, 255, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transform-style: preserve-3d;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.platform-card.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.platform-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+/* Platform Icon */
+.platform-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateZ(20px);
+}
+
+.platform-icon::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: rotate 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.platform-card:hover .platform-icon::before {
+  opacity: 1;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.platform-icon i {
+  font-size: 28px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.platform-icon.linkedin {
+  background: linear-gradient(135deg, #0077B5, #00a0dc);
+}
+
+.platform-icon.github {
+  background: linear-gradient(135deg, #333, #24292e);
+}
+
+.platform-icon.twitter {
+  background: linear-gradient(135deg, #1DA1F2, #0c85d0);
+}
+
+.platform-icon.discord {
+  background: linear-gradient(135deg, #7289DA, #4e6ad0);
+}
+
+/* Platform Card Content */
+.platform-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #333;
+  position: relative;
+  display: inline-block;
+  transform: translateZ(15px);
+}
+
+.platform-card h3::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.platform-card:hover h3::after {
+  width: 100%;
+}
+
+.platform-card.linkedin h3::after {
+  background-color: var(--linkedin-color);
+}
+
+.platform-card.github h3::after {
+  background-color: var(--github-color);
+}
+
+.platform-card.twitter h3::after {
+  background-color: var(--twitter-color);
+}
+
+.platform-card.discord h3::after {
+  background-color: var(--discord-color);
+}
+
+.platform-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  transform: translateZ(10px);
+}
+
+.platform-card p strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Platform Tips */
+.platform-tips {
+  transform: translateZ(10px);
+}
+
+.platform-tips h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 15px;
+  color: #444;
+}
+
+.platform-tips ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.platform-tips li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  transition: transform 0.3s ease;
+}
+
+.platform-tips li:hover {
+  transform: translateX(5px);
+}
+
+.platform-tips li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.platform-tips li:hover::before {
+  transform: scale(1.5);
+}
+
+.platform-card.linkedin .platform-tips li::before {
+  background-color: var(--linkedin-color);
+  box-shadow: 0 0 0 2px rgba(0, 119, 181, 0.2);
+}
+
+.platform-card.github .platform-tips li::before {
+  background-color: var(--github-color);
+  box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.2);
+}
+
+.platform-card.twitter .platform-tips li::before {
+  background-color: var(--twitter-color);
+  box-shadow: 0 0 0 2px rgba(29, 161, 242, 0.2);
+}
+
+.platform-card.discord .platform-tips li::before {
+  background-color: var(--discord-color);
+  box-shadow: 0 0 0 2px rgba(114, 137, 218, 0.2);
+}
+
+/* Animated Background Pattern */
+.platform-pattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.platform-card:hover .platform-pattern {
+  opacity: 0.1;
+}
+
+/* Floating Elements */
+.platform-floating-element {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.4), rgba(138, 132, 255, 0.2));
+  filter: blur(20px);
+  z-index: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.platform-floating-1 {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  left: -150px;
+  animation: float1 15s ease-in-out infinite alternate;
+}
+
+.platform-floating-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -100px;
+  right: 10%;
+  animation: float2 20s ease-in-out infinite alternate;
+}
+
+@keyframes float1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-30px, -30px);
+  }
+}
+
+/* Hover Effects */
+.platform-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  transform: translateY(100%);
+  transition: transform 0.6s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.platform-card:hover::after {
+  transform: translateY(0);
+}
+
+/* Dark Mode Support */
+.dark-mode #platform-breakdown::before {
+  background-image: radial-gradient(circle at 10% 20%, rgba(138, 132, 255, 0.05) 0%, transparent 80%);
+}
+
+.dark-mode .platform-card {
+  background: rgba(40, 40, 45, 0.8);
+  border: 1px solid rgba(138, 132, 255, 0.1);
+}
+
+.dark-mode .platform-card h3 {
+  color: #eee;
+}
+
+.dark-mode .platform-card p {
+  color: #bbb;
+}
+
+.dark-mode .platform-card p strong {
+  color: #ddd;
+}
+
+.dark-mode .platform-tips h4 {
+  color: #ddd;
+}
+
+.dark-mode .platform-tips li {
+  color: #aaa;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .platform-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .platform-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .platform-card {
+    padding: 20px;
+  }
+  
+  .platform-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Animation Classes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Pulse Animation for Icons */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(108, 99, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0);
+  }
+}
+
+/* 3D Tilt Effect */
+.tilt-effect {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}

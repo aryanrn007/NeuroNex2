@@ -1,0 +1,354 @@
+/* Enhanced Networking Panel Styling */
+:root {
+  --panel-primary: #6c63ff;
+  --panel-secondary: #8a84ff;
+  --panel-gradient: linear-gradient(135deg, var(--panel-primary), var(--panel-secondary));
+  --panel-text-dark: #333;
+  --panel-text-light: #666;
+  --panel-border-radius: 16px;
+  --panel-shadow: 0 10px 30px rgba(108, 99, 255, 0.15);
+  --panel-hover-shadow: 0 15px 40px rgba(108, 99, 255, 0.25);
+  --panel-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Main Panel Container */
+.networking-panel {
+  background: #fff;
+  border-radius: var(--panel-border-radius);
+  box-shadow: var(--panel-shadow);
+  overflow: hidden;
+  position: relative;
+  transition: var(--panel-transition);
+  display: flex;
+  flex-direction: row;
+  margin: 30px 0;
+}
+
+.networking-panel:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--panel-hover-shadow);
+}
+
+/* Content Section */
+.networking-content {
+  padding: 40px;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+/* Panel Title */
+.networking-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.networking-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--panel-text-dark);
+}
+
+.networking-title .highlight {
+  color: var(--panel-primary);
+  position: relative;
+  margin-left: 10px;
+}
+
+/* Animated underline effect */
+.networking-title .highlight::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--panel-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.networking-panel:hover .networking-title .highlight::after {
+  transform: scaleX(1);
+}
+
+/* Description */
+.networking-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--panel-text-light);
+  margin-bottom: 30px;
+  max-width: 90%;
+}
+
+/* Image Section */
+.networking-image {
+  flex: 1.2;
+  position: relative;
+  overflow: hidden;
+}
+
+.networking-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.networking-panel:hover .networking-image img {
+  transform: scale(1.05);
+}
+
+/* Overlay with gradient */
+.networking-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+/* Floating elements */
+.networking-floating-element {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(108, 99, 255, 0.1);
+  z-index: 1;
+  animation: float 8s ease-in-out infinite;
+}
+
+.floating-element-1 {
+  width: 100px;
+  height: 100px;
+  top: -30px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-element-2 {
+  width: 60px;
+  height: 60px;
+  bottom: 20%;
+  left: 5%;
+  animation-delay: 1s;
+}
+
+.floating-element-3 {
+  width: 40px;
+  height: 40px;
+  bottom: 10%;
+  left: 30%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* Action Buttons */
+.networking-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.networking-btn {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-btn {
+  background: var(--panel-gradient);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--panel-primary);
+  border: 2px solid var(--panel-primary);
+}
+
+.secondary-btn:hover {
+  background: rgba(108, 99, 255, 0.05);
+  transform: translateY(-3px);
+}
+
+/* Button ripple effect */
+.networking-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.networking-btn:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+/* Stats Section */
+.networking-stats {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(108, 99, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--panel-primary);
+  font-size: 18px;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--panel-text-dark);
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--panel-text-light);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .networking-panel {
+    flex-direction: column;
+  }
+  
+  .networking-image {
+    height: 250px;
+    order: -1;
+  }
+  
+  .networking-content {
+    padding: 30px;
+  }
+  
+  .networking-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .networking-title h2 {
+    font-size: 24px;
+  }
+  
+  .networking-description {
+    font-size: 14px;
+  }
+  
+  .networking-actions {
+    flex-direction: column;
+  }
+  
+  .networking-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Dark Mode Support */
+.dark-mode .networking-panel {
+  background: #222;
+}
+
+.dark-mode .networking-title h2 {
+  color: #fff;
+}
+
+.dark-mode .networking-description {
+  color: #bbb;
+}
+
+.dark-mode .stat-value {
+  color: #fff;
+}
+
+.dark-mode .stat-label {
+  color: #aaa;
+}
+
+.dark-mode .secondary-btn {
+  color: #fff;
+}
+
+/* Animation for panel entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.networking-panel {
+  animation: fadeInUp 0.8s ease forwards;
+}

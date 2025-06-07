@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Insights | NeuroNex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="salary-insights.css">
+    <link rel="stylesheet" href="salary-insights-enhanced.css">
+    <link rel="stylesheet" href="salary-filter-enhanced.css">
+    <link rel="stylesheet" href="salary-trends-enhanced.css">
+    <link rel="stylesheet" href="skills-impact-fixed.css">
+    <link rel="stylesheet" href="industry-comparison-enhanced.css">
+    <link rel="stylesheet" href="salary-insights-layout-fix.css">
+    <link rel="stylesheet" href="filter-fix.css">
+    <link rel="stylesheet" href="company-comparison-fix.css">
+    <link rel="stylesheet" href="real-time-data.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="salary-trend-chart.js"></script>
+    <script src="salary-api-service.js"></script>
+    <script src="remove-dark-mode.js"></script>
+    <script src="add-new-dark-mode.js"></script>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-graduation-cap"></i> NeuraNex – Powered by Saarthi</h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="brainbox.html" class="nav-link"><i class="fas fa-brain"></i> BrainBox</a>
+            <a href="skillsync.html" class="nav-link"><i class="fas fa-users"></i> SkillSync</a>
+            <a href="techverse.html" class="nav-link"><i class="fas fa-laptop-code"></i> TechVerse</a>
+            <a href="launchpad.html" class="nav-link active"><i class="fas fa-rocket"></i> LaunchPad</a>
+        </nav>
+        <div>
+            <span id="loggedInUserName" class="user-name-display"></span>
+            <button id="settings-button" class="circle-btn settings-btn" aria-label="Settings"><i class="fas fa-cog"></i></button>
+        </div>
+    </header>
+
+    <main class="salary-insights-container">
+        <div class="salary-header">
+            <!-- Decorative Elements -->
+            <div class="salary-decorative-image top-right"></div>
+            <div class="salary-decorative-image bottom-left"></div>
+            
+            <!-- Floating Elements -->
+            <div class="salary-floating-element small"></div>
+            <div class="salary-floating-element medium"></div>
+            <div class="salary-floating-element large"></div>
+            
+            <h1>Salary Insights Explorer</h1>
+            <p>Explore real-time salary trends across different roles, industries, and locations to plan your career path better</p>
+            <!-- Buttons removed as requested -->
+        </div>
+
+        <div class="salary-content main-content">
+            <div class="salary-sidebar">
+                <div class="filter-section">
+                    <div class="filter-header">
+                        <div class="filters-applied">
+                            <i class="fas fa-tag"></i> Filters Applied (1)
+                        </div>
+                        <h3><i class="fas fa-sliders-h"></i> Search & Filter</h3>
+                    </div>
+                    
+                    <div class="filter-content">
+                        <div class="filter-group">
+                            <label for="role-search">Job Title</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" id="role-search" class="filter-input" placeholder="e.g., Software Engineer, Data Scientist...">
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="experience-level">Experience Level</label>
+                            <select id="experience-level" class="filter-select">
+                                <option value="all">All Levels</option>
+                                <option value="fresher">Fresher (0-1 yr)</option>
+                                <option value="junior">Junior (1-3 yrs)</option>
+                                <option value="mid">Mid-level (3-5 yrs)</option>
+                                <option value="senior">Senior (5-8 yrs)</option>
+                                <option value="lead">Lead (8+ yrs)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Location</label>
+                            <div class="location-tabs">
+                                <button class="location-tab active" data-location="india">India</button>
+                                <button class="location-tab" data-location="global">Global</button>
+                            </div>
+                            <div id="india-locations" class="location-options">
+                                <select id="india-cities" class="filter-select">
+                                    <option value="all">All Cities</option>
+                                    <option value="bangalore">Bangalore</option>
+                                    <option value="mumbai">Mumbai</option>
+                                    <option value="pune">Pune</option>
+                                    <option value="hyderabad">Hyderabad</option>
+                                    <option value="delhi">Delhi NCR</option>
+                                    <option value="chennai">Chennai</option>
+                                </select>
+                            </div>
+                            <div id="global-locations" class="location-options hidden">
+                                <select id="global-countries" class="filter-select">
+                                    <option value="all">All Countries</option>
+                                    <option value="usa">USA</option>
+                                    <option value="uk">UK</option>
+                                    <option value="canada">Canada</option>
+                                    <option value="germany">Germany</option>
+                                    <option value="australia">Australia</option>
+                                    <option value="singapore">Singapore</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="industry-filter">Industry</label>
+                            <select id="industry-filter" class="filter-select">
+                                <option value="all">All Industries</option>
+                                    <option value="tech">Technology</option>
+                                    <option value="finance">Finance</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="ecommerce">E-commerce</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="consulting">Consulting</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="filter-btn apply"><i class="fas fa-filter"></i> Apply</button>
+                        <button class="filter-btn reset"><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+                </div>
+                
+                <div class="company-comparison">
+                    <h3>Company Comparison</h3>
+                    <p>Compare salaries across top companies</p>
+                    <div class="company-selection">
+                        <div class="company-select-group">
+                            <select id="company-select-1" class="company-select">
+                                <option value="">Select Company</option>
+                                <option value="google">Google</option>
+                                <option value="microsoft">Microsoft</option>
+                                <option value="amazon">Amazon</option>
+                                <option value="tcs">TCS</option>
+                                <option value="infosys">Infosys</option>
+                                <option value="wipro">Wipro</option>
+                                <option value="accenture">Accenture</option>
+                            </select>
+                        </div>
+                        <div class="company-select-group">
+                            <select id="company-select-2" class="company-select">
+                                <option value="">Select Company</option>
+                                <option value="google">Google</option>
+                                <option value="microsoft">Microsoft</option>
+                                <option value="amazon">Amazon</option>
+                                <option value="tcs">TCS</option>
+                                <option value="infosys">Infosys</option>
+                                <option value="wipro">Wipro</option>
+                                <option value="accenture">Accenture</option>
+                            </select>
+                        </div>
+                        <div class="company-select-group">
+                            <select id="company-select-3" class="company-select">
+                                <option value="">Select Company</option>
+                                <option value="google">Google</option>
+                                <option value="microsoft">Microsoft</option>
+                                <option value="amazon">Amazon</option>
+                                <option value="tcs">TCS</option>
+                                <option value="infosys">Infosys</option>
+                                <option value="wipro">Wipro</option>
+                                <option value="accenture">Accenture</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="compare-companies-btn" class="juno-button primary"><i class="fas fa-chart-bar"></i> Compare</button>
+                </div>
+            </div>
+
+            <div class="salary-dashboard">
+                <!-- Salary Overview Cards -->
+                <div class="salary-overview-section">
+                    <h2><i class="fas fa-chart-line"></i> Salary Trends</h2>
+                    
+                    <div class="salary-card-container">
+                        <!-- Salary Card 1 -->
+                        <div class="salary-card">
+                            <div class="salary-card-header">
+                                <div class="salary-card-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <h3 class="salary-card-title">Software Development</h3>
+                            </div>
+                            <div class="salary-card-content">
+                                <div class="salary-range">₹8.5L - ₹25.2L</div>
+                                <div class="salary-growth"><i class="fas fa-arrow-up"></i> +12% YoY Growth</div>
+                                <div class="skill-impact-bar">
+                                    <div class="skill-impact-progress" data-width="85"></div>
+                                </div>
+                                <div class="salary-note">High demand for full-stack developers</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Salary Card 2 -->
+                        <div class="salary-card">
+                            <div class="salary-card-header">
+                                <div class="salary-card-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h3 class="salary-card-title">AI & Machine Learning</h3>
+                            </div>
+                            <div class="salary-card-content">
+                                <div class="salary-range">₹12.5L - ₹35.0L</div>
+                                <div class="salary-growth"><i class="fas fa-arrow-up"></i> +18% YoY Growth</div>
+                                <div class="skill-impact-bar">
+                                    <div class="skill-impact-progress" data-width="92"></div>
+                                </div>
+                                <div class="salary-note">Highest growth sector in tech</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Salary Card 3 -->
+                        <div class="salary-card">
+                            <div class="salary-card-header">
+                                <div class="salary-card-icon">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <h3 class="salary-card-title">Cloud Computing</h3>
+                            </div>
+                            <div class="salary-card-content">
+                                <div class="salary-range">₹10.0L - ₹28.5L</div>
+                                <div class="salary-growth"><i class="fas fa-arrow-up"></i> +15% YoY Growth</div>
+                                <div class="skill-impact-bar">
+                                    <div class="skill-impact-progress" data-width="88"></div>
+                                </div>
+                                <div class="salary-note">AWS & Azure specialists in demand</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Industry Comparison Chart -->
+                <div class="industry-chart-container">
+                    <!-- Decorative elements -->
+                    <div class="chart-decoration chart-decoration-1"></div>
+                    <div class="chart-decoration chart-decoration-2"></div>
+                    
+                    <h3><i class="fas fa-industry"></i> Industry Salary Comparison</h3>
+                    
+                    <!-- Chart controls -->
+                    <div class="chart-controls">
+                        <div class="chart-view-toggle">
+                            <button class="chart-view-option active" data-view="bar">Bar</button>
+                            <button class="chart-view-option" data-view="line">Line</button>
+                        </div>
+                        <button class="chart-info-button" title="About this data">
+                            <i class="fas fa-info"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Chart wrapper -->
+                    <div class="chart-wrapper">
+                        <div class="axis-label y-axis-label">Salary (LPA)</div>
+                        <canvas id="industryComparisonChart"></canvas>
+                    </div>
+                    
+                    <!-- Chart legend -->
+                    <div class="chart-legend">
+                        <div class="legend-item" data-industry="tech">
+                            <span class="legend-color" style="background-color: rgba(39, 174, 96, 0.7);"></span>
+                            <span>IT Services</span>
+                        </div>
+                        <div class="legend-item" data-industry="product">
+                            <span class="legend-color" style="background-color: rgba(46, 204, 113, 0.7);"></span>
+                            <span>Product Development</span>
+                        </div>
+                        <div class="legend-item" data-industry="ecommerce">
+                            <span class="legend-color" style="background-color: rgba(52, 152, 219, 0.7);"></span>
+                            <span>E-commerce</span>
+                        </div>
+                        <div class="legend-item" data-industry="fintech">
+                            <span class="legend-color" style="background-color: rgba(41, 128, 185, 0.7);"></span>
+                            <span>FinTech</span>
+                        </div>
+                        <div class="legend-item" data-industry="healthcare">
+                            <span class="legend-color" style="background-color: rgba(142, 68, 173, 0.7);"></span>
+                            <span>Healthcare Tech</span>
+                        </div>
+                        <div class="legend-item" data-industry="edtech">
+                            <span class="legend-color" style="background-color: rgba(155, 89, 182, 0.7);"></span>
+                            <span>EdTech</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tooltip (hidden by default) -->
+                    <div class="chart-tooltip" id="chartTooltip">
+                        <div class="chart-tooltip-title">IT Services</div>
+                        <div class="chart-tooltip-value">₹12.5 LPA</div>
+                        <div class="chart-tooltip-info">+8% YoY growth</div>
+                    </div>
+                </div>
+                
+                <!-- Skill Impact Analysis -->
+                <div class="skill-impact-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Skills Impact Analysis</h2>
+                    <div class="section-description">
+                        <p>Adding these in-demand skills can significantly boost your salary potential</p>
+                    </div>
+                    
+                    <div class="skill-impact-container">
+                        <!-- Skill Impact Card 1 -->
+                        <div class="skill-impact-card">
+                            <div class="skill-impact-header">
+                                <div class="skill-impact-icon">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <h3 class="skill-impact-title">Cloud Platforms</h3>
+                            </div>
+                            <div class="skill-impact-value">+18%</div>
+                            <div class="skill-impact-bar">
+                                <div class="skill-impact-progress" style="width: 75%"></div>
+                            </div>
+                            <div class="skill-impact-note">AWS, Azure, GCP</div>
+                        </div>
+                        
+                        <!-- Skill Impact Card 2 -->
+                        <div class="skill-impact-card">
+                            <div class="skill-impact-header">
+                                <div class="skill-impact-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3 class="skill-impact-title">Machine Learning</h3>
+                            </div>
+                            <div class="skill-impact-value">+25%</div>
+                            <div class="skill-impact-bar">
+                                <div class="skill-impact-progress" style="width: 90%"></div>
+                            </div>
+                            <div class="skill-impact-note">TensorFlow, PyTorch</div>
+                        </div>
+                        
+                        <!-- Skill Impact Card 3 -->
+                        <div class="skill-impact-card">
+                            <div class="skill-impact-header">
+                                <div class="skill-impact-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3 class="skill-impact-title">Cybersecurity</h3>
+                            </div>
+                            <div class="skill-impact-value">+22%</div>
+                            <div class="skill-impact-bar">
+                                <div class="skill-impact-progress" style="width: 85%"></div>
+                            </div>
+                            <div class="skill-impact-note">Security+, CISSP</div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+                
+                <!-- Salary Trend Graph -->
+                <div class="salary-trend-container">
+                    <h3><i class="fas fa-chart-line"></i> 5-Year Salary Trends</h3>
+                    <canvas id="salaryTrendChart"></canvas>
+                </div>
+                
+                <div class="dashboard-header">
+                    <h2><i class="fas fa-chart-line"></i> Salary Trends Dashboard</h2>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="chart"><i class="fas fa-chart-bar"></i> Chart</button>
+                        <button class="view-btn" data-view="table"><i class="fas fa-table"></i> Table</button>
+                    </div>
+                </div>
+                
+                <div class="salary-overview">
+                    <div class="overview-card">
+                        <h3>Average Salary</h3>
+                        <div class="overview-value" id="average-salary">₹12.5 LPA</div>
+                        <div class="overview-range">Range: ₹8.2 - 18.7 LPA</div>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Top Paying Role</h3>
+                        <div class="overview-value" id="top-role">Data Scientist</div>
+                        <div class="overview-range">Avg: ₹18.2 LPA</div>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Top Paying Location</h3>
+                        <div class="overview-value" id="top-location">Bangalore</div>
+                        <div class="overview-range">+15% above avg</div>
+                    </div>
+                </div>
+                
+                <div class="visualization-container">
+                    <div class="chart-view active">
+                        <div class="chart-container">
+                            <canvas id="salary-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="table-view">
+                        <table class="salary-table">
+                            <thead>
+                                <tr>
+                                    <th>Role</th>
+                                    <th>Experience</th>
+                                    <th>Location</th>
+                                    <th>Average Salary</th>
+                                    <th>Salary Range</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salary-table-body">
+                                <!-- Table data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="company-comparison-chart hidden">
+                    <h3>Company Comparison</h3>
+                    <div class="chart-container">
+                        <canvas id="company-comparison-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="smart-recommendations">
+                <h2><i class="fas fa-lightbulb"></i> Smart Recommendations</h2>
+                <div class="recommendation-card">
+                    <div class="recommendation-header">
+                        <i class="fas fa-star"></i>
+                        <h3>Based on Your Profile</h3>
+                    </div>
+                    <div class="recommendation-content">
+                        <p>Students with your GPA (8.5) and skills in <span class="highlight">Python</span>, <span class="highlight">Machine Learning</span>, and <span class="highlight">React</span> typically earn:</p>
+                        <div class="salary-recommendation">
+                            <div class="recommendation-role">
+                                <h4>Data Scientist</h4>
+                                <div class="salary-range">₹14.5 - ₹18.2 LPA</div>
+                            </div>
+                            <div class="recommendation-role">
+                                <h4>Full Stack Developer</h4>
+                                <div class="salary-range">₹12.8 - ₹16.5 LPA</div>
+                            </div>
+                            <div class="recommendation-role">
+                                <h4>ML Engineer</h4>
+                                <div class="salary-range">₹15.2 - ₹19.8 LPA</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <div class="recommendation-header">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Trending Skills for Higher Salary</h3>
+                    </div>
+                    <div class="recommendation-content">
+                        <p>Adding these skills could increase your salary potential by 15-25%:</p>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-name">Cloud (AWS/Azure)</div>
+                                <div class="skill-impact">+18%</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">DevOps</div>
+                                <div class="skill-impact">+22%</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Deep Learning</div>
+                                <div class="skill-impact">+25%</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Blockchain</div>
+                                <div class="skill-impact">+20%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Download Report Modal -->
+    <div id="download-report-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-file-download"></i> Download Salary Report</h2>
+            <p>Customize your salary insights report before downloading</p>
+            
+            <div class="report-options">
+                <div class="report-option">
+                    <input type="checkbox" id="include-trends" checked>
+                    <label for="include-trends">Include Salary Trends</label>
+                </div>
+                <div class="report-option">
+                    <input type="checkbox" id="include-recommendations" checked>
+                    <label for="include-recommendations">Include Personalized Recommendations</label>
+                </div>
+                <div class="report-option">
+                    <input type="checkbox" id="include-companies" checked>
+                    <label for="include-companies">Include Company Comparisons</label>
+                </div>
+                <div class="report-option">
+                    <input type="checkbox" id="include-skills" checked>
+                    <label for="include-skills">Include Skills Analysis</label>
+                </div>
+            </div>
+            
+            <div class="report-format">
+                <h3>Format</h3>
+                <div class="format-options">
+                    <div class="format-option">
+                        <input type="radio" name="format" id="format-pdf" checked>
+                        <label for="format-pdf">PDF</label>
+                    </div>
+                    <div class="format-option">
+                        <input type="radio" name="format" id="format-excel">
+                        <label for="format-excel">Excel</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="generate-report-btn" class="juno-button primary"><i class="fas fa-download"></i> Generate Report</button>
+        </div>
+    </div>
+        
+<!-- Removed duplicate Salary Trend Graph -->
+        
+<div class="dashboard-header">
+    <h2><i class="fas fa-chart-line"></i> Salary Trends Dashboard</h2>
+    <div class="view-toggle">
+        <button class="view-btn active" data-view="chart"><i class="fas fa-chart-bar"></i> Chart</button>
+        <button class="view-btn" data-view="table"><i class="fas fa-table"></i> Table</button>
+    </div>
+</div>
+        
+<div class="salary-overview">
+    <div class="overview-card">
+        <h3>Average Salary</h3>
+        <div class="overview-value" id="average-salary">₹44.3 LPA</div>
+        <div class="overview-range">Range: ₹28.5 - ₹62.1 LPA</div>
+    </div>
+    <div class="overview-card">
+        <h3>Top Paying Role</h3>
+        <div class="overview-value" id="top-role">Software Engineer</div>
+        <div class="overview-range">Avg: ₹52.5 LPA</div>
+    </div>
+    <div class="overview-card">
+        <h3>Top Paying Location</h3>
+        <div class="overview-value" id="top-location">USA</div>
+        <div class="overview-range">+15% above avg</div>
+    </div>
+</div>
+
+<!-- 5-Year Salary Trends Panel removed -->
+
+<div class="smart-recommendations">
+    <h2><i class="fas fa-lightbulb"></i> Smart Recommendations</h2>
+    <div class="recommendation-card">
+        <div class="recommendation-header">
+            <i class="fas fa-star"></i>
+            <h3>Based on Your Profile</h3>
+        </div>
+        <div class="recommendation-content">
+            <p>Students with your GPA (8.5) and skills in <span class="highlight">Python</span>, <span class="highlight">Machine Learning</span>, and <span class="highlight">React</span> typically earn:</p>
+            <div class="salary-recommendation">
+                <div class="recommendation-role">
+                    <h4>Data Scientist</h4>
+                    <div class="salary-range">₹14.5 - ₹18.2 LPA</div>
+                </div>
+                <div class="recommendation-role">
+                    <h4>Full Stack Developer</h4>
+                    <div class="salary-range">₹12.8 - ₹16.5 LPA</div>
+                </div>
+                <div class="recommendation-role">
+                    <h4>ML Engineer</h4>
+                    <div class="salary-range">₹15.2 - ₹19.8 LPA</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="recommendation-card">
+        <div class="recommendation-header">
+            <i class="fas fa-chart-pie"></i>
+            <h3>Trending Skills for Higher Salary</h3>
+        </div>
+        <div class="recommendation-content">
+            <p>Adding these skills could increase your salary potential by 15-25%:</p>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-name">Cloud (AWS/Azure)</div>
+                    <div class="skill-impact">+18%</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Deep Learning</div>
+                    <div class="skill-impact">+25%</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Blockchain</div>
+                    <div class="skill-impact">+20%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</main>
+
+<!-- Download Report Modal -->
+<div id="download-report-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2><i class="fas fa-file-download"></i> Download Salary Report</h2>
+        <p>Customize your salary insights report before downloading</p>
+        
+        <div class="report-options">
+            <div class="report-option">
+                <input type="checkbox" id="include-trends" checked>
+                <label for="include-trends">Include Salary Trends</label>
+            </div>
+            <div class="report-option">
+                <input type="checkbox" id="include-recommendations" checked>
+                <label for="include-recommendations">Include Personalized Recommendations</label>
+            </div>
+            <div class="report-option">
+                <input type="checkbox" id="include-companies" checked>
+                <label for="include-companies">Include Company Comparisons</label>
+            </div>
+            <div class="report-option">
+                <input type="checkbox" id="include-skills" checked>
+                <label for="include-skills">Include Skills Analysis</label>
+            </div>
+        </div>
+        
+        <div class="report-format">
+            <h3>Format</h3>
+            <div class="format-options">
+                <div class="format-option">
+                    <input type="radio" name="format" id="format-pdf" checked>
+                    <label for="format-pdf">PDF</label>
+                </div>
+                <div class="format-option">
+                    <input type="radio" name="format" id="format-excel">
+                    <label for="format-excel">Excel</label>
+                </div>
+            </div>
+        </div>
+        
+        <button id="generate-report-btn" class="juno-button primary"><i class="fas fa-download"></i> Generate Report</button>
+    </div>
+</div>
+
+<script src="fixed-salary-data.js"></script>
+<script src="salary-insights.js"></script>
+<script src="salary-trends-animation.js"></script>
+<script src="industry-chart-animation.js"></script>
+<script src="salary-insights-interactive.js"></script>
+</body>
+</html>
+
+
