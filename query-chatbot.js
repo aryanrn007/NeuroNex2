@@ -4,7 +4,7 @@
  */
 
 // OpenRouter API configuration
-const OPENROUTER_API_KEY = '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';
+const OPENROUTER_API_KEY = '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';
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
 // Fallback to local mock responses if API fails

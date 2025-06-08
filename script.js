@@ -1177,7 +1177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // OpenRouter API configuration
-const OPENROUTER_API_KEY = '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';
+const OPENROUTER_API_KEY = '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';
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
 // DOM Elements

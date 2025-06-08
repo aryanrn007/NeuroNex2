@@ -6,7 +6,7 @@
 class SalaryApiService {
     constructor() {
         // OpenRouter API settings
-        this.apiKey = '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';
+        this.apiKey = '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';
         this.apiEndpoint = 'https://openrouter.ai/api/v1/chat/completions';
         
         // Cache settings
